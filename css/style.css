@@ -1,0 +1,243 @@
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  margin: 0 0 30px;
+  width: 900px;
+  padding: 0 30px;
+}
+a {
+  color: #4671d5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  font-size: 30px;
+  margin: 60px 0 30px;
+}
+h2 {
+  font-size: 18px;
+  margin: 30px 0 15px;
+}
+p {
+  line-height: 1.4em;
+  margin-top: 10px;
+}
+strong {
+  font-weight: 700;
+}
+#header {
+  background: #fff;
+  left: 0;
+  padding-left: 30px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  width: 930px;
+  z-index: 69;
+}
+#nav {
+  display: inline-block;
+  float: left;
+}
+#nav li {
+  border-top: 5px solid #fff;
+  float: left;
+}
+#nav a {
+  color: #333;
+  display: block;
+  min-width: 40px;
+  text-align: center;
+  padding: 8px 10px;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+}
+#nav a:hover {
+  background: #eee;
+  text-decoration: none;
+}
+#nav #home {
+  border-top: 5px solid #333;
+}
+#nav #home a,
+#nav #home.current a:hover {
+  background: #333;
+  color: #fff;
+}
+#nav #home a:hover {
+  background: #666;
+}
+#nav #home.current,
+#nav .current {
+  border-top-color: #ffd300;
+}
+#nav .current a {
+  background-color: #ddd;
+  cursor: default;
+}
+#semesters {
+  float: left;
+  margin: 10px 0 0 20px;
+}
+#semesters li {
+  display: inline-block;
+  float: right;
+}
+#semesters a {
+  background: #ddd;
+  border: 1px solid #fff;
+  border-radius: 0 4px 4px 0;
+  display: inline-block;
+  color: #666;
+  font-size: 12px;
+  margin-left: -3px;
+  padding: 4px 6px 4px 8px;
+}
+#semesters a:hover {
+  background: #ccc;
+  color: #333;
+  text-decoration: none;
+}
+#semesters .current a {
+  background: #9f3ed5;
+  border-radius: 4px;
+  color: #fff;
+  cursor: default;
+  padding-left: 6px;
+}
+#footer {
+  border-top: 1px solid #9F3ED5;
+  color: #666;
+  font-size: 11px;
+  margin-top: 40px;
+  padding-top: 10px;
+}
+
+/*
+ * index.html
+ */
+#announcements {
+  list-style-type: square;
+}
+#announcements li {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#concepts li {
+  float: left;
+  margin-top: 30px;
+  margin-right: 20px;
+  width: 280px;
+}
+#concepts h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+#concepts p {
+  font-size: 12px;
+}
+
+/*
+ * syllabus.html
+ */
+.sections li {
+  margin-top: 5px;
+}
+.instructors {
+  margin-top: 15px;
+}
+.instructors img {
+  border: 1px solid #ddd;
+  float: left;
+  margin-right: 10px;
+  width: 80px;
+}
+.instructors li {
+  float: left;
+  margin-top: -40px;
+  padding-top: 50px;
+  width: 300px;
+}
+.instructors .name {
+  font-size: 20px;
+}
+.instructors span {
+  display: block;
+}
+.instructors .email {
+  background: url('../images/email.gif');
+  display: block;
+  height: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  padding-top: 10px;
+  width: 10px;
+}
+.instructors .ohrlabel,
+.instructors .pos {
+  font-size: 12px;
+}
+.instructors .pos {
+  color: #666;
+}
+.instructors .name,
+.instructors .ohr {
+  margin-top: 5px;
+}
+.instructors .ohr,
+.instructors .ohrlabel {
+  color: #999;
+}
+.instructors .ohrlabel {
+  font-style: italic;
+  margin-top: 10px;
+}
+.instructors .ohr {
+  font-size: 12px;
+}
+#grading li {
+  margin-top: 5px;
+}
+
+/*
+ * schedule.html
+ */
+#schedule {
+  margin-top: 15px;
+}
+#schedule .week {
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+}
+.week h3 {
+  float: left;
+  font-size: 22px;
+  font-weight: 300;
+}
+.week .events {
+  margin-left: 110px;
+}
+.events dt {
+  color: #999;
+  float: left;
+  font-size: 12px;
+}
+.events dd {
+  font-size: 14px;
+  margin-left: 50px;
+  margin-bottom: 5px;
+}
+.events .label {
+  border: 1px solid #9f3ed5;
+  color: #7109aa;
+  font-size: 11px;
+  margin-right: 3px;
+  padding: 0 3px;
+  position: relative;
+  top: -1px;
+}

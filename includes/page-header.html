@@ -1,0 +1,32 @@
+  <div id="header">
+    <ul id="nav">
+      <li id="home"<!--#if expr="${page}=home"
+        --> class="current" <!--#endif-->>
+        <a href="index.html">15210</a>
+      </li>
+      <li<!--#if expr="${page}=staff"
+        --> class="current" <!--#endif-->>
+        <a href="staff.html">Staff</a>
+      </li>
+      <li<!--#if expr="${page}=schedule"
+        --> class="current"<!--#endif-->>
+        <a href="schedule.html">Schedule</a>
+      </li>
+      <li<!--#if expr="${page}=policy"
+        --> class="current"<!--#endif-->>
+        <a href="policy.html">Policy</a>
+      </li>
+      <li<!--#if expr="${page}=resources"
+        --> class="current"<!--#endif-->>
+        <a href="resources.html">Resources</a>
+      </li>
+      <li><a href="https://autolab.cs.cmu.edu">Autolab</a></li>
+    </ul>
+    <ol id="semesters">
+      <li><a href="http://www.cs.cmu.edu/afs/cs/academic/class/15210-f11/www">F11</a></li>
+      <li><a href="http://www.cs.cmu.edu/afs/cs/academic/class/15210-s12/www">S12</a></li>
+      <li><a href="http://www.cs.cmu.edu/afs/cs/academic/class/15210-f12/www">F12</a></li>
+      <li class="current"><a href="#">Spring 2013</a></li>
+    </ol>
+  </div>
+  <h1><!--#echo var="title"--></h1>
