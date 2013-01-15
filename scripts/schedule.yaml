@@ -1,0 +1,90 @@
+- # Week 1
+  T: - topic: Parenlab out
+       type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab"
+
+     - topic: Overview and Sequencing the Genome
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture01.pdf"
+
+  W: - topic: Parenthesis Matching
+       type: recitation
+     # links: - title: Recitation Notes
+     #          url: "recitations/recitation01.pdf"
+
+  R: - topic: Algorithmic Cost Models
+       type: lecture
+
+- # Week 2
+  T: - topic: Algorithmic Techniques and Divide-and-Conquer
+       type: lecture
+
+  W: - topic: Recurrences and Scan
+       type: recitation
+
+  R: - topic: Divide-and-Conquer II
+       type: lecture
+
+- # Week 3
+  M: - topic: Parenlab due
+       type: lab
+
+     - topic: Skylinelab out
+       type: lab
+
+  T: - topic: Data Abstraction and Sequences I
+       type: lecture
+
+  W: - topic: Proofs and Recurrences
+       type: recitation
+
+  R: - topic: Sequences II
+       type: lecture
+
+- # Week 4
+  M: - topic: Skylinelab due
+       type: lab
+
+     - topic: Babblelab out
+       type: lab
+
+  T: - topic: Collect, Sets, and Tables
+       type: lecture
+
+  W: - topic: Fields and MapCollectReduce
+       type: recitation
+
+  R: - topic: Sets and Tables II
+       type: lecture
+
+- # Week 5
+  M: - topic: Babblelab due
+       type: lab
+
+     - topic: Pathslab out
+       type: lab
+
+  T: - topic: Graphs, Graph Representations, and Graph Search
+       type: lecture
+
+  W: - topic: Graph Examples, StSeqs, and Staging
+       type: recitation
+
+  R: - topic: BFS and Applications
+       type: lecture
+
+- # Week 6
+  M: - topic: Pathslab due
+       type: lab
+
+  T: - topic: DFS and Applications
+       type: lecture
+
+  W: - topic: Midterm I Review
+       type: recitation
+
+  R: - topic: Midterm I
+       type: midterm
+

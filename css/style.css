@@ -241,3 +241,7 @@ strong {
   position: relative;
   top: -1px;
 }
+.events .link {
+  font-size: 12px;
+  line-height: 12px;
+}
