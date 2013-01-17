@@ -110,6 +110,11 @@ strong {
   cursor: default;
   padding-left: 6px;
 }
+.back-nav {
+  display: block;
+  font-size: 12px;
+  margin-top: -12px;
+}
 #footer {
   border-top: 1px solid #9F3ED5;
   color: #666;
@@ -244,4 +249,26 @@ strong {
 .events .link {
   font-size: 12px;
   line-height: 12px;
+}
+
+/*
+ * docs/*
+ */
+code {
+  font-family: Inconsolata, Courier New, monospace;
+}
+#signatures,
+#interface {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  margin-left: 20px;
+}
+#signatures {
+  font-size: 16px;
+  line-height: 20px;
+}
+code a {
+}
+code a:hover {
 }

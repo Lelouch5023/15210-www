@@ -1,0 +1,75 @@
+<!--#set var="sig" value="SEQUENCE"-->
+<!--#include virtual="template-header.html"-->
+  <h2>Overview</h2>
+  <h2>Interface</h2>
+  <code id="interface">
+  type <a href="#">'a seq</a><br />
+  type <a href="#">'a ord</a> = 'a * 'a -> order<br />
+  datatype <a href="#">'a listview</a> =
+    NIL | CONS of 'a * 'a seq<br />
+  datatype <a href="#">'a treeview</a> =
+    EMPTY | ELT of 'a | NODE of 'a seq * 'a seq<br />
+<br />
+  exception <a href="#">Range</a><br />
+  exception <a href="#">Size</a><br />
+<br />
+  val <a href="#">nth</a> : 'a seq -> int -> 'a<br />
+  val <a href="#">length</a> : 'a seq -> int<br />
+  val <a href="#">toList</a> : 'a seq -> 'a list<br />
+  val <a href="#">toString</a> :
+    ('a -> string) -> 'a seq -> string<br />
+  val <a href="#">equal</a> :
+    ('a * 'a -> bool) -> 'a seq * 'a seq -> bool<br />
+<br />
+  val <a href="#">empty</a> : unit -> 'a seq<br />
+  val <a href="#">singleton</a> : 'a -> 'a seq<br />
+  val <a href="#">tabulate</a> : (int -> 'a) -> int -> 'a seq<br />
+  val <a href="#">fromList</a> : 'a list -> 'a seq<br />
+<br />
+  val <a href="#">rev</a> : 'a seq -> 'a seq<br />
+  val <a href="#">enum</a> : 'a seq -> (int * 'a) seq<br />
+  val <a href="#">append</a> : 'a seq * 'a seq -> 'a seq<br />
+  val <a href="#">flatten</a> : 'a seq seq -> 'a seq<br />
+  val <a href="#">filter</a> :
+    ('a -> bool) -> 'a seq -> 'a seq<br />
+<br />
+  val <a href="#">map</a> : ('a -> 'b) -> 'a seq -> 'b seq<br />
+  val <a href="#">map2</a> :
+    ('a * 'b -> 'c) -> 'a seq -> 'b seq -> 'c seq<br />
+  val <a href="#">zip</a> : 'a seq -> 'b seq -> ('a * 'b) seq<br />
+  val <a href="#">inject</a> :
+    (int * 'a) seq -> 'a seq -> 'a seq<br />
+<br />
+  val <a href="#">subseq</a> : 'a seq -> int * int -> 'a seq<br />
+  val <a href="#">take</a> : 'a seq * int -> 'a seq<br />
+  val <a href="#">drop</a> : 'a seq * int -> 'a seq<br />
+  val <a href="#">showl</a> : 'a seq -> 'a listview<br />
+  val <a href="#">showt</a> : 'a seq -> 'a treeview<br />
+<br />
+  val <a href="#">iter</a> :
+    ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b<br />
+  val <a href="#">iterh</a> :
+    ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b seq * 'b<br />
+  val <a href="#">reduce</a> :
+    ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a<br />
+  val <a href="#">scan</a> :
+    ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq * 'a<br />
+  val <a href="#">scani</a> :
+    ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq<br />
+<br />
+  val <a href="#">sort</a> : 'a ord -> 'a seq -> 'a seq<br />
+  val <a href="#">merge</a> :
+    'a ord -> 'a seq -> 'a seq -> 'a seq<br />
+  val <a href="#">collect</a> :
+    'a ord -> ('a * 'b) seq -> ('a * 'b seq) seq<br />
+  val <a href="#">collate</a> : 'a ord -> 'a seq ord<br />
+  val <a href="#">argmax</a> : 'a ord -> 'a seq -> int<br />
+<br />
+  val <a href="#">%</a> : 'a list -> 'a seq
+  </code>
+  <h2>Types</h2>
+  <h2>Exceptions</h2>
+  <h2>Values</h2>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

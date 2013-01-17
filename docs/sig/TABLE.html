@@ -1,0 +1,59 @@
+<!--#set var="sig" value="TABLE"-->
+<!--#include virtual="template-header.html"-->
+  <h2>Overview</h2>
+  <h2>Interface</h2>
+  <code id="interface">
+  structure Key : <a href="EQKEY.html">EQKEY</a><br />
+  structure Seq : <a href="SEQUENCE.html">SEQUENCE</a><br />
+  structure Set : <a href="SET.html">SET</a>
+    where Key = Key and Seq = Seq<br />
+<br />
+  type <a href="#">'a</a> table<br />
+  type <a href="#">'a</a> seq = 'a Seq.seq<br />
+  type <a href="#">key</a> = Key.t<br />
+  type <a href="#">set</a> = Set.t<br />
+<br />
+  val <a href="#">size</a> : 'a table -> int<br />
+  val <a href="#">domain</a> : 'a table -> set<br />
+  val <a href="#">range</a> : 'a table -> 'a seq<br />
+  val <a href="#">toString</a> :
+    ('a -> string) -> 'a table -> string<br />
+  val <a href="#">toSeq</a> : 'a table -> (key * 'a) seq<br />
+<br />
+  val <a href="#">find</a> : 'a table -> key -> 'a option<br />
+  val <a href="#">insert</a> :
+    ('a * 'a -> 'a) -> (key * 'a) -> 'a table -> 'a table<br />
+  val <a href="#">delete</a> : key -> 'a table -> 'a table<br />
+<br />
+  val <a href="#">empty</a> : unit -> 'a table<br />
+  val <a href="#">singleton</a> : key * 'a -> 'a table<br />
+  val <a href="#">tabulate</a> : (key -> 'a) -> set -> 'a table<br />
+  val <a href="#">collect</a> : (key * 'a) seq -> 'a seq table<br />
+  val <a href="#">fromSeq</a> : (key * 'a) seq -> 'a table<br />
+<br />
+  val <a href="#">map</a>    :
+    ('a -> 'b) -> 'a table -> 'b table<br />
+  val <a href="#">mapk</a>   :
+    (key * 'a -> 'b) -> 'a table -> 'b table<br />
+  val <a href="#">filter</a> :
+    (key * 'a -> bool) -> 'a table -> 'a table<br />
+<br />
+  val <a href="#">iter</a>   :
+    ('b * (key * 'a) -> 'b) -> 'b -> 'a table -> 'b<br />
+  val <a href="#">iterh</a>  :
+    ('b * (key * 'a) -> 'b) -> 'b -> 'a table -> ('b table * 'b)<br />
+  val <a href="#">reduce</a> :
+    ('a * 'a -> 'a) -> 'a -> 'a table -> 'a<br />
+<br />
+  val <a href="#">merge</a>   :
+    ('a * 'a -> 'a) -> ('a table * 'a table) -> 'a table<br />
+  val <a href="#">extract</a> : 'a table * set -> 'a table<br />
+  val <a href="#">erase</a>   : 'a table * set -> 'a table<br />
+<br />
+  val <a href="#">$</a> : (key * 'a) -> 'a table
+  </code>
+  <h2>Types</h2>
+  <h2>Values</h2>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>
