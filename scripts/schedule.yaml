@@ -37,7 +37,7 @@
   T: - topic: Data Abstraction and Sequences I
        type: lecture
 
-  W: - topic: Proofs and Recurrences
+  W: - topic: More Scan
        type: recitation
 
   R: - topic: Sequences II
