@@ -34,3 +34,7 @@ DAYS = ["U","M","T","W","R","F","S"]
 File.open(output_file, "w") do |file|
   file.puts(template.result(binding))
 end
+puts "\n******************************************\n" +
+       "Done! Please commit and push your changes,\n" +
+       "or print them out and fax them to Vincent.\n" +
+       "******************************************"

@@ -11,11 +11,13 @@
 
   W: - topic: Parenthesis Matching
        type: recitation
-     # links: - title: Recitation Notes
-     #          url: "recitations/recitation01.pdf"
+       links: - title: Recitation Notes
+                url: "recitations/rec01.pdf"
 
   R: - topic: Algorithmic Cost Models
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture02.pdf"
 
 - # Week 2
   T: - topic: Algorithmic Techniques and Divide-and-Conquer
@@ -37,7 +39,7 @@
   T: - topic: Data Abstraction and Sequences I
        type: lecture
 
-  W: - topic: Proofs and Recurrences
+  W: - topic: More Scan
        type: recitation
 
   R: - topic: Sequences II

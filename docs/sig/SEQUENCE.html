@@ -1,0 +1,114 @@
+<!--#set var="sig" value="SEQUENCE"-->
+<!--#include virtual="template-header.html"-->
+  <h2>Overview</h2>
+  <code>structure <a href="#">ArraySequence</a> : SEQUENCE</code>
+  <p> A <em>sequence</em> is an ordered finite list of elements,
+    indexed by natural numbers.  The <code>SEQUENCE</code> signature
+    defines such a sequence type and provides a number of operations
+    and predicates on values of that type.
+    <!--The <em>length</em> of a sequence <em>s</em>,
+    denoted |<em>s</em>|, is the number of elements in that sequence.-->
+  </p>
+  <h2>Interface</h2>
+  <code id="interface">
+  type <a href="#spec-seq">'a seq</a><br />
+  type <a href="#spec-ord">'a ord</a> = 'a * 'a -&gt; order<br />
+  datatype <a href="#spec-listview">'a listview</a> =
+    NIL | CONS of 'a * 'a seq<br />
+  datatype <a href="#spec-treeview">'a treeview</a> =
+    EMPTY | ELT of 'a | NODE of 'a seq * 'a seq<br />
+<br />
+  exception <a href="#spec-Range">Range</a><br />
+  exception <a href="#spec-Size">Size</a><br />
+<br />
+  val <a href="#spec-nth">nth</a> : 'a seq -&gt; int -&gt; 'a<br />
+  val <a href="#spec-length">length</a> : 'a seq -&gt; int<br />
+  val <a href="#spec-toList">toList</a> : 'a seq -&gt; 'a list<br />
+  val <a href="#spec-toString">toString</a> :
+    ('a -&gt; string) -&gt; 'a seq -&gt; string<br />
+  val <a href="#">equal</a> :
+    ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool<br />
+<br />
+  val <a href="#">empty</a> : unit -&gt; 'a seq<br />
+  val <a href="#">singleton</a> : 'a -&gt; 'a seq<br />
+  val <a href="#">tabulate</a> : (int -&gt; 'a) -&gt; int -&gt; 'a seq<br />
+  val <a href="#">fromList</a> : 'a list -&gt; 'a seq<br />
+<br />
+  val <a href="#">rev</a> : 'a seq -&gt; 'a seq<br />
+  val <a href="#">enum</a> : 'a seq -&gt; (int * 'a) seq<br />
+  val <a href="#">append</a> : 'a seq * 'a seq -&gt; 'a seq<br />
+  val <a href="#">flatten</a> : 'a seq seq -&gt; 'a seq<br />
+  val <a href="#">filter</a> :
+    ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq<br />
+<br />
+  val <a href="#">map</a> : ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq<br />
+  val <a href="#">map2</a> :
+    ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq<br />
+  val <a href="#">zip</a> : 'a seq -&gt; 'b seq -&gt; ('a * 'b) seq<br />
+  val <a href="#">inject</a> :
+    (int * 'a) seq -&gt; 'a seq -&gt; 'a seq<br />
+<br />
+  val <a href="#">subseq</a> : 'a seq -&gt; int * int -&gt; 'a seq<br />
+  val <a href="#">take</a> : 'a seq * int -&gt; 'a seq<br />
+  val <a href="#">drop</a> : 'a seq * int -&gt; 'a seq<br />
+  val <a href="#">showl</a> : 'a seq -&gt; 'a listview<br />
+  val <a href="#">showt</a> : 'a seq -&gt; 'a treeview<br />
+<br />
+  val <a href="#">iter</a> :
+    ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b<br />
+  val <a href="#">iterh</a> :
+    ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b seq * 'b<br />
+  val <a href="#">reduce</a> :
+    ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a<br />
+  val <a href="#">scan</a> :
+    ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq * 'a<br />
+  val <a href="#">scani</a> :
+    ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq<br />
+<br />
+  val <a href="#">sort</a> : 'a ord -&gt; 'a seq -&gt; 'a seq<br />
+  val <a href="#">merge</a> :
+    'a ord -&gt; 'a seq -&gt; 'a seq -&gt; 'a seq<br />
+  val <a href="#">collect</a> :
+    'a ord -&gt; ('a * 'b) seq -&gt; ('a * 'b seq) seq<br />
+  val <a href="#">collate</a> : 'a ord -&gt; 'a seq ord<br />
+  val <a href="#">argmax</a> : 'a ord -&gt; 'a seq -&gt; int<br />
+<br />
+  val <a href="#">%</a> : 'a list -&gt; 'a seq
+  </code>
+  <h2>Types</h2>
+  <dl class="spec">
+    <dt id="spec-seq"><code>type <strong>'a seq</strong></code></dt>
+    <dd>This is the abstract type that represents a sequence
+      as described in the overview.</dd>
+    <dt id="spec-ord"><code>type <strong>'a ord</strong> = 'a * 'a -&gt; order</code></dt>
+    <dd>This type represents an ordering on the type <code>'a</code>
+      as a function from pairs of elements to <code>order</code>.</dd>
+    <dt id="spec-listview"><code>datatype <strong>'a listview</strong> =
+      NIL | CONS of 'a * 'a seq</code></dt>
+    <dd>A <em>listview</em> provides a view of the abstract sequence type as a list.</dd>
+    <dt id="spec-treeview"><code>datatype <strong>'a treeview</strong> =
+      EMPTY | ELT of 'a | NODE of 'a seq * 'a seq</code></dt>
+    <dd>A <em>treeview</em> provides a view of the abstract sequence type as a tree.</dd>
+  </dl>
+  <h2>Exceptions</h2>
+  <dl class="spec">
+    <dt id="spec-Range"><code>exception <strong>Range</strong></code></dt>
+    <dd><code>Range</code> is raised whenever an invalid index into a sequence is used.</dd>
+    <dt id="spec-Size"><code>exception <strong>Size</strong></code></dt>
+    <dd><code>Size</code> is raised whenever a function is given a negative size.</dd>
+  </dl>
+  <h2>Values</h2>
+  <dl class="spec">
+    <dt id="spec-nth"><code>val <strong>nth</strong> :
+      'a seq -&gt; int -&gt; 'a</code></dt>
+    <dd><code>(nth s i) </code> evaluates to
+      the <em>i</em><sup>th</sup> element of <code>s</code>.
+      Raises <a href="#">Range</a> if <em>i</em> is out-of-bounds.</dd>
+    <dt id="spec-length"><code>val <strong>length</strong> :
+      'a seq -&gt; int</code></dt>
+    <dd><code>(length s) </code> evaluates to
+      the number of elements in <code>s</code>.</dt>
+  </dl>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

@@ -28,6 +28,10 @@ p {
 strong {
   font-weight: 700;
 }
+sup {
+  font-size: 10px;
+  vertical-align: top;
+}
 #header {
   background: #fff;
   left: 0;
@@ -109,6 +113,11 @@ strong {
   color: #fff;
   cursor: default;
   padding-left: 6px;
+}
+.back-nav {
+  display: block;
+  font-size: 12px;
+  margin-top: -12px;
 }
 #footer {
   border-top: 1px solid #9F3ED5;
@@ -244,4 +253,30 @@ strong {
 .events .link {
   font-size: 12px;
   line-height: 12px;
+}
+
+/*
+ * docs/*
+ */
+code {
+  font-family: Inconsolata, Courier New, monospace;
+}
+#signatures,
+#interface {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  margin-left: 20px;
+}
+#signatures {
+  font-size: 16px;
+  line-height: 20px;
+}
+.spec dd {
+  font-size: 13px;
+  margin: 10px 0 20px 20px;
+}
+.spec dt strong {
+  color: #7109aa;
+  font-weight: 400;
 }

@@ -2,23 +2,23 @@
     <ul id="nav">
       <li id="home"<!--#if expr="${page}=home"
         --> class="current" <!--#endif-->>
-        <a href="index.html">15210</a>
+        <a href="<!--#echo var="root"-->index.html">15210</a>
       </li>
       <li<!--#if expr="${page}=staff"
         --> class="current" <!--#endif-->>
-        <a href="staff.html">Staff</a>
+        <a href="<!--#echo var="root"-->staff.html">Staff</a>
       </li>
       <li<!--#if expr="${page}=schedule"
         --> class="current"<!--#endif-->>
-        <a href="schedule.html">Schedule</a>
+        <a href="<!--#echo var="root"-->schedule.html">Schedule</a>
       </li>
       <li<!--#if expr="${page}=policy"
         --> class="current"<!--#endif-->>
-        <a href="policy.html">Policy</a>
+        <a href="<!--#echo var="root"-->policy.html">Policy</a>
       </li>
       <li<!--#if expr="${page}=resources"
         --> class="current"<!--#endif-->>
-        <a href="resources.html">Resources</a>
+        <a href="<!--#echo var="root"-->resources.html">Resources</a>
       </li>
       <li><a href="https://autolab.cs.cmu.edu">Autolab</a></li>
     </ul>
@@ -29,4 +29,4 @@
       <li class="current"><a href="#">Spring 2013</a></li>
     </ol>
   </div>
-  <h1><!--#echo var="title"--></h1>
+  <h1><!--#echo encoding="none" var="title"--></h1>
