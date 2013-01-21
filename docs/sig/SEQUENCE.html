@@ -119,11 +119,11 @@
       ('a -&gt; string) -&gt; 'a seq -&gt; string</code></dt>
     <dd><code>(toString elemToStr s)</code> evaluates to a string
       representation of <em>s</em>.  This representation begins with
-      &#8220;<code>&lt;</code>&#8221;, which is followed
+      &#8220;<code>&lt;</code>&#8221;, followed
       by the results of applying <em>elemToStr</em> to each element of
       <em>s</em> in ascending index order interleaved with
-      &#8220;<code>,</code>&#8221;,
-      and ends with &#8220;<code>&gt;</code>&#8221;.</dd>
+      &#8220;<code>,</code>&#8221;, and ends with
+      &#8220;<code>&gt;</code>&#8221;.</dd>
 
     <dt id="spec-equal"><code>val <strong>equal</strong> :
       ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
@@ -144,7 +144,7 @@
       (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
     <dd><code>(tabulate f n)</code> evalutes to a <em>n</em>-length
       sequence <em>s</em> where each element <em>s<sub>i</sub></em>
-      is the resulting of evaluating <code>(f i)</code>.</dd>
+      is the result of evaluating <code>(f i)</code>.</dd>
 
     <dt id="spec-fromList"><code>val <strong>fromList</strong> :
       'a list -&gt; 'a seq</code></dt>
