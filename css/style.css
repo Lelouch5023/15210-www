@@ -298,6 +298,8 @@ code {
   border: none;
 }
 .spec dt strong {
-  color: #7109aa;
+  background: #ffd300;
+  border-radius: 2px;
   font-weight: 400;
+  padding: 2px 4px;
 }
