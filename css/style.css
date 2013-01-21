@@ -272,9 +272,23 @@ code {
   font-size: 16px;
   line-height: 20px;
 }
+.spec {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+.spec dt {
+  margin-top: -58px;
+  padding-top: 58px;
+}
 .spec dd {
+  border-bottom: 1px solid #ddd;
   font-size: 13px;
-  margin: 10px 0 25px 20px;
+  line-height: 18px;
+  margin: 10px 0;
+  padding: 10px 0 20px 20px;
+}
+.spec dd:last-child {
+  border: none;
 }
 .spec dt strong {
   color: #7109aa;

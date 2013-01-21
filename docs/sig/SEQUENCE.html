@@ -1,7 +1,7 @@
 <!--#set var="sig" value="SEQUENCE"-->
 <!--#include virtual="template-header.html"-->
   <h2>Overview</h2>
-  <code>structure <a href="#">ArraySequence</a> : SEQUENCE</code>
+  <code>structure <a href="#spec-ArraySequence">ArraySequence</a> : SEQUENCE</code>
   <p> A <em>sequence</em> is an ordered finite list of elements,
     indexed by natural numbers.  The <code>SEQUENCE</code> signature
     defines such a sequence type and provides a number of operations
@@ -26,52 +26,52 @@
   val <a href="#spec-toList">toList</a> : 'a seq -&gt; 'a list<br />
   val <a href="#spec-toString">toString</a> :
     ('a -&gt; string) -&gt; 'a seq -&gt; string<br />
-  val <a href="#">equal</a> :
+  val <a href="#spec-equal">equal</a> :
     ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool<br />
 <br />
-  val <a href="#">empty</a> : unit -&gt; 'a seq<br />
-  val <a href="#">singleton</a> : 'a -&gt; 'a seq<br />
-  val <a href="#">tabulate</a> : (int -&gt; 'a) -&gt; int -&gt; 'a seq<br />
-  val <a href="#">fromList</a> : 'a list -&gt; 'a seq<br />
+  val <a href="#spec-empty">empty</a> : unit -&gt; 'a seq<br />
+  val <a href="#spec-singleton">singleton</a> : 'a -&gt; 'a seq<br />
+  val <a href="#spec-tabulate">tabulate</a> : (int -&gt; 'a) -&gt; int -&gt; 'a seq<br />
+  val <a href="#spec-fromList">fromList</a> : 'a list -&gt; 'a seq<br />
 <br />
-  val <a href="#">rev</a> : 'a seq -&gt; 'a seq<br />
-  val <a href="#">enum</a> : 'a seq -&gt; (int * 'a) seq<br />
-  val <a href="#">append</a> : 'a seq * 'a seq -&gt; 'a seq<br />
-  val <a href="#">flatten</a> : 'a seq seq -&gt; 'a seq<br />
-  val <a href="#">filter</a> :
+  val <a href="#spec-rev">rev</a> : 'a seq -&gt; 'a seq<br />
+  val <a href="#spec-enum">enum</a> : 'a seq -&gt; (int * 'a) seq<br />
+  val <a href="#spec-append">append</a> : 'a seq * 'a seq -&gt; 'a seq<br />
+  val <a href="#spec-flatten">flatten</a> : 'a seq seq -&gt; 'a seq<br />
+  val <a href="#spec-filter">filter</a> :
     ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq<br />
 <br />
-  val <a href="#">map</a> : ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq<br />
-  val <a href="#">map2</a> :
+  val <a href="#spec-map">map</a> : ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq<br />
+  val <a href="#spec-map2">map2</a> :
     ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq<br />
-  val <a href="#">zip</a> : 'a seq -&gt; 'b seq -&gt; ('a * 'b) seq<br />
-  val <a href="#">inject</a> :
+  val <a href="#spec-zip">zip</a> : 'a seq -&gt; 'b seq -&gt; ('a * 'b) seq<br />
+  val <a href="#spec-inject">inject</a> :
     (int * 'a) seq -&gt; 'a seq -&gt; 'a seq<br />
 <br />
-  val <a href="#">subseq</a> : 'a seq -&gt; int * int -&gt; 'a seq<br />
-  val <a href="#">take</a> : 'a seq * int -&gt; 'a seq<br />
-  val <a href="#">drop</a> : 'a seq * int -&gt; 'a seq<br />
-  val <a href="#">showl</a> : 'a seq -&gt; 'a listview<br />
-  val <a href="#">showt</a> : 'a seq -&gt; 'a treeview<br />
+  val <a href="#spec-subseq">subseq</a> : 'a seq -&gt; int * int -&gt; 'a seq<br />
+  val <a href="#spec-take">take</a> : 'a seq * int -&gt; 'a seq<br />
+  val <a href="#spec-drop">drop</a> : 'a seq * int -&gt; 'a seq<br />
+  val <a href="#spec-showl">showl</a> : 'a seq -&gt; 'a listview<br />
+  val <a href="#spec-showt">showt</a> : 'a seq -&gt; 'a treeview<br />
 <br />
-  val <a href="#">iter</a> :
+  val <a href="#spec-iter">iter</a> :
     ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b<br />
-  val <a href="#">iterh</a> :
+  val <a href="#spec-iterh">iterh</a> :
     ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b seq * 'b<br />
-  val <a href="#">reduce</a> :
+  val <a href="#spec-reduce">reduce</a> :
     ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a<br />
-  val <a href="#">scan</a> :
+  val <a href="#spec-scan">scan</a> :
     ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq * 'a<br />
-  val <a href="#">scani</a> :
+  val <a href="#spec-scani">scani</a> :
     ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq<br />
 <br />
-  val <a href="#">sort</a> : 'a ord -&gt; 'a seq -&gt; 'a seq<br />
-  val <a href="#">merge</a> :
+  val <a href="#spec-sort">sort</a> : 'a ord -&gt; 'a seq -&gt; 'a seq<br />
+  val <a href="#spec-merge">merge</a> :
     'a ord -&gt; 'a seq -&gt; 'a seq -&gt; 'a seq<br />
-  val <a href="#">collect</a> :
+  val <a href="#spec-collect">collect</a> :
     'a ord -&gt; ('a * 'b) seq -&gt; ('a * 'b seq) seq<br />
-  val <a href="#">collate</a> : 'a ord -&gt; 'a seq ord<br />
-  val <a href="#">argmax</a> : 'a ord -&gt; 'a seq -&gt; int<br />
+  val <a href="#spec-collate">collate</a> : 'a ord -&gt; 'a seq ord<br />
+  val <a href="#spec-argmax">argmax</a> : 'a ord -&gt; 'a seq -&gt; int<br />
 <br />
   val <a href="#">%</a> : 'a list -&gt; 'a seq
   </code>
