@@ -104,72 +104,150 @@
     <dd><code>(nth s i) </code> evaluates to
       the <em>i</em><sup>th</sup> element of <code>s</code>.
       Raises <a href="#spec-Range">Range</a> if <em>i</em> is out-of-bounds.</dd>
+
     <dt id="spec-length"><code>val <strong>length</strong> :
       'a seq -&gt; int</code></dt>
     <dd><code>(length s) </code> evaluates to
       the number of elements in <code>s</code>.</dd>
-    <dt id="spec-toList"><code>val <strong>toList</strong> : 'a seq -&gt; 'a list</code></dt>
-    <dd><code>(fromList l)</code> evaluates to the index-preserving sequence representation of <em>l</em>.</dd>
-    <dt id="spec-toString"><code>val <strong>toString</strong> : ('a -&gt; string) -&gt; 'a seq -&gt; string</code></dt>
-    <dd><code>(toString f s)</code> evaluates to a string representation of <em>s</em>. This representation begins with &#8220;<code>&lt;</code>&#8221;, which is followed by the results of applying <em>f</em> to each element of <em>s</em> in ascending index order interleaved with &#8220;<code>,</code>&#8221;, and ends with &#8220;<code>&gt;</code>&#8221;.</dd>
-    <dt id="spec-equal"><code>val <strong>equal</strong> : ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
-    <dd><code>(equal f (s1, s2))</code> evaluates to true if <em>s<sub>1</sub></em> and <em>s<sub>2</sub></em> contain the same elements, where element equality is determined by <em>f</em>.</dd>
-    <dt id="spec-empty"><code>val <strong>empty</strong> : unit -&gt; 'a seq</code></dt>
+
+    <dt id="spec-toList"><code>val <strong>toList</strong> :
+      'a seq -&gt; 'a list</code></dt>
+    <dd><code>(toList s)</code> converts a sequence to its logically
+      equivalent, index-preserving list form.</dd>
+
+    <dt id="spec-toString"><code>val <strong>toString</strong> :
+      ('a -&gt; string) -&gt; 'a seq -&gt; string</code></dt>
+    <dd><code>(toString elemToStr s)</code> evaluates to a string
+      representation of <em>s</em>.  This representation begins with
+      &#8220;<code>&lt;</code>&#8221;, which is followed
+      by the results of applying <em>elemToStr</em> to each element of
+      <em>s</em> in ascending index order interleaved with
+      &#8220;<code>,</code>&#8221;,
+      and ends with &#8220;<code>&gt;</code>&#8221;.</dd>
+
+    <dt id="spec-equal"><code>val <strong>equal</strong> :
+      ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
+    <dd><code>(equal elemEq (s1, s2))</code> evaluates to true if
+      <em>s<sub>1</sub></em> and <em>s<sub>2</sub></em> contain the same
+      elements, where element equality is determined by <em>elemEq</em>.</dd>
+
+    <dt id="spec-empty"><code>val <strong>empty</strong> :
+      unit -&gt; 'a seq</code></dt>
     <dd><code>(empty())</code> evaluates to an empty sequence.</dd>
-    <dt id="spec-singleton"><code>val <strong>singleton</strong> : 'a -&gt; 'a seq</code></dt>
-    <dd><code>(singleton x)</code> evaluates to the singleton sequence containing only the element <em>x</em>.</dd>
-    <dt id="spec-tabulate"><code>val <strong>tabulate</strong> : (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
+
+    <dt id="spec-singleton"><code>val <strong>singleton</strong> :
+      'a -&gt; 'a seq</code></dt>
+    <dd><code>(singleton x)</code> evaluates to the singleton sequence
+      containing only the element <em>x</em>.</dd>
+
+    <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
+      (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
+    <dd><code>(tabulate f n)</code> evalutes to a <em>n</em>-length
+      sequence <em>s</em> where each element <em>s<sub>i</sub></em>
+      is the resulting of evaluating <code>(f i)</code>.</dd>
+
+    <dt id="spec-fromList"><code>val <strong>fromList</strong> :
+      'a list -&gt; 'a seq</code></dt>
+    <dd><code>(fromList l)</code> evaluates to the index-preserving
+      sequence representation of <em>l</em>.</dd>
+
+    <dt id="spec-rev"><code>val <strong>rev</strong> :
+      'a seq -> 'a seq</code></dt>
+    <dd><code>rev s</code> reverses the ordering of elements in <em>s</em>.</dd>
+
+    <dt id="spec-enum"><code>val <strong>enum</strong> :
+      'a seq -> (int * 'a) seq</code></dt>
+    <dd><code>(enum s)</code> evaluates to a sequence where each
+      element is paired with its index in the sequence.</dd>
+
+    <dt id="spec-append"><code>val <strong>append</strong> :
+      'a seq * 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-fromList"><code>val <strong>fromList</strong> : 'a list -&gt; 'a seq</code></dt>
+
+    <dt id="spec-flatten"><code>val <strong>flatten</strong> :
+      'a seq seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-rev"><code>val <strong>rev</strong> : 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-filter"><code>val <strong>filter</strong> :
+      ('a -> bool) -> 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-enum"><code>val <strong>enum</strong> : 'a seq -> (int * 'a) seq</code></dt>
+
+    <dt id="spec-map"><code>val <strong>map</strong> :
+      ('a -> 'b) -> 'a seq -> 'b seq</code></dt>
     <dd></dd>
-    <dt id="spec-append"><code>val <strong>append</strong> : 'a seq * 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-map2"><code>val <strong>map2</strong> :
+      ('a * 'b -> 'c) -> 'a seq -> 'b seq -> 'c seq</code></dt>
     <dd></dd>
-    <dt id="spec-flatten"><code>val <strong>flatten</strong> : 'a seq seq -> 'a seq</code></dt>
+
+    <dt id="spec-zip"><code>val <strong>zip</strong> :
+      'a seq -> 'b seq -> ('a * 'b) seq</code></dt>
     <dd></dd>
-    <dt id="spec-filter"><code>val <strong>filter</strong> : ('a -> bool) -> 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-inject"><code>val <strong>inject</strong> :
+      (int * 'a) seq -> 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-map"><code>val <strong>map</strong> : ('a -> 'b) -> 'a seq -> 'b seq</code></dt>
+
+    <dt id="spec-subseq"><code>val <strong>subseq</strong> :
+      'a seq -> int * int -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-map2"><code>val <strong>map2</strong> : ('a * 'b -> 'c) -> 'a seq -> 'b seq -> 'c seq</code></dt>
+
+    <dt id="spec-take"><code>val <strong>take</strong> :
+      'a seq * int -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-zip"><code>val <strong>zip</strong> : 'a seq -> 'b seq -> ('a * 'b) seq</code></dt>
+
+    <dt id="spec-drop"><code>val <strong>drop</strong> :
+      'a seq * int -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-inject"><code>val <strong>inject</strong> : (int * 'a) seq -> 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-showl"><code>val <strong>showl</strong> :
+      'a seq -> 'a listview</code></dt>
     <dd></dd>
-    <dt id="spec-subseq"><code>val <strong>subseq</strong> : 'a seq -> int * int -> 'a seq</code></dt>
+
+    <dt id="spec-showt"><code>val <strong>showt</strong> :
+      'a seq -> 'a treeview</code></dt>
     <dd></dd>
-    <dt id="spec-take"><code>val <strong>take</strong> : 'a seq * int -> 'a seq</code></dt>
+
+    <dt id="spec-iter"><code>val <strong>iter</strong> :
+      ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b</code></dt>
     <dd></dd>
-    <dt id="spec-drop"><code>val <strong>drop</strong> : 'a seq * int -> 'a seq</code></dt>
+
+    <dt id="spec-iterh"><code>val <strong>iterh</strong> :
+      ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b seq * 'b</code></dt>
     <dd></dd>
-    <dt id="spec-showl"><code>val <strong>showl</strong> : 'a seq -> 'a listview</code></dt>
+
+    <dt id="spec-reduce"><code>val <strong>reduce</strong> :
+      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a</code></dt>
     <dd></dd>
-    <dt id="spec-showt"><code>val <strong>showt</strong> : 'a seq -> 'a treeview</code></dt>
+
+    <dt id="spec-scan"><code>val <strong>scan</strong> :
+      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq * 'a</code></dt>
     <dd></dd>
-    <dt id="spec-iter"><code>val <strong>iter</strong> : ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b</code></dt>
+
+    <dt id="spec-scani"><code>val <strong>scani</strong> :
+      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-iterh"><code>val <strong>iterh</strong> : ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b seq * 'b</code></dt>
+
+    <dt id="spec-sort"><code>val <strong>sort</strong> :
+      'a ord -> 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-reduce"><code>val <strong>reduce</strong> : ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a</code></dt>
+
+    <dt id="spec-merge"><code>val <strong>merge</strong> :
+      'a ord -> 'a seq -> 'a seq -> 'a seq</code></dt>
     <dd></dd>
-    <dt id="spec-scan"><code>val <strong>scan</strong> : ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq * 'a</code></dt>
+
+    <dt id="spec-collect"><code>val <strong>collect</strong> :
+      'a ord -> ('a * 'b) seq -> ('a * 'b seq) seq</code></dt>
     <dd></dd>
-    <dt id="spec-scani"><code>val <strong>scani</strong> : ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-collate"><code>val <strong>collate</strong> :
+      'a ord -> 'a seq ord</code></dt>
     <dd></dd>
-    <dt id="spec-sort"><code>val <strong>sort</strong> : 'a ord -> 'a seq -> 'a seq</code></dt>
+
+    <dt id="spec-argmax"><code>val <strong>argmax</strong> :
+      'a ord -> 'a seq -> int</code></dt>
     <dd></dd>
-    <dt id="spec-merge"><code>val <strong>merge</strong> : 'a ord -> 'a seq -> 'a seq -> 'a seq</code></dt>
-    <dd></dd>
-    <dt id="spec-collect"><code>val <strong>collect</strong> : 'a ord -> ('a * 'b) seq -> ('a * 'b seq) seq</code></dt>
-    <dd></dd>
-    <dt id="spec-collate"><code>val <strong>collate</strong> : 'a ord -> 'a seq ord</code></dt>
-    <dd></dd>
-    <dt id="spec-argmax"><code>val <strong>argmax</strong> : 'a ord -> 'a seq -> int</code></dt>
-    <dd></dd>
+
   </dl>
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
