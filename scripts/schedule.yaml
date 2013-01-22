@@ -20,7 +20,7 @@
                 url: "lectures/lecture02.pdf"
 
 - # Week 2
-  T: - topic: Algorithmic Techniques and Recurrences
+  T: - topic: Algorithmic Techniques and Analysis
        type: lecture
        links: - title: Lecture Notes
                 cd url: "lectures/lecture03.pdf"
