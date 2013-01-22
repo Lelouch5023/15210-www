@@ -23,7 +23,7 @@
   T: - topic: Algorithmic Techniques and Analysis
        type: lecture
        links: - title: Lecture Notes
-                cd url: "lectures/lecture03.pdf"
+                url: "lectures/lecture03.pdf"
 
   W: - topic: Recurrences
        type: recitation
