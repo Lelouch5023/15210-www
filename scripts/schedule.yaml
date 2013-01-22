@@ -20,10 +20,12 @@
                 url: "lectures/lecture02.pdf"
 
 - # Week 2
-  T: - topic: Algorithmic Techniques and Divide-and-Conquer
+  T: - topic: Algorithmic Techniques and Recurrences
        type: lecture
+       links: - title: Lecture Notes
+                cd url: "lectures/lecture03.pdf"
 
-  W: - topic: Recurrences and Scan
+  W: - topic: Recurrences
        type: recitation
 
   R: - topic: Divide-and-Conquer II
@@ -49,7 +51,7 @@
   M: - topic: Skylinelab due
        type: lab
 
-     - topic: Babblelab out
+     - topic: BigNumlab out
        type: lab
 
   T: - topic: Collect, Sets, and Tables
@@ -62,10 +64,10 @@
        type: lecture
 
 - # Week 5
-  M: - topic: Babblelab due
+  M: - topic: BigNumlab due
        type: lab
 
-     - topic: Pathslab out
+     - topic: Babblelab out
        type: lab
 
   T: - topic: Graphs, Graph Representations, and Graph Search
@@ -78,7 +80,7 @@
        type: lecture
 
 - # Week 6
-  M: - topic: Pathslab due
+  M: - topic: Babblelab due
        type: lab
 
   T: - topic: DFS and Applications
