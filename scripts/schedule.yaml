@@ -27,6 +27,8 @@
 
   W: - topic: Recurrences
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec02.pdf"
 
   R: - topic: Divide-and-Conquer II
        type: lecture
