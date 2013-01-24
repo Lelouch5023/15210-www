@@ -20,7 +20,7 @@
                 url: "lectures/lecture02.pdf"
 
 - # Week 2
-  T: - topic: Algorithmic Techniques and Analysis
+  T: - topic: Algorithmic Techniques and Cost Analysis
        type: lecture
        links: - title: Lecture Notes
                 url: "lectures/lecture03.pdf"
@@ -30,8 +30,10 @@
        links: - title: Recitation Notes
                 url: "recitations/rec02.pdf"
 
-  R: - topic: Divide-and-Conquer II
+  R: - topic: Divide-and-Conquer
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture04.pdf"
 
 - # Week 3
   M: - topic: Parenlab due
