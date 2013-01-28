@@ -35,16 +35,21 @@
   val <a href="#spec-fromList">fromList</a> : 'a list -&gt; 'a seq<br />
 <br />
   val <a href="#spec-rev">rev</a> : 'a seq -&gt; 'a seq<br />
-  val <a href="#spec-enum">enum</a> : 'a seq -&gt; (int * 'a) seq<br />
   val <a href="#spec-append">append</a> : 'a seq * 'a seq -&gt; 'a seq<br />
   val <a href="#spec-flatten">flatten</a> : 'a seq seq -&gt; 'a seq<br />
+<br />
   val <a href="#spec-filter">filter</a> :
     ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq<br />
-<br />
   val <a href="#spec-map">map</a> : ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq<br />
   val <a href="#spec-map2">map2</a> :
     ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq<br />
   val <a href="#spec-zip">zip</a> : 'a seq -&gt; 'b seq -&gt; ('a * 'b) seq<br />
+<br />
+  val <a href="#spec-enum">enum</a> : 'a seq -&gt; (int * 'a) seq<br />
+  val <a href="#spec-filterIdx">filterIdx</a> :
+    ((int * 'a) -&gt; bool) -&gt; 'a seq -&gt; 'a seq<br />
+  val <a href="#spec-mapIdx">mapIdx</a> :
+    ((int * 'a) -&gt; 'b) -&gt; 'a seq -&gt; 'b seq<br />
   val <a href="#spec-inject">inject</a> :
     (int * 'a) seq -&gt; 'a seq -&gt; 'a seq<br />
 <br />
@@ -123,7 +128,9 @@
       by the results of applying <em>elemToStr</em> to each element of
       <em>s</em> in ascending index order interleaved with
       &#8220;<code>,</code>&#8221;, and ends with
-      &#8220;<code>&gt;</code>&#8221;.</dd>
+      &#8220;<code>&gt;</code>&#8221;.<!-- For example,
+      <code>toString Int.toString &lt;2,1,0&gt;</code> evaluates
+      to the string &#8220;<code>&lt;2,1,0&gt;</code>&#8221;--></dd>
 
     <dt id="spec-equal"><code>val <strong>equal</strong> :
       ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
@@ -144,7 +151,8 @@
       (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
     <dd><code>(tabulate f n)</code> evalutes to a <em>n</em>-length
       sequence <em>s</em> where each element <em>s<sub>i</sub></em>
-      is the result of evaluating <code>(f i)</code>.</dd>
+      is the result of evaluating <code>(f i)</code>. Raises
+      <a href="#spec-Size">Size</a> if <em>n</em> is negative.</dd>
 
     <dt id="spec-fromList"><code>val <strong>fromList</strong> :
       'a list -&gt; 'a seq</code></dt>
@@ -152,100 +160,147 @@
       sequence representation of <em>l</em>.</dd>
 
     <dt id="spec-rev"><code>val <strong>rev</strong> :
-      'a seq -> 'a seq</code></dt>
+      'a seq -&gt; 'a seq</code></dt>
     <dd><code>(rev s)</code> reverses the ordering of elements in <em>s</em>.</dd>
 
+    <dt id="spec-append"><code>val <strong>append</strong> :
+      'a seq * 'a seq -&gt; 'a seq</code></dt>
+    <dd><code>(append (s1, s2))</code> evaluates to the sequence which is
+      the concatenation of <em>s<sub>1</sub></em> and <em>s<sub>2</sub></em></dd>
+
+    <dt id="spec-flatten"><code>val <strong>flatten</strong> :
+      'a seq seq -&gt; 'a seq</code></dt>
+    <dd><code>(flatten s)</code> evaluates to the sequence which is the
+      concatenation of all sequences in <em>s</em> in the order that
+      they appear in <em>s</em>.</dd>
+
+    <dt id="spec-filter"><code>val <strong>filter</strong> :
+      ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq</code></dt>
+    <dd><code>(filter p s)</code> evalutes to the longest subsequence
+      <em>s'</em> of <em>s</em> such that <code>(p s)</code> evaluates
+      to true for every element of <em>s'</em>.</dd>
+
+    <dt id="spec-map"><code>val <strong>map</strong> :
+      ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
+    <dd><code>(map f s)</code> evaluates to the sequence <em>r</em> where
+      each <em>r<sub>i</sub></em> is the result of applying <em>f</em>
+      to <em>s<sub>i</sub></em>.</dd>
+
+    <dt id="spec-map2"><code>val <strong>map2</strong> :
+      ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq</code></dt>
+    <dd><code>(map2 f s1 s2)</code> evaluates to the sequence <em>r</em> such
+      that <em>r<sub>i</sub></em> is the result of applying <em>f</em>
+      to the pair (<em>s<sub>1i</sub></em>, <em>s<sub>2i</sub></em>) for
+      all valid indices <em>i</em> into both <em>s<sub>1</sub></em> and
+      <em>s<sub>2</sub></em>. It follows from the definition that |<em>r</em>|
+      = <em>min</em>(|<em>s<sub>1</sub></em>|,|<em>s<sub>2</sub></em>|).</dd>
+
+    <dt id="spec-zip"><code>val <strong>zip</strong> :
+      'a seq -&gt; 'b seq -&gt; ('a * 'b) seq</code></dt>
+    <dd><code>zip</code> is logically equivalent to
+      <code>(map2 (fn x =&gt; x))</code>.</dd>
+
     <dt id="spec-enum"><code>val <strong>enum</strong> :
-      'a seq -> (int * 'a) seq</code></dt>
+      'a seq -&gt; (int * 'a) seq</code></dt>
     <dd><code>(enum s)</code> evaluates to a sequence where each
       element is paired with its index in the sequence.</dd>
 
-    <dt id="spec-append"><code>val <strong>append</strong> :
-      'a seq * 'a seq -> 'a seq</code></dt>
+    <dt id="spec-filterIdx"><code>val <strong>filterIdx</strong> :
+      ((int * 'a) -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
     <dd></dd>
 
-    <dt id="spec-flatten"><code>val <strong>flatten</strong> :
-      'a seq seq -> 'a seq</code></dt>
-    <dd></dd>
-
-    <dt id="spec-filter"><code>val <strong>filter</strong> :
-      ('a -> bool) -> 'a seq -> 'a seq</code></dt>
-    <dd></dd>
-
-    <dt id="spec-map"><code>val <strong>map</strong> :
-      ('a -> 'b) -> 'a seq -> 'b seq</code></dt>
-    <dd></dd>
-
-    <dt id="spec-map2"><code>val <strong>map2</strong> :
-      ('a * 'b -> 'c) -> 'a seq -> 'b seq -> 'c seq</code></dt>
-    <dd></dd>
-
-    <dt id="spec-zip"><code>val <strong>zip</strong> :
-      'a seq -> 'b seq -> ('a * 'b) seq</code></dt>
+    <dt id="spec-mapIdx"><code>val <strong>mapIdx</strong> :
+      ((int * 'a) -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
     <dd></dd>
 
     <dt id="spec-inject"><code>val <strong>inject</strong> :
-      (int * 'a) seq -> 'a seq -> 'a seq</code></dt>
-    <dd></dd>
+      (int * 'a) seq -&gt; 'a seq -&gt; 'a seq</code></dt>
+    <dd>If <em>updates</em> is a sequence of index-value pairs,
+      <code>(inject updates s)</code> evaluates to a sequence
+      with updated values of <em>s</em> as given by <em>updates</em>.
+      If there are duplicate indices in <em>updates</em>,
+      the last one is written and the others are ignored.  Raises
+      <a href="#spec-Range">Range</a> if any indices are out-of-bounds.</dd>
 
     <dt id="spec-subseq"><code>val <strong>subseq</strong> :
-      'a seq -> int * int -> 'a seq</code></dt>
-    <dd></dd>
+      'a seq -&gt; int * int -&gt; 'a seq</code></dt>
+    <dd><code>(subseq i len)</code> evaluates to the
+      contiguous subsequence of <em>s</em>
+      starting at index <em>i</em> with length <em>len</em>. Raises
+      <a href="#spec-Size">Size</a> if <em>len</em> is negative, or
+      raises <a href="#spec-Range">Range</a> if the subsequence is
+      out-of-bounds or ill-defined.</dd>
 
     <dt id="spec-take"><code>val <strong>take</strong> :
-      'a seq * int -> 'a seq</code></dt>
-    <dd></dd>
+      'a seq * int -&gt; 'a seq</code></dt>
+    <dd><code>(take (s, n))</code> evaluates to the contiguous subsequence
+      containing the first <em>n</em> elements of <em>s</em>. Raises
+      <a href="#spec-Size">Size</a> if <em>n</em> is negative, or
+      raises <a href="#spec-Range">Range</a>
+      if <em>n</em> &gt; |<em>s</em>|.</dd>
 
     <dt id="spec-drop"><code>val <strong>drop</strong> :
-      'a seq * int -> 'a seq</code></dt>
-    <dd></dd>
+      'a seq * int -&gt; 'a seq</code></dt>
+    <dd><code>(drop (s, n))</code> evaluates to the contiguous subsequence
+      containing the last |<em>s</em>|&ndash;<em>n</em> elements of <em>s</em>.
+      Raises <a href="#spec-Size">Size</a> if <em>n</em> &gt; |<em>s</em>|,
+      or raises <a href="#spec-Range">Range</a> if <em>n</em> is negative.</dd>
 
     <dt id="spec-showl"><code>val <strong>showl</strong> :
-      'a seq -> 'a listview</code></dt>
-    <dd></dd>
+      'a seq -&gt; 'a listview</code></dt>
+    <dd>If <em>s</em> is an empty sequence, <code>(showl s)</code> evaluates to
+      <code>NIL</code>. Otherwise, <code>(showl s)</code> evaluates to
+      <code>CONS</code> (<em>s<sub>0</sub>, s'</em> ), where <em>s'</em>
+      is the contiguous subsequence containing the last
+      |<em>s</em>|&ndash;1 elements of <em>s</em>.</dd>
 
     <dt id="spec-showt"><code>val <strong>showt</strong> :
-      'a seq -> 'a treeview</code></dt>
-    <dd></dd>
+      'a seq -&gt; 'a treeview</code></dt>
+    <dd>If <em>s</em> is an empty sequence, <code>(showt s)</code> evaluates to
+      <code>EMPTY</code>. If <em>s</em> is a singleton sequence,
+      <code>(showt s)</code> evaluates to <code>ELT</code>
+      <em>s<sub>0</sub></em>. Otherwise, <code>(showt s)</code> evaluates to
+      <code>NODE</code> (<code>take (s, </code>|<em>s</em>|<code> div 2),
+      drop (s, </code>|<em>s</em>|<code> div 2)</code>).</dd>
 
     <dt id="spec-iter"><code>val <strong>iter</strong> :
-      ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b</code></dt>
+      ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b</code></dt>
     <dd></dd>
 
     <dt id="spec-iterh"><code>val <strong>iterh</strong> :
-      ('b * 'a -> 'b) -> 'b -> 'a seq -> 'b seq * 'b</code></dt>
+      ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b seq * 'b</code></dt>
     <dd></dd>
 
     <dt id="spec-reduce"><code>val <strong>reduce</strong> :
-      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a</code></dt>
+      ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a</code></dt>
     <dd></dd>
 
     <dt id="spec-scan"><code>val <strong>scan</strong> :
-      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq * 'a</code></dt>
+      ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq * 'a</code></dt>
     <dd></dd>
 
     <dt id="spec-scani"><code>val <strong>scani</strong> :
-      ('a * 'a -> 'a) -> 'a -> 'a seq -> 'a seq</code></dt>
+      ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq</code></dt>
     <dd></dd>
 
     <dt id="spec-sort"><code>val <strong>sort</strong> :
-      'a ord -> 'a seq -> 'a seq</code></dt>
+      'a ord -&gt; 'a seq -&gt; 'a seq</code></dt>
     <dd></dd>
 
     <dt id="spec-merge"><code>val <strong>merge</strong> :
-      'a ord -> 'a seq -> 'a seq -> 'a seq</code></dt>
+      'a ord -&gt; 'a seq -&gt; 'a seq -&gt; 'a seq</code></dt>
     <dd></dd>
 
     <dt id="spec-collect"><code>val <strong>collect</strong> :
-      'a ord -> ('a * 'b) seq -> ('a * 'b seq) seq</code></dt>
+      'a ord -&gt; ('a * 'b) seq -&gt; ('a * 'b seq) seq</code></dt>
     <dd></dd>
 
     <dt id="spec-collate"><code>val <strong>collate</strong> :
-      'a ord -> 'a seq ord</code></dt>
+      'a ord -&gt; 'a seq ord</code></dt>
     <dd></dd>
 
     <dt id="spec-argmax"><code>val <strong>argmax</strong> :
-      'a ord -> 'a seq -> int</code></dt>
+      'a ord -&gt; 'a seq -&gt; int</code></dt>
     <dd></dd>
 
   </dl>
