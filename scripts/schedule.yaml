@@ -47,6 +47,8 @@
 
   W: - topic: More Scan
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec03.pdf"
 
   R: - topic: Sequences II
        type: lecture
