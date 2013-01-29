@@ -1,5 +1,166 @@
 <!--#set var="struct" value="ArraySequence"-->
 <!--#include virtual="../../includes/cost-header.html"-->
   <h2>Overview</h2>
+  <!--
   <code>structure ArraySequence
     : <a href="../sig/SEQUENCE.html">SEQUENCE</a></code>
+  -->
+  <p>Implements
+    <a href="../sig/SEQUENCE.html"><code>SEQUENCE</code></a> with
+    <blockquote><code>
+      type 'a seq = { ary : 'a array, idx : int, len : int }
+    </code></blockquote>
+    where the sequence is implicitly defined as starting at
+    $ary[idx]$ with length $len$.
+  </p>
+  <h2>Cost Specifications</h2>
+  <p>For <a href="#cost-reduce"><code>reduce</code></a>,
+    $\mathcal{O}_r(f,b,S)$ represents the
+    set of applications of $f$ as defined in the
+    <a href="../sig/SEQUENCE.html">SEQUENCE</a> specification.
+    For <a href="#cost-scan"><code>scan</code></a>,
+    $\mathcal{O}_s(f,b,S)$ represents the
+    set of applications of $f$ as defined by the implementation
+    of <code>scan</code> in lecture. For
+    <a href="#cost-sort"><code>sort</code></a>,
+    <a href="#cost-collect"><code>collect</code></a>,
+    <a href="#cost-merge"><code>merge</code></a>,
+    <a href="#cost-collate"><code>collate</code></a>,
+    and <a href="#cost-argmax"><code>argmax</code></a>,
+    the given costs assume that the work
+    and span of the application of $cmp$ is constant.
+  </p>
+  <table class="cost">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Work</td>
+        <td>Span</td>
+      </tr>
+    </thead>
+    <tr>
+      <td><code>nth</code> $S\:i$<br />
+        <code>length</code> $S$<br />
+      <!--
+        <code>empty ()</code><br />
+        <code>singleton</code> $x$
+      --></td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>toList</code> $S$<br />
+        <code>fromList</code> $S$</td>
+      <td>\[O(|S|)\]</td>
+      <td>\[O(|S|)\]</td>
+    </tr>
+    <tr>
+      <td><code>tabulate</code> $f\:n$</td>
+      <td>\[\sum_{i=0}^{n-1} W_f(i)\]</td>
+      <td>\[\max_{i=0}^{n-1} S_f(i)\]</td>
+    </tr>
+    <tr>
+      <td><code>rev</code> $S$<br />
+        <code>enum</code> $S$</td>
+      <td>\[O(|S|)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>append</code> $(S_1, S_2)$</td>
+      <td>\[O(|S_1|+|S_2|)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>flatten</code> $S$</td>
+      <td>\[O(|S|) + \sum_{e\in S} O(|e|)\]</td>
+      <td>\[O(\log|S|)\]</td>
+    </tr>
+    <tr>
+      <td><code>filter</code> $p\:S$<br />
+        <code>filterIdx</code> $p\:S$</td>
+      <td>\[\sum_{e\in S} W(p(e))\]</td>
+      <td>\[O(\log|S|) + \max_{e\in S} S(p(e))\]</td>
+    </tr>
+    <tr>
+      <td><code>map</code> $f\:S$<br />
+        <code>mapIdx</code> $f\:S$</td>
+      <td>\[\sum_{e\in S} W(f(e))\]</td>
+      <td>\[\max_{e\in S} S(f(e))\]</td>
+    </tr>
+    <tr>
+      <td><code>map2</code> $f\:S_1\:S_2$</td>
+      <td>\[\sum_{i=0}^{\min(|S_1|,|S_2|)-1} W(f(S_{1i},S_{2i}))\]</td>
+      <td>\[\max_{i=0}^{\min(|S_1|,|S_2|)-1} S(f(S_{1i},S_{2i}))\]</td>
+    </tr>
+    <tr>
+      <td><code>zip</code> $S_1\:S_2$</td>
+      <td>\[O(\min(|S_1|,|S_2|))\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>inject</code> $I\:S$</td>
+      <td>\[O(|I|+|S|)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>subseq</code> $S\:(i, len)$</td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    </tr>
+      <td><code>take</code> $(S, n)$<br />
+        <code>drop</code> $(S, n)$</td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>showl</code> $S$<br />
+        <code>showt</code> $S$</td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>iter</code> $f\:b_0\:S$<br />
+        <code>iterh</code> $f\:b_0\:S$</td>
+      <td>\[\sum_{i=0}^{|S|-1} W(f(b_i, S_i))\]</td>
+      <td>\[\sum_{i=0}^{|S|-1} S(f(b_i, S_i))\]</td>
+    </tr>
+    <tr>
+      <td><code>reduce</code> $f\:b\:S$</td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_r(f,b,S)}
+        S(f(x,y))\right)\]</td>
+    </tr>
+    <tr>
+      <td><code>scan</code> $f\:b\:S$<br />
+        <code>scani</code> $f\:b\:S$</td>
+      </td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_s(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_s(f,b,S)}
+        S(f(,x,y))\right)\]</td>
+    </tr>
+    <tr>
+      <td><code>sort</code> $cmp\:S$<br />
+        <code>collect</code> $cmp\:S$</td>
+      <td>\[O(|S|\log|S|)\]</td>
+      <td>\[O(\log^2|S|)\]</td>
+    </tr>
+    <tr>
+      <td><code>merge</code> $cmp\:S_1\:S_2$</td>
+      <td>\[O(|S_1|+|S_2|)\]</td>
+      <td>\[O(\log(|S_1|+|S_2|))\]</td>
+    </tr>
+    <tr>
+      <td><code>collate</code> $cmp\:(S_1, S_2)$</td>
+      <td>\[O(|S_1|+|S_2|)\]</td>
+      <td>\[O(\log(\min(|S_1|, |S_2|)))\]</td>
+    </tr>
+    <tr>
+      <td><code>argmax</code> $cmp\:S$</td>
+      <td>\[O(|S|)\]</td>
+      <td>\[O(\log|S|)\]</td>
+    </tr>
+  </table>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>
