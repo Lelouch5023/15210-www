@@ -38,6 +38,9 @@
 
   T: - topic: Data Abstraction and Sequences I
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture05.pdf"
+
 
   W: - topic: More Scan
        type: recitation
@@ -87,6 +90,12 @@
   W: - topic: Midterm I Review
        type: recitation
 
-  R: - topic: Midterm I
+  R: - topic: DFS and Applications
+       type: lecturea
+
+
+- # Week 7
+
+  T: - topic: Midterm I
        type: midterm
 
