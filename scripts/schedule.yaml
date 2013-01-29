@@ -3,6 +3,10 @@
        type: lab
        links: - title: Autolab
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handout"
 
      - topic: Overview and Sequencing the Genome
        type: lecture
@@ -41,6 +45,12 @@
 
      - topic: Skylinelab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handout"
 
   T: - topic: Data Abstraction and Sequences I
        type: lecture
