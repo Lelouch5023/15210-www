@@ -1,0 +1,27 @@
+<!--#set var="sig" value="BST"-->
+<!--#include virtual="template-header.html"-->
+  <h2>Overview</h2>
+  <h2>Interface</h2>
+  <code id="interface">
+  structure Key : <a href="ORDKEY.html">ORDKEY</a><br />
+  <br />
+  type <a href="#">'v bst</a><br />
+  type <a href="#">'v node</a> =
+    { left : 'v bst, key : Key.t, value : 'v, right : 'v bst }<br />
+  type key = Key.t<br />
+  <br />
+  val <a href="#">size</a> : 'v bst -> int<br />
+  val <a href="#">empty</a> : unit -> 'v bst<br />
+  val <a href="#">singleton</a> : key * 'v -> 'v bst<br />
+  <br />
+  val <a href="#">makeNode</a> : 'v node -> 'v bst<br />
+  val <a href="#">expose</a> : 'v bst -> 'v node option<br />
+  val <a href="#">join</a> : 'v bst * 'v bst -> 'v bst<br />
+  val <a href="#">splitAt</a> :
+    'v bst * key -> 'v bst * 'v option * 'v bst<br />
+  <br />
+  val <a href="#">$</a> : key * 'v -> 'v bst
+  </code>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

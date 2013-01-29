@@ -1,0 +1,37 @@
+<!--#set var="sig" value="SET"-->
+<!--#include virtual="template-header.html"-->
+  <h2>Overview</h2>
+  <h2>Interface</h2>
+  <code id="interface">
+  structure Key : <a href="EQKEY.html">EQKEY</a><br />
+  structure Seq : <a href="SEQUENCE.html">SEQUENCE</a><br />
+<br />
+  type <a href="#spec-set">set</a><br />
+  type <a href="#spec-key">key</a> = Key.t<br />
+<br />
+  val <a href="#spec-size">size</a> : set -> int<br />
+  val <a href="#spec-toString">toString</a> : set -> string<br />
+  val <a href="#spec-toSeq">toSeq</a> : set -> key Seq.seq<br />
+<br />
+  val <a href="#spec-empty">empty</a> : unit -> set<br />
+  val <a href="#spec-singleton">singleton</a> : key -> set<br />
+  val <a href="#spec-fromSeq">fromSeq</a> : key Seq.seq -> set<br />
+<br />
+  val <a href="#spec-find">find</a> : set -> key -> bool<br />
+  val <a href="#spec-insert">insert</a> : key -> set -> set<br />
+  val <a href="#spec-delete">delete</a> : key -> set -> set<br />
+<br />
+  val <a href="#spec-filter">filter</a> : (key -> bool) -> set -> set<br />
+<br />
+  val <a href="#spec-union">union</a> : set * set -> set<br />
+  val <a href="#spec-inter">inter</a> : set * set -> set<br />
+  val <a href="#spec-diff">diff</a>  : set * set -> set<br />
+<br />
+  type <a href="#spec-t">t</a> = set<br />
+  val <a href="#spec--d">$</a> : key -> set
+  </code>
+  <h2>Types</h2>
+  <h2>Values</h2>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

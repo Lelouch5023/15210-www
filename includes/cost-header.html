@@ -1,0 +1,28 @@
+<!--#set var="root" value="../../"-->
+<!--#set var="title" value="The ${struct} structure"-->
+<!--#include virtual="headers.html"-->
+<body>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+  </script>
+  <script type="text/javascript">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['\\[', '\\]']],
+    },
+    "HTML-CSS": {
+      scale: 80,
+      styles: {
+        ".MathJax_Display": {
+          "text-align": 'center',
+          margin: '5px 0'
+        }
+      }
+    },
+  });
+  </script>
+  <!--#set var="page" value="resources"-->
+  <!--#set var="title" value="The <code>${struct}</code> structure"-->
+  <!--#include virtual="page-header.html"-->
+  <a href="../" class="back-nav">&laquo; 210 Library Documentation</a>

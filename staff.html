@@ -1,3 +1,4 @@
+<!--#set var="root" value=""-->
 <!--#set var="title" value="Course Staff"-->
 <!--#include virtual="includes/headers.html"-->
 <body>
@@ -152,12 +153,22 @@
       <!--#set var="captcha-c" value="N7ej0gj1i0DpeoTgRZ3z_kXAvMGk1Z4g1coPhuvZZfk"-->
       <!--#include virtual="includes/email-captcha.html"-->-->
       <span class="ohrlabel">Office Hours</span>
-      <span class="ohr">Sunday TBA GHC 4300</span>
+      <span class="ohr">Sunday 2:30pm GHC 4300</span>
     </li>
   </ul>
   <ul class="instructors clearfix">
     <li>
-      <img src="images/rgoulden.jpg" />
+      <img src="images/rgoulden.jpg" id="rgouldenimg" onmouseover="this.src='images/rgoulden.jpg'" />
+      <script>
+        function hhhehehe() {
+          var el = rgouldenimg;
+          var x = el.offsetTop + el.offsetHeight/1.5;
+          while(el = el.offsetParent) x += el.offsetTop;
+          if (x <= window.pageYOffset+window.innerHeight)
+            rgouldenimg.src='images/monorail.jpg';
+        }
+        setTimeout(hhhehehe, 15000)
+      </script>
       <span class="pos">Infrastructure Engineer</span>
       <span class="name">Ryan Goulden</span>
       <!--#set var="captcha-c" value="B3uBCwfJeCYi7GUrvpNiU9YINlv-x4kvR07j2BbjPb0"-->
