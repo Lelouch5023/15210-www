@@ -1,7 +1,8 @@
 <!--#set var="sig" value="SEQUENCE"-->
-<!--#include virtual="template-header.html"-->
+<!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
-  <code>structure <a href="#spec-ArraySequence">ArraySequence</a> : SEQUENCE</code>
+  <code>structure <a href="../cost/ArraySequence.html">ArraySequence</a>
+    : SEQUENCE</code>
   <p> A <em>sequence</em> is an ordered finite list of elements,
     indexed by natural numbers.  The <code>SEQUENCE</code> signature
     defines such a sequence type and provides a number of operations
@@ -107,7 +108,7 @@
     <dt id="spec-nth"><code>val <strong>nth</strong> :
       'a seq -&gt; int -&gt; 'a</code></dt>
     <dd><code>(nth s i) </code> evaluates to
-      the <em>i</em><sup>th</sup> element of <code>s</code>.
+      the <em>i<sup>th</sup></em> element of <code>s</code>.
       Raises <a href="#spec-Range">Range</a> if <em>i</em> is out-of-bounds.</dd>
 
     <dt id="spec-length"><code>val <strong>length</strong> :
@@ -242,9 +243,9 @@
     <dt id="spec-drop"><code>val <strong>drop</strong> :
       'a seq * int -&gt; 'a seq</code></dt>
     <dd><code>(drop (s, n))</code> evaluates to the contiguous subsequence
-      containing the last |<em>s</em>|&ndash;<em>n</em> elements of <em>s</em>.
-      Raises <a href="#spec-Size">Size</a> if <em>n</em> &gt; |<em>s</em>|,
-      or raises <a href="#spec-Range">Range</a> if <em>n</em> is negative.</dd>
+      which drops the first <em>n</em> elements of <em>s</em>. Raises
+      <a href="#spec-Size">Size</a> if <em>n</em> &gt; |<em>s</em>|, or
+      raises <a href="#spec-Range">Range</a> if <em>n</em> is negative.</dd>
 
     <dt id="spec-showl"><code>val <strong>showl</strong> :
       'a seq -&gt; 'a listview</code></dt>
