@@ -42,6 +42,8 @@
 - # Week 3
   M: - topic: Paren Lab due
        type: lab
+       links: - title: Handin
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handin"
 
      - topic: Skyline Lab out
        type: lab
@@ -69,6 +71,8 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
+       links: - title: Handin
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handin"
 
      - topic: BigNum Lab out
        type: lab
