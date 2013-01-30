@@ -1,5 +1,5 @@
 - # Week 1
-  T: - topic: Parenlab out
+  T: - topic: Paren Lab out
        type: lab
        links: - title: Autolab
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab"
@@ -40,10 +40,10 @@
                 url: "lectures/lecture04.pdf"
 
 - # Week 3
-  M: - topic: Parenlab due
+  M: - topic: Paren Lab due
        type: lab
 
-     - topic: Skylinelab out
+     - topic: Skyline Lab out
        type: lab
        links: - title: Autolab
                 url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab"
@@ -67,10 +67,10 @@
        type: lecture
 
 - # Week 4
-  M: - topic: Skylinelab due
+  M: - topic: Skyline Lab due
        type: lab
 
-     - topic: BigNumlab out
+     - topic: BigNum Lab out
        type: lab
 
   T: - topic: Collect, Sets, and Tables
@@ -83,10 +83,10 @@
        type: lecture
 
 - # Week 5
-  M: - topic: BigNumlab due
+  M: - topic: BigNum Lab due
        type: lab
 
-     - topic: Babblelab out
+     - topic: Babble Lab out
        type: lab
 
   T: - topic: Graphs, Graph Representations, and Graph Search
@@ -99,7 +99,7 @@
        type: lecture
 
 - # Week 6
-  M: - topic: Babblelab due
+  M: - topic: Babble Lab due
        type: lab
 
   T: - topic: DFS and Applications
@@ -109,11 +109,10 @@
        type: recitation
 
   R: - topic: DFS and Applications
-       type: lecturea
+       type: lecture
 
 
 - # Week 7
-
   T: - topic: Midterm I
        type: midterm
 

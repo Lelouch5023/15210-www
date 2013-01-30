@@ -314,8 +314,6 @@ table.cost {
 table.cost td {
   padding: 5px 10px;
 }
-table.cost td:first-child {
-}
 table.cost thead tr {
   background: #ffe773;
   border: 1px solid #aaa;
