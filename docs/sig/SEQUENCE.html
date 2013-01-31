@@ -141,24 +141,26 @@
 
     <dt id="spec-equal"><code>val <strong>equal</strong> :
       ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
-    <dd><code>(equal elemEq (s1, s2))</code> evaluates to true if
-      $s_1$ and $s_2$ contain the same
-      elements, where element equality is determined by <code>elemEq</code>.</dd>
+    <dd><code>(equal elemEq (x, y))</code> evaluates to <code>true</code>
+      if $x$ and $y$ contain the same elements, where
+      element equality is determined by <code>elemEq</code>.</dd>
 
     <dt id="spec-empty"><code>val <strong>empty</strong> :
       unit -&gt; 'a seq</code></dt>
-    <dd><code>(empty())</code> evaluates to $\langle\rangle$.</dd>
+    <dd><code>(empty())</code> evaluates to $\langle\rangle$,
+      the empty sequence.</dd>
 
     <dt id="spec-singleton"><code>val <strong>singleton</strong> :
       'a -&gt; 'a seq</code></dt>
-    <dd><code>(singleton x)</code> evaluates to $\langle x$\rangle$.</dd>
+    <dd><code>(singleton x)</code> evaluates to $\langle x\rangle$,
+      the sequence containing only the element $x$.</dd>
 
     <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
       (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
     <dd><code>(tabulate f n)</code> evalutes to a $n$-length
       sequence $s$ where each element $s_i$
-      is the result of evaluating <code>(f i)</code>. Raises
-      <a href="#spec-Size">Size</a> if $n$ is negative.</dd>
+      is the result of evaluating $f(i)$. Raises
+      <a href="#spec-Size">Size</a> if $n<0$.</dd>
 
     <dt id="spec-fromList"><code>val <strong>fromList</strong> :
       'a list -&gt; 'a seq</code></dt>
@@ -171,8 +173,8 @@
 
     <dt id="spec-append"><code>val <strong>append</strong> :
       'a seq * 'a seq -&gt; 'a seq</code></dt>
-    <dd><code>(append (s1, s2))</code> evaluates to the sequence which is
-      the concatenation of $s_1$ and $s_2$.</dd>
+    <dd><code>(append (x, y))</code> evaluates to the sequence which is
+      the concatenation of $x$ and $y$.</dd>
 
     <dt id="spec-flatten"><code>val <strong>flatten</strong> :
       'a seq seq -&gt; 'a seq</code></dt>
@@ -182,21 +184,22 @@
 
     <dt id="spec-filter"><code>val <strong>filter</strong> :
       ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq</code></dt>
-    <dd><code>(filter p s)</code> evalutes to the longest subsequence
-      $s'$ of $s$ such that <code>(p s)</code> evaluates
-      to true for every element of $s'$.</dd>
+    <dd><code>(filter p s)</code> evaluates to the longest subsequence
+      $s'$ of $s$ such that $p(e)$  evaluates
+      to <code>true</code> for every element $e$ of $s'$.</dd>
 
     <dt id="spec-map"><code>val <strong>map</strong> :
       ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
     <dd><code>(map f s)</code> evaluates to the sequence $r$ where
-      each $r_i$  is the result of applying $f$ to $s_i$.</dd>
+      each $r_i$ is the result of applying $f$ to $s_i$.</dd>
 
     <dt id="spec-map2"><code>val <strong>map2</strong> :
       ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq</code></dt>
-    <dd><code>(map2 f s1 s2)</code> evaluates to the sequence $r$ such
-      that $r_i$ is the result of applying $f$ to the pair ($s_{1i}$, $s_{2i}$)
-      for all valid indices $i$ into both $s_1$ and $s_2$.
-      It follows from the definition that $|r| = \min(|s_1|,|s_2|)$.</dd>
+    <dd><code>(map2 f x y)</code> evaluates to the sequence $r$ such
+      that $r_i$ is the result of applying $f$ to the pair ($x_{i}$, $y_{i}$)
+      for all valid indices $i$ into both $x$ and $y$.
+      It follows from the definition that
+      $|r| = \mathsf{min}(|x|,|y|)$.</dd>
 
     <dt id="spec-zip"><code>val <strong>zip</strong> :
       'a seq -&gt; 'b seq -&gt; ('a * 'b) seq</code></dt>
@@ -210,101 +213,137 @@
 
     <dt id="spec-filterIdx"><code>val <strong>filterIdx</strong> :
       ((int * 'a) -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
-    <dd></dd>
+    <dd><code>(filterIdx p s)</code> evaluates to a subsequence
+      which contains all elements $s_i$ of $s$ for which
+      $p (i,\:s_i)$ evaluates to <code>true</code>.</dd>
 
     <dt id="spec-mapIdx"><code>val <strong>mapIdx</strong> :
       ((int * 'a) -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
-    <dd></dd>
+    <dd><code>(mapIdx f s)</code> evaluates to the sequence $r$ where
+      each $r_i$ is the result of evaluating $f (i,\:s_i)$.</dd>
 
     <dt id="spec-inject"><code>val <strong>inject</strong> :
       (int * 'a) seq -&gt; 'a seq -&gt; 'a seq</code></dt>
-    <dd>If <em>updates</em> is a sequence of index-value pairs,
+    <dd>If $updates$ is a sequence of index-value pairs,
       <code>(inject updates s)</code> evaluates to a sequence
-      with updated values of <em>s</em> as given by <em>updates</em>.
-      If there are duplicate indices in <em>updates</em>,
+      with updated values of $s$ as given by $updates$.
+      If there are duplicate indices in $updates$,
       the last one is written and the others are ignored.  Raises
       <a href="#spec-Range">Range</a> if any indices are out-of-bounds.</dd>
 
     <dt id="spec-subseq"><code>val <strong>subseq</strong> :
       'a seq -&gt; int * int -&gt; 'a seq</code></dt>
     <dd><code>(subseq i len)</code> evaluates to the
-      contiguous subsequence of <em>s</em>
-      starting at index <em>i</em> with length <em>len</em>. Raises
-      <a href="#spec-Size">Size</a> if <em>len</em> is negative, or
+      contiguous subsequence of $s$ 
+      starting at index $i$ with length $len$. Raises
+      <a href="#spec-Size">Size</a> if $len<0$, or
       raises <a href="#spec-Range">Range</a> if the subsequence is
       out-of-bounds or ill-defined.</dd>
 
     <dt id="spec-take"><code>val <strong>take</strong> :
       'a seq * int -&gt; 'a seq</code></dt>
     <dd><code>(take (s, n))</code> evaluates to the contiguous subsequence
-      containing the first <em>n</em> elements of <em>s</em>. Raises
-      <a href="#spec-Size">Size</a> if <em>n</em> is negative, or
-      raises <a href="#spec-Range">Range</a>
-      if <em>n</em> &gt; |<em>s</em>|.</dd>
+      containing the first $n$ elements of $s$. Raises
+      <a href="#spec-Size">Size</a> if $n<0$, or
+      raises <a href="#spec-Range">Range</a> if $n>|s|$.</dd>
 
     <dt id="spec-drop"><code>val <strong>drop</strong> :
       'a seq * int -&gt; 'a seq</code></dt>
     <dd><code>(drop (s, n))</code> evaluates to the contiguous subsequence
-      which drops the first <em>n</em> elements of <em>s</em>. Raises
-      <a href="#spec-Size">Size</a> if <em>n</em> &gt; |<em>s</em>|, or
-      raises <a href="#spec-Range">Range</a> if <em>n</em> is negative.</dd>
+      containing the last $|s|-n$ elements of $s$. Raises
+      <a href="#spec-Size">Size</a> if $n>|s|$, or
+      raises <a href="#spec-Range">Range</a> if $n<0$.</dd>
 
     <dt id="spec-showl"><code>val <strong>showl</strong> :
       'a seq -&gt; 'a listview</code></dt>
     <dd>If <em>s</em> is an empty sequence, <code>(showl s)</code> evaluates to
       <code>NIL</code>. Otherwise, <code>(showl s)</code> evaluates to
-      <code>CONS</code> (<em>s<sub>0</sub>, s'</em> ), where <em>s'</em>
+      <code>CONS</code> ($s_0,\:s'$), where $s'$
       is the contiguous subsequence containing the last
-      |<em>s</em>|&ndash;1 elements of <em>s</em>.</dd>
+      $|s|-1$ elements of $s$.</dd>
 
     <dt id="spec-showt"><code>val <strong>showt</strong> :
       'a seq -&gt; 'a treeview</code></dt>
     <dd>If <em>s</em> is an empty sequence, <code>(showt s)</code> evaluates to
       <code>EMPTY</code>. If <em>s</em> is a singleton sequence,
       <code>(showt s)</code> evaluates to <code>ELT</code>
-      <em>s<sub>0</sub></em>. Otherwise, <code>(showt s)</code> evaluates to
-      <code>NODE</code> (<code>take (s, </code>|<em>s</em>|<code> div 2),
-      drop (s, </code>|<em>s</em>|<code> div 2)</code>).</dd>
+      $s_0$. Otherwise, <code>(showt s)</code> evaluates to
+      <code>NODE</code> (<code>take (s, </code>$|s|$<code> div 2),
+      drop (s, </code>$|s|$<code> div 2)</code>).</dd>
 
     <dt id="spec-iter"><code>val <strong>iter</strong> :
       ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b</code></dt>
-    <dd></dd>
+    <dd><code>(iter f b s)</code> computes the iteration of $f$ on $s$
+      with left-association and $b$ as the base case.
+      <!--We can write this iteration as
+      \[f(f(\ldots f(b,\:s_0),\ldots s_{|s|-2}),\:s_{|s|-1})\]--></dd>
 
     <dt id="spec-iterh"><code>val <strong>iterh</strong> :
       ('b * 'a -&gt; 'b) -&gt; 'b -&gt; 'a seq -&gt; 'b seq * 'b</code></dt>
-    <dd></dd>
+    <dd><code>iterh</code> is a generalization of <code>iter</code> that also
+      computes the sequence of all partial results produced by the iterated
+      application of $f$.</dd>
 
     <dt id="spec-reduce"><code>val <strong>reduce</strong> :
       ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a</code></dt>
-    <dd></dd>
+    <dd>If $|s|=0$, <code>(reduce f b s)</code> evaluates to $b$.
+      Otherwise, the reduce tree of the sequence $s$ is defined as
+      a nearly-balanced tree where the number of leaves to the left
+      of any node in the tree is the greatest power-of-two less than
+      the total number of leaves below that node. The $f$-reduced
+      value $v$ over this tree is then combined with the base case
+      $b$ and <code>(reduce f b s)</code> evaluates to $f(b,\:v)$.
+      </dd>
 
     <dt id="spec-scan"><code>val <strong>scan</strong> :
       ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq * 'a</code></dt>
-    <dd></dd>
+    <dd>If $f$ is an associative function and $b$ is a left-identity of $f$,
+      <code>(scan f b s)</code> is logically equivalent to
+      <blockquote>
+      <code>(tabulate (fn i =&gt; reduce f b (take (s, i))) (length s),
+        reduce f b s)</code>
+      </blockquote></dd>
 
     <dt id="spec-scani"><code>val <strong>scani</strong> :
       ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a seq -&gt; 'a seq</code></dt>
-    <dd></dd>
+    <dd>If $f$ is an associative function and $b$ is a left-identity of $f$,
+      <code>(scani f b s)</code> is logically equivalent to
+      <blockquote>
+      <code>tabulate (fn i => reduce f b (take (s, i+1))) (length s)</code>
+      </blockquote></dd>
 
     <dt id="spec-sort"><code>val <strong>sort</strong> :
       'a ord -&gt; 'a seq -&gt; 'a seq</code></dt>
-    <dd></dd>
+    <dd><code>(sort cmp s)</code> sorts the elements of $s$ with
+      respect to $cmp$.</dd>
 
     <dt id="spec-merge"><code>val <strong>merge</strong> :
       'a ord -&gt; 'a seq -&gt; 'a seq -&gt; 'a seq</code></dt>
-    <dd></dd>
+    <dd>If $x$ and $y$ are sorted sequences with respect to $cmp$,
+      <code>(merge cmp x y)</code> evaluates to an $|x|+|y|$-length
+      sequence which contains the elements of $x$ and $y$
+      sorted with respect to $cmp$. The behavior of <code>merge</code>
+      is <em>undefined</em> if $x$ and $y$ are not both sorted.</dd>
 
     <dt id="spec-collect"><code>val <strong>collect</strong> :
       'a ord -&gt; ('a * 'b) seq -&gt; ('a * 'b seq) seq</code></dt>
-    <dd></dd>
+    <dd><code>(collect cmp s)</code> evaluates to a sequence of sequences
+      where each unique first component of elements of $s$ is paired with
+      the sequence of second components of elements of $s$. The resulting
+      sequence is sorted by the first components with respect to $cmp$.
+      The elements in the second components appear in their original
+      order in $s$.</dd>
 
     <dt id="spec-collate"><code>val <strong>collate</strong> :
       'a ord -&gt; 'a seq ord</code></dt>
-    <dd></dd>
+    <dd><code>(collate cmp)</code> evaluates to an ordering on
+      sequences derived lexicographically from $cmp$.</dd>
 
     <dt id="spec-argmax"><code>val <strong>argmax</strong> :
       'a ord -&gt; 'a seq -&gt; int</code></dt>
-    <dd></dd>
+    <dd><code>(argmax cmp s)</code> evaluates to the <em>index</em>
+      of a maximal value in $s$ with respect to $cmp$. Raises
+      <a href="#spec-Range">Range</a> if $|s|=0$.</dd>
 
   </dl>
   <!--#include virtual="../../includes/page-footer.html"-->
