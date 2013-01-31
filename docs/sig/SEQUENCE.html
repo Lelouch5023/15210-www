@@ -7,6 +7,12 @@
     indexed by natural numbers.  The <code>SEQUENCE</code> signature
     defines such a sequence type and provides a number of operations
     and predicates on values of that type.
+  </p>
+  <p>If $s$ is a sequence with
+    $n$ elements, we may denote $s$ with the notation
+    \[\langle s_0, s_1, \ldots, s_{n-1} \rangle\]
+    where $s_i$ is the $i^{th}$ <em>element</em> of $s$
+    and the <em>length</em> of $s$ is written $|s|=n$.
     <!--The <em>length</em> of a sequence <em>s</em>,
     denoted |<em>s</em>|, is the number of elements in that sequence.-->
   </p>
@@ -107,14 +113,14 @@
   <dl class="spec">
     <dt id="spec-nth"><code>val <strong>nth</strong> :
       'a seq -&gt; int -&gt; 'a</code></dt>
-    <dd><code>(nth s i) </code> evaluates to
-      the <em>i<sup>th</sup></em> element of <code>s</code>.
-      Raises <a href="#spec-Range">Range</a> if <em>i</em> is out-of-bounds.</dd>
+    <dd><code>(nth s i)</code> evaluates to $s_i$,
+      the $i^{th}$ element of $s$.
+      Raises <a href="#spec-Range">Range</a> if $i$ is out-of-bounds.</dd>
 
     <dt id="spec-length"><code>val <strong>length</strong> :
       'a seq -&gt; int</code></dt>
-    <dd><code>(length s) </code> evaluates to
-      the number of elements in <code>s</code>.</dd>
+    <dd><code>(length s) </code> evaluates to $|s|$,
+      the number of elements in $s$.</dd>
 
     <dt id="spec-toList"><code>val <strong>toList</strong> :
       'a seq -&gt; 'a list</code></dt>
@@ -124,10 +130,10 @@
     <dt id="spec-toString"><code>val <strong>toString</strong> :
       ('a -&gt; string) -&gt; 'a seq -&gt; string</code></dt>
     <dd><code>(toString elemToStr s)</code> evaluates to a string
-      representation of <em>s</em>.  This representation begins with
+      representation of $s$.  This representation begins with
       &#8220;<code>&lt;</code>&#8221;, followed
-      by the results of applying <em>elemToStr</em> to each element of
-      <em>s</em> in ascending index order interleaved with
+      by the results of applying <code>elemToStr</code> to each element of
+      $s$ in ascending index order interleaved with
       &#8220;<code>,</code>&#8221;, and ends with
       &#8220;<code>&gt;</code>&#8221;.<!-- For example,
       <code>toString Int.toString &lt;2,1,0&gt;</code> evaluates
@@ -136,17 +142,16 @@
     <dt id="spec-equal"><code>val <strong>equal</strong> :
       ('a * 'a -&gt; bool) -&gt; 'a seq * 'a seq -&gt; bool</code></dt>
     <dd><code>(equal elemEq (s1, s2))</code> evaluates to true if
-      <em>s<sub>1</sub></em> and <em>s<sub>2</sub></em> contain the same
-      elements, where element equality is determined by <em>elemEq</em>.</dd>
+      $s_1$ and $s_2$ contain the same
+      elements, where element equality is determined by <code>elemEq</code>.</dd>
 
     <dt id="spec-empty"><code>val <strong>empty</strong> :
       unit -&gt; 'a seq</code></dt>
-    <dd><code>(empty())</code> evaluates to an empty sequence.</dd>
+    <dd><code>(empty())</code> evaluates to $\langle\rangle$.</dd>
 
     <dt id="spec-singleton"><code>val <strong>singleton</strong> :
       'a -&gt; 'a seq</code></dt>
-    <dd><code>(singleton x)</code> evaluates to the singleton sequence
-      containing only the element <em>x</em>.</dd>
+    <dd><code>(singleton x)</code> evaluates to $\langle x$\rangle$.</dd>
 
     <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
       (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
