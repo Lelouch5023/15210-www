@@ -67,6 +67,8 @@
 
   R: - topic: Sequences II
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture06.pdf"
 
 - # Week 4
   M: - topic: Skyline Lab due
