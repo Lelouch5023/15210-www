@@ -155,51 +155,48 @@
 
     <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
       (int -&gt; 'a) -&gt; int -&gt; 'a seq</code></dt>
-    <dd><code>(tabulate f n)</code> evalutes to a <em>n</em>-length
-      sequence <em>s</em> where each element <em>s<sub>i</sub></em>
+    <dd><code>(tabulate f n)</code> evalutes to a $n$-length
+      sequence $s$ where each element $s_i$
       is the result of evaluating <code>(f i)</code>. Raises
-      <a href="#spec-Size">Size</a> if <em>n</em> is negative.</dd>
+      <a href="#spec-Size">Size</a> if $n$ is negative.</dd>
 
     <dt id="spec-fromList"><code>val <strong>fromList</strong> :
       'a list -&gt; 'a seq</code></dt>
     <dd><code>(fromList l)</code> evaluates to the index-preserving
-      sequence representation of <em>l</em>.</dd>
+      sequence representation of $l$.</dd>
 
     <dt id="spec-rev"><code>val <strong>rev</strong> :
       'a seq -&gt; 'a seq</code></dt>
-    <dd><code>(rev s)</code> reverses the ordering of elements in <em>s</em>.</dd>
+    <dd><code>(rev s)</code> reverses the ordering of elements in $s$.</dd>
 
     <dt id="spec-append"><code>val <strong>append</strong> :
       'a seq * 'a seq -&gt; 'a seq</code></dt>
     <dd><code>(append (s1, s2))</code> evaluates to the sequence which is
-      the concatenation of <em>s<sub>1</sub></em> and <em>s<sub>2</sub></em></dd>
+      the concatenation of $s_1$ and $s_2$.</dd>
 
     <dt id="spec-flatten"><code>val <strong>flatten</strong> :
       'a seq seq -&gt; 'a seq</code></dt>
     <dd><code>(flatten s)</code> evaluates to the sequence which is the
-      concatenation of all sequences in <em>s</em> in the order that
-      they appear in <em>s</em>.</dd>
+      concatenation of all sequences in $s$ in the order that
+      they appear in $s$.</dd>
 
     <dt id="spec-filter"><code>val <strong>filter</strong> :
       ('a -&gt; bool) -&gt; 'a seq -&gt; 'a seq</code></dt>
     <dd><code>(filter p s)</code> evalutes to the longest subsequence
-      <em>s'</em> of <em>s</em> such that <code>(p s)</code> evaluates
-      to true for every element of <em>s'</em>.</dd>
+      $s'$ of $s$ such that <code>(p s)</code> evaluates
+      to true for every element of $s'$.</dd>
 
     <dt id="spec-map"><code>val <strong>map</strong> :
       ('a -&gt; 'b) -&gt; 'a seq -&gt; 'b seq</code></dt>
-    <dd><code>(map f s)</code> evaluates to the sequence <em>r</em> where
-      each <em>r<sub>i</sub></em> is the result of applying <em>f</em>
-      to <em>s<sub>i</sub></em>.</dd>
+    <dd><code>(map f s)</code> evaluates to the sequence $r$ where
+      each $r_i$  is the result of applying $f$ to $s_i$.</dd>
 
     <dt id="spec-map2"><code>val <strong>map2</strong> :
       ('a * 'b -&gt; 'c) -&gt; 'a seq -&gt; 'b seq -&gt; 'c seq</code></dt>
-    <dd><code>(map2 f s1 s2)</code> evaluates to the sequence <em>r</em> such
-      that <em>r<sub>i</sub></em> is the result of applying <em>f</em>
-      to the pair (<em>s<sub>1i</sub></em>, <em>s<sub>2i</sub></em>) for
-      all valid indices <em>i</em> into both <em>s<sub>1</sub></em> and
-      <em>s<sub>2</sub></em>. It follows from the definition that |<em>r</em>|
-      = <em>min</em>(|<em>s<sub>1</sub></em>|,|<em>s<sub>2</sub></em>|).</dd>
+    <dd><code>(map2 f s1 s2)</code> evaluates to the sequence $r$ such
+      that $r_i$ is the result of applying $f$ to the pair ($s_{1i}$, $s_{2i}$)
+      for all valid indices $i$ into both $s_1$ and $s_2$.
+      It follows from the definition that $|r| = \min(|s_1|,|s_2|)$.</dd>
 
     <dt id="spec-zip"><code>val <strong>zip</strong> :
       'a seq -&gt; 'b seq -&gt; ('a * 'b) seq</code></dt>
