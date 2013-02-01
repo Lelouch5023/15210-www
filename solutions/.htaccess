@@ -1,3 +1,4 @@
+AuthType WebISO
 Require user mnabraha@andrew.cmu.edu
 Require user rwa@andrew.cmu.edu
 Require user dallen1@andrew.cmu.edu
@@ -192,7 +193,6 @@ Require user arravind@andrew.cmu.edu
 Require user jlreyes@andrew.cmu.edu
 Require user lhruan@andrew.cmu.edu
 Require user sseybert@andrew.cmu.edu
-AuthType WebISO
 Require user snshah@andrew.cmu.edu
 Require user kdsnyder@andrew.cmu.edu
 Require user mstrelow@andrew.cmu.edu
