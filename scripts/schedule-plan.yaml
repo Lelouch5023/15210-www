@@ -1,0 +1,257 @@
+- # Week 1
+  T: - topic: Paren Lab out
+       type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handout"
+
+     - topic: Overview and Sequencing the Genome
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture01.pdf"
+
+  W: - topic: Parenthesis Matching
+       type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec01.pdf"
+
+  R: - topic: Algorithmic Cost Models
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture02.pdf"
+
+- # Week 2
+  T: - topic: Algorithmic Techniques and Cost Analysis
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture03.pdf"
+
+  W: - topic: Recurrences
+       type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec02.pdf"
+
+  R: - topic: Divide-and-Conquer
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture04.pdf"
+
+- # Week 3
+  M: - topic: Paren Lab due
+       type: lab
+       links: - title: Handin
+                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handin"
+
+     - topic: Skyline Lab out
+       type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handout"
+
+  T: - topic: Data Abstraction and Sequences I
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture05.pdf"
+
+
+  W: - topic: More Scan
+       type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec03.pdf"
+
+  R: - topic: Sequences II
+       type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture06.pdf"
+
+- # Week 4
+  M: - topic: Skyline Lab due
+       type: lab
+       links: - title: Handin
+                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handin"
+
+     - topic: BigNum Lab out
+       type: lab
+
+  T: - topic: Collect, Sets, and Tables
+       type: lecture
+
+  W: - topic: Fields and MapCollectReduce
+       type: recitation
+
+  R: - topic: Sets and Tables II
+       type: lecture
+
+- # Week 5
+  M: - topic: BigNum Lab due
+       type: lab
+
+     - topic: Babble Lab out
+       type: lab
+
+  T: - topic: Graphs, Graph Representations, and Graph Search
+       type: lecture
+
+  W: - topic: Graph Examples, StSeqs, and Staging
+       type: recitation
+
+  R: - topic: BFS and Applications
+       type: lecture
+
+- # Week 6
+  M: - topic: Babble Lab due
+       type: lab
+     - topic: bfs Lab out
+       type: lab
+
+  T: - topic: DFS and Applications
+       type: lecture
+
+  W: - topic: Midterm I Review
+       type: recitation
+
+  R: - topic: SSSP I
+       type: lecture
+
+
+- # Week 7
+  T: - topic: Midterm I
+       type: midterm
+
+
+  W: - topic: Dijkstra
+       type: recitation
+
+  R: - topic: SSSP II
+       type: lecture
+
+- # Week 8
+  M: - topic: bfs Lab due
+       type: lab
+
+     - topic: A* Lab out
+       type: lab
+
+  T: - topic: Randomized Algorithms
+       type: lecture
+
+  W: - topic:  Exam debrief
+       type: recitation
+
+  R: - topic: Quicksort and Lower bounds
+       type: lecture
+
+- # Week 9
+  M: - topic: SPRING BREAK
+       type: break
+
+- # Week 10
+  M: - topic: A* due
+       type: lab
+
+     - topic: dfs out
+       type: lab
+
+  T: - topic: Graph Contraction I
+       type: lecture
+
+  W: - topic: Graph Contraction
+       type: recitation
+
+  R: - topic: Graph Contraction II
+       type: lecture
+
+- # Week 11
+  M: - topic: dfs due
+       type: lab
+
+     - topic: MIS out
+       type: lab
+
+  T: - topic: Minimum Spanning Trees
+       type: lecture
+
+  W: - topic: Probability Review
+       type: recitation
+
+  R: - topic: Balanced Trees I
+       type: lecture
+
+- # Week 12
+  M: - topic: MIS due
+       type: lab
+
+     - topic: MST out
+       type: lab
+
+  T: - topic: Treaps
+       type: lecture
+
+  W: - topic: Exam Review
+       type: recitation
+
+  R: - topic: Exam II (could be next Monday)
+       type: lecture
+
+- # Week 13
+  T: - topic: Ordered Set, Augmented Trees
+       type: lecture
+
+  W: - topic: Exam debriefing & Treaps
+       type: recitation
+
+  R: - topic: Dynamic Programming I
+       type: lecture
+
+- # Week 14
+  M: - topic:  MST due
+       type: lab
+
+     - topic:  RangeQ out
+       type: lab
+
+  T: - topic: Dynamic Programming II
+       type: lecture
+
+  W: - topic: DP practice
+       type: recitation
+
+  R: - topic: Carnival
+       type: break
+
+- # Week 15
+  T: - topic: Hashing
+       type: lecture
+
+  W: - topic: More DP
+       type: recitation
+
+     - topic:  RangeQ due
+       type: lab
+
+     - topic: DP out
+       type: lab
+
+  R: - topic: Priority Queues
+       type: break
+
+- # Week 16
+
+  T: - topic: Other Parallel Languages
+       type: lecture
+
+
+  W: - topic: 
+       type: recitation
+
+  R: - topic: Review
+       type: lecture
+
+  F: - topic:  DP due
+       type: lab
