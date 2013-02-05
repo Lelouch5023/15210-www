@@ -7,6 +7,10 @@
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/writeup"
               - title: Handout
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handout"
+              - title: Written solutions
+                url: "solutions/parenlab/parenlab-sol.pdf"
+              - title: Written solutions
+                url: "solutions/parenlab/code.pdf"
 
      - topic: Overview and Sequencing the Genome
        type: lecture
@@ -87,8 +91,11 @@
               - title: Handout
                 url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/handout"
 
-  T: - topic: Collect, Sets, and Tables
+  T: - topic: Collect and Sets
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture07.pdf"
+
 
   W: - topic: Fields and MapCollectReduce
        type: recitation
