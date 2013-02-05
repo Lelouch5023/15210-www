@@ -9,7 +9,7 @@
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handout"
               - title: Written solutions
                 url: "solutions/parenlab/parenlab-sol.pdf"
-              - title: Written solutions
+              - title: Code solutions
                 url: "solutions/parenlab/code.pdf"
 
      - topic: Overview and Sequencing the Genome
