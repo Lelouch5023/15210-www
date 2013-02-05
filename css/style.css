@@ -268,14 +268,14 @@ sup {
 code {
   font-family: Inconsolata, Courier New, monospace;
 }
-#signatures,
+.docs-index,
 #interface {
   display: block;
   font-size: 14px;
   line-height: 16px;
   margin-left: 20px;
 }
-#signatures {
+.docs-index {
   font-size: 16px;
   line-height: 20px;
 }

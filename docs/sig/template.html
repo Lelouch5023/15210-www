@@ -1,0 +1,41 @@
+<!--#set var="sig" value="EXAMPLE_SIG"-->
+<!--#include virtual="../../includes/sig-header.html"-->
+  <h2>Overview</h2>
+  <code>structure <a href="../cost/template.html">ExampleImpl</a>
+    : EXAMPLE_SIG</code>
+  <p>Give a quick overview of this signature.
+    You can use inline mathmode $\langle s_0, \ldots \rangle$,
+    or block mode mathmode like so:
+    \[ (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k \]
+    This is is enabled by the
+    <a href="http://www.mathjax.org/">MathJax</a> engine.
+    In addition to LaTeX math syntax, you may also find
+    <code>&lt;code&gt;&lt;/code&gt;</code> useful.
+  </p>
+  <h2>Interface</h2>
+  <code id="interface">
+  type <a href="#spec-mytype">'a mytype</a><br />
+<br />
+  exception <a href="#spec-MyExn">MyExn</a><br />
+<br />
+  val <a href="#spec-myVal">myVal</a> : 'a mytype<br />
+  </code>
+  <h2>Types</h2>
+  <dl class="spec">
+    <dt id="spec-mytype"><code>type <strong>'a mytype</strong></code></dt>
+    <dd>Describe this type.</dd>
+  </dl>
+  <h2>Exceptions</h2>
+  <dl class="spec">
+    <dt id="spec-MyExn"><code>exception <strong>MyExn</strong></code></dt>
+    <dd>Describe this exception.</dd>
+  </dl>
+  <h2>Values</h2>
+  <dl class="spec">
+    <dt id="spec-myVal"><code>val <strong>myVal</strong> :
+      'a mytype</code></dt>
+    <dd>Describe this value.</dd>
+  </dl>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>
