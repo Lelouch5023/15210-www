@@ -78,6 +78,12 @@
 
      - topic: BigNum Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/handout"
 
   T: - topic: Collect, Sets, and Tables
        type: lecture
