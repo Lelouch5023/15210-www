@@ -90,8 +90,10 @@
   T: - topic: Collect, Sets, and Tables
        type: lecture
 
-  W: - topic: Fields and MapCollectReduce
+  W: - topic: Scan, Fields and MapCollectReduce
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec04.pdf"
 
   R: - topic: Sets and Tables II
        type: lecture
