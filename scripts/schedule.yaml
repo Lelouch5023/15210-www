@@ -44,8 +44,10 @@
        type: lab
        links: - title: Handin
                 url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handin"
-              - title: Solutions
-                url: "https://www.cs.cmu.edu/~15210/solutions/parenlab"
+              - title: Written solutions
+                url: "solutions/parenlab/parenlab-sol.pdf"
+              - title: Code solutions
+                url: "solutions/parenlab/code.pdf"
 
      - topic: Skyline Lab out
        type: lab
@@ -87,8 +89,11 @@
               - title: Handout
                 url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/handout"
 
-  T: - topic: Collect, Sets, and Tables
+  T: - topic: Collect and Sets
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture07.pdf"
+
 
   W: - topic: Scan, Fields and MapCollectReduce
        type: recitation
