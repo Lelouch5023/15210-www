@@ -3,16 +3,17 @@
 <!--#include virtual="../../includes/cost-header.html"-->
   <h2>Overview</h2>
   <code>functor MkTreapTable(structure HashKey :
-    <a href="../sig/HASHKEY.html">HASHKEY</a>) : TABLE</code>
-  <p>Implements <a href="../sig/SET.html">SET</a> and
-    <a href="../sig/TABLE.html">TABLE</a> simultaneously
-    with a Treap BST, where
+    <!--<a href="../sig/HASHKEY.html">-->HASHKEY<!--</a>-->) : TABLE</code>
+  <p>Implements <a href="../sig/SET.html"><code>SET</code></a> and
+    <a href="../sig/TABLE.html"><code>TABLE</code></a> simultaneously
+    with a <!--<a href="MkTreap.sml">--><code>Treap</code><!--</a>-->
+    <!--<a href="../sig/BST.html">--><code>BST</code><!--</a>-->, where
     <blockquote><code>type 'a table = 'a bst<br />
       type set = unit bst
     </code></blockquote>
-    The <a href="../sig/TABLE.html#spec-Seq">Seq</a>
+    The <a href="../sig/TABLE.html#spec-Seq"><code>Seq</code></a>
     substructure is defined to be
-    <a href="ArraySequence.html">ArraySequence</a>.
+    <a href="ArraySequence.html"><code>ArraySequence</code></a>.
   </p>
 
   <h2><code>SET</code> and <code>TABLE</code> Cost Specifications</h2>

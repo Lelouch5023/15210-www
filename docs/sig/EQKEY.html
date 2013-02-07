@@ -1,6 +1,12 @@
 <!--#set var="sig" value="EQKEY"-->
 <!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
+  <p>The <code>EQKEY</code> signature defines an abstract
+    type <code>t</code> and provides
+    equality and <code>toString</code> functions
+    on values of such type.
+  </p>
+
   <h2>Interface</h2>
   <code id="interface">
   type <a href="#spec-t">t</a><br />
@@ -9,7 +15,22 @@
   val <a href="#spec-toString">toString</a> : t -> string
   </code>
   <h2>Types</h2>
+  <dl class="spec">
+    <dt><code>type <strong>t</strong></code></dt>
+    <dd>The abstract type as described in the overview.</dd>
+  </dl>
+
   <h2>Values</h2>
+  <dl class="spec">
+    <dt><code>val <strong>equal</strong> : t * t -> bool</code></dt>
+    <dd><code>(equal (x, y))</code> evaluates to <code>true</code>
+      if and only if $x$ and $y$ are equal values of type <code>t</code>.</dd>
+
+    <dt><code>val <strong>toString</strong> : t -> string</code></dt>
+    <dd><code>(toString k)</code> evaluates to a string representation
+      of $x$, a value of type <code>t</code>.</dd>
+  </dl>
+
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
 </html>

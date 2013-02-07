@@ -1,6 +1,18 @@
 <!--#set var="sig" value="SET"-->
 <!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
+  <code>
+  functor <a href="../cost/MkTreapTable.html">MkTreapTable</a><!--(structure HashKey
+    : <a href="HASHKEY.html">HASHKEY</a>) : TABLE-->
+  </code>
+  <p>A <em>set</em> $S$ is a finite collection of unique elements of
+    some type and the <em>size</em> of $S$, denoted by $|S|$, is the
+    number of elements in that set. The crucial difference between a
+    set in the mathematical sense and a set in this library is that
+    a set here is always ordered implicitly for enumeration purposes.
+    The empty set is denoted by $\emptyset$.
+  </p>
+
   <h2>Interface</h2>
   <code id="interface">
   structure Key : <a href="EQKEY.html">EQKEY</a><br />
@@ -9,29 +21,92 @@
   type <a href="#spec-set">set</a><br />
   type <a href="#spec-key">key</a> = Key.t<br />
 <br />
-  val <a href="#spec-size">size</a> : set -> int<br />
-  val <a href="#spec-toString">toString</a> : set -> string<br />
-  val <a href="#spec-toSeq">toSeq</a> : set -> key Seq.seq<br />
+  val <a href="#spec-size">size</a> : set -&gt; int<br />
+  val <a href="#spec-toString">toString</a> : set -&gt; string<br />
+  val <a href="#spec-toSeq">toSeq</a> : set -&gt; key Seq.seq<br />
 <br />
-  val <a href="#spec-empty">empty</a> : unit -> set<br />
-  val <a href="#spec-singleton">singleton</a> : key -> set<br />
-  val <a href="#spec-fromSeq">fromSeq</a> : key Seq.seq -> set<br />
+  val <a href="#spec-empty">empty</a> : unit -&gt; set<br />
+  val <a href="#spec-singleton">singleton</a> : key -&gt; set<br />
+  val <a href="#spec-fromSeq">fromSeq</a> : key Seq.seq -&gt; set<br />
 <br />
-  val <a href="#spec-find">find</a> : set -> key -> bool<br />
-  val <a href="#spec-insert">insert</a> : key -> set -> set<br />
-  val <a href="#spec-delete">delete</a> : key -> set -> set<br />
+  val <a href="#spec-find">find</a> : set -&gt; key -&gt; bool<br />
+  val <a href="#spec-insert">insert</a> : key -&gt; set -&gt; set<br />
+  val <a href="#spec-delete">delete</a> : key -&gt; set -&gt; set<br />
 <br />
-  val <a href="#spec-filter">filter</a> : (key -> bool) -> set -> set<br />
+  val <a href="#spec-filter">filter</a> : (key -&gt; bool) -&gt; set -&gt; set<br />
 <br />
-  val <a href="#spec-union">union</a> : set * set -> set<br />
-  val <a href="#spec-inter">inter</a> : set * set -> set<br />
-  val <a href="#spec-diff">diff</a>  : set * set -> set<br />
+  val <a href="#spec-union">union</a> : set * set -&gt; set<br />
+  val <a href="#spec-inter">inter</a> : set * set -&gt; set<br />
+  val <a href="#spec-diff">diff</a>  : set * set -&gt; set<br />
 <br />
   type <a href="#spec-t">t</a> = set<br />
-  val <a href="#spec--d">$</a> : key -> set
+  val <a href="#spec--d">$</a> : key -&gt; set
   </code>
+
   <h2>Types</h2>
+  <dl class="spec">
+    <dt id="spec-set"><code>type <strong>set</strong></code></dt>
+    <dd></dd>
+    
+    <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code></dt>
+    <dd></dd>
+  </dl>
+
   <h2>Values</h2>
+  <dl class="spec">
+    <dt id="spec-size"><code>val <strong>size</strong> :
+       set -&gt; int</code></dt>
+    <dd></dd>
+
+    <dt id="spec-toString"><code>val <strong>toString</strong> :
+       set -&gt; string</code></dt>
+    <dd></dd>
+
+    <dt id="spec-toSeq"><code>val <strong>toSeq</strong> :
+       set -&gt; key Seq.seq</code></dt>
+    <dd></dd>
+
+    <dt id="spec-empty"><code>val <strong>empty</strong> :
+       unit -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-singleton"><code>val <strong>singleton</strong> :
+       key -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-fromSeq"><code>val <strong>fromSeq</strong> :
+       key Seq.seq -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-find"><code>val <strong>find</strong> :
+       set -&gt; key -&gt; bool</code></dt>
+    <dd></dd>
+
+    <dt id="spec-insert"><code>val <strong>insert</strong> :
+       key -&gt; set -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-delete"><code>val <strong>delete</strong> :
+       key -&gt; set -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-filter"><code>val <strong>filter</strong> :
+       (key -&gt; bool) -&gt; set -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-union"><code>val <strong>union</strong> :
+       set * set -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-inter"><code>val <strong>inter</strong> :
+       set * set -&gt; set</code></dt>
+    <dd></dd>
+
+    <dt id="spec-diff"><code>val <strong>diff</strong> :
+       set * set -&gt; set</code></dt>
+    <dd></dd>
+  </dl>
+
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
 </html>

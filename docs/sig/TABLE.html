@@ -1,12 +1,10 @@
 <!--#set var="sig" value="TABLE"-->
 <!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
-
   <code>
   functor <a href="../cost/MkTreapTable.html">MkTreapTable</a><!--(structure HashKey
     : <a href="HASHKEY.html">HASHKEY</a>) : TABLE-->
   </code>
-
   <p> A <em>table</em> is a set of key-value pairs where the keys
     are unique. For this reason, we often think of it as a mapping
     that associates each key with a value. Since tables are sets,
@@ -22,6 +20,7 @@
     written as $k\in_m T$, if there exists a value $v$
     such that $(k,v)\in T$.
   </p>
+
   <h2>Interface</h2>
   <code id="interface">
   structure Key : <a href="EQKEY.html">EQKEY</a><br />
@@ -96,19 +95,19 @@
 
   <h2>Values</h2>
   <dl class="spec">
-    <dt id="spec-table"><code>type <strong>'a table</strong></code>
+    <dt id="spec-table"><code>type <strong>'a table</strong></code></dt>
     <dd>This is the abstract type that represents a table
       as described in the overview.</dd>
 
-    <dt id="spec-seq"><code>type <strong>'a seq</strong> = 'a Seq.seq</code>
+    <dt id="spec-seq"><code>type <strong>'a seq</strong> = 'a Seq.seq</code></dt>
     <dd>This type is a shorthand for the abstract
       <code>'a Seq.seq</code> type.</dd>
 
-    <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code>
+    <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code></dt>
     <dd>This indicates that the keys in a table
       must be of type <code>Key.t</code>.</dd>
 
-    <dt id="spec-set"><code>type <strong>set</strong> = Set.t</code>
+    <dt id="spec-set"><code>type <strong>set</strong> = Set.t</code></dt>
     <dd>This type is a shorthand for the abstract
       <code>Set.t</code> type.</dd>
   </dl>
