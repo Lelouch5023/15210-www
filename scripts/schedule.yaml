@@ -100,6 +100,9 @@
 
   R: - topic: Sets and Tables II
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture08.pdf"
+
 
 - # Week 5
   M: - topic: BigNum Lab due
