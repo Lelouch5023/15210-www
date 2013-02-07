@@ -8,29 +8,12 @@
   -->
   <p>Implements
     <a href="../sig/SEQUENCE.html"><code>SEQUENCE</code></a> with
-    <blockquote><code>
-      type 'a seq = { ary : 'a array, idx : int, len : int }
+    <blockquote><code>type 'a seq = { ary : 'a array, idx : int, len : int }
     </code></blockquote>
     where the sequence is implicitly defined as starting at
     $ary[idx]$ with length $len$.
   </p>
-  <h2>Cost Specifications</h2>
-  <p>For <a href="#cost-reduce"><code>reduce</code></a>,
-    $\mathcal{O}_r(f,b,S)$ represents the
-    set of applications of $f$ as defined in the
-    <a href="../sig/SEQUENCE.html"><code>SEQUENCE</code></a>
-    specification.  For <a href="#cost-scan"><code>scan</code></a>,
-    $\mathcal{O}_s(f,b,S)$ represents the
-    set of applications of $f$ as defined by the implementation
-    of <code>scan</code> in lecture. For
-    <a href="#cost-sort"><code>sort</code></a>,
-    <a href="#cost-collect"><code>collect</code></a>,
-    <a href="#cost-merge"><code>merge</code></a>,
-    <a href="#cost-collate"><code>collate</code></a>,
-    and <a href="#cost-argmax"><code>argmax</code></a>,
-    the given costs assume that the work
-    and span of the application of $cmp$ is constant.
-  </p>
+  <h2><code>SEQUENCE</code> Cost Specifications</h2>
   <table class="cost">
     <thead>
       <tr>
@@ -126,6 +109,25 @@
       <td>\[\sum_{i=0}^{|S|-1} W(f(b_i, S_i))\]</td>
       <td>\[\sum_{i=0}^{|S|-1} S(f(b_i, S_i))\]</td>
     </tr>
+  </table>
+
+  <p>For <a href="#cost-reduce"><code>reduce</code></a>,
+    $\mathcal{O}_r(f,b,S)$ represents the
+    set of applications of $f$ as defined in the
+    <a href="../sig/SEQUENCE.html"><code>SEQUENCE</code></a>
+    specification.  For <a href="#cost-scan"><code>scan</code></a>,
+    $\mathcal{O}_s(f,b,S)$ represents the
+    set of applications of $f$ as defined by the implementation
+    of <code>scan</code> in lecture.
+  </p>
+  <table class="cost">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Work</td>
+        <td>Span</td>
+      </tr>
+    </thead>
     <tr>
       <td><code>reduce</code> $f\:b\:S$</td>
       <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)} W(f(x,y))\]</td>
@@ -140,6 +142,20 @@
       <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_s(f,b,S)}
         S(f(,x,y))\right)\]</td>
     </tr>
+  </table>
+
+  <p>
+    The following costs assume that the work
+    and span of the application of $cmp$ is constant.
+  </p>
+  <table class="cost">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Work</td>
+        <td>Span</td>
+      </tr>
+    </thead>
     <tr>
       <td><code>sort</code> $cmp\:S$<br />
         <code>collect</code> $cmp\:S$</td>
