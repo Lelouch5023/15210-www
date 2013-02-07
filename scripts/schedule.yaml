@@ -42,9 +42,7 @@
 - # Week 3
   M: - topic: Paren Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handin"
-              - title: Written solutions
+       links: - title: Written solutions
                 url: "solutions/parenlab/parenlab-sol.pdf"
               - title: Code solutions
                 url: "solutions/parenlab/code.pdf"
