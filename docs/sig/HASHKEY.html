@@ -1,4 +1,4 @@
-<!--#set var="sig" value="EQKEY"-->
+<!--#set var="sig" value="HASHKEY"-->
 <!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
   <h2>Interface</h2>
@@ -6,10 +6,13 @@
   type <a href="#spec-t">t</a><br />
 <br />
   val <a href="#spec-equal">equal</a> : t * t -> bool<br />
-  val <a href="#spec-toString">toString</a> : t -> string
+  val <a href="#spec-toString">toString</a> : t -> string<br />
+  val <a href="#spec-compare">compare</a> : t * t -> order<br />
+  val <a href="#spec-hash">hash</a> : t -> int
   </code>
   <h2>Types</h2>
   <h2>Values</h2>
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
 </html>
+

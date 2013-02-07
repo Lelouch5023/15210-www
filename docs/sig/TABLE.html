@@ -1,6 +1,27 @@
 <!--#set var="sig" value="TABLE"-->
 <!--#include virtual="../../includes/sig-header.html"-->
   <h2>Overview</h2>
+
+  <code>
+  functor <a href="../cost/MkTreapTable.html">MkTreapTable</a><!--(structure HashKey
+    : <a href="HASHKEY.html">HASHKEY</a>) : TABLE-->
+  </code>
+
+  <p> A <em>table</em> is a set of key-value pairs where the keys
+    are unique. For this reason, we often think of it as a mapping
+    that associates each key with a value. Since tables are sets,
+    standard set operations apply on them.
+  </p>
+  <p>If $T$ is a table with
+    $n$ elements, we may denote $T$ with the notation
+    $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$
+    where $k_1,\ldots,k_n$ are $n$ distinct keys,
+    each $k_i$ maps to $v_i$ for $i\in[n]$, and
+    the <em>size</em> of $T$ is written $|T|=n$.
+    We say that a key $k$ is present in a table $T$,
+    written as $k\in_m T$, if there exists a value $v$
+    such that $(k,v)\in T$.
+  </p>
   <h2>Interface</h2>
   <code id="interface">
   structure Key : <a href="EQKEY.html">EQKEY</a><br />
@@ -8,52 +29,238 @@
   structure Set : <a href="SET.html">SET</a>
     where Key = Key and Seq = Seq<br />
 <br />
-  type <a href="#">'a</a> table<br />
-  type <a href="#">'a</a> seq = 'a Seq.seq<br />
-  type <a href="#">key</a> = Key.t<br />
-  type <a href="#">set</a> = Set.t<br />
+  type <a href="#spec-table">'a table</a><br />
+  type <a href="#spec-seq">'a seq</a> = 'a Seq.seq<br />
+  type <a href="#spec-key">key</a> = Key.t<br />
+  type <a href="#spec-set">set</a> = Set.t<br />
 <br />
-  val <a href="#">size</a> : 'a table -> int<br />
-  val <a href="#">domain</a> : 'a table -> set<br />
-  val <a href="#">range</a> : 'a table -> 'a seq<br />
-  val <a href="#">toString</a> :
+  val <a href="#spec-size">size</a> : 'a table -> int<br />
+  val <a href="#spec-domain">domain</a> : 'a table -> set<br />
+  val <a href="#spec-range">range</a> : 'a table -> 'a seq<br />
+  val <a href="#spec-toString">toString</a> :
     ('a -> string) -> 'a table -> string<br />
-  val <a href="#">toSeq</a> : 'a table -> (key * 'a) seq<br />
+  val <a href="#spec-toSeq">toSeq</a> : 'a table -> (key * 'a) seq<br />
 <br />
-  val <a href="#">find</a> : 'a table -> key -> 'a option<br />
-  val <a href="#">insert</a> :
+  val <a href="#spec-find">find</a> : 'a table -> key -> 'a option<br />
+  val <a href="#spec-insert">insert</a> :
     ('a * 'a -> 'a) -> (key * 'a) -> 'a table -> 'a table<br />
-  val <a href="#">delete</a> : key -> 'a table -> 'a table<br />
+  val <a href="#spec-delete">delete</a> : key -> 'a table -> 'a table<br />
 <br />
-  val <a href="#">empty</a> : unit -> 'a table<br />
-  val <a href="#">singleton</a> : key * 'a -> 'a table<br />
-  val <a href="#">tabulate</a> : (key -> 'a) -> set -> 'a table<br />
-  val <a href="#">collect</a> : (key * 'a) seq -> 'a seq table<br />
-  val <a href="#">fromSeq</a> : (key * 'a) seq -> 'a table<br />
+  val <a href="#spec-empty">empty</a> : unit -> 'a table<br />
+  val <a href="#spec-singleton">singleton</a> : key * 'a -> 'a table<br />
+  val <a href="#spec-tabulate">tabulate</a> : (key -> 'a) -> set -> 'a table<br />
+  val <a href="#spec-collect">collect</a> : (key * 'a) seq -> 'a seq table<br />
+  val <a href="#spec-fromSeq">fromSeq</a> : (key * 'a) seq -> 'a table<br />
 <br />
-  val <a href="#">map</a>    :
+  val <a href="#spec-map">map</a>    :
     ('a -> 'b) -> 'a table -> 'b table<br />
-  val <a href="#">mapk</a>   :
+  val <a href="#spec-mapk">mapk</a>   :
     (key * 'a -> 'b) -> 'a table -> 'b table<br />
-  val <a href="#">filter</a> :
+  val <a href="#spec-filter">filter</a> :
     (key * 'a -> bool) -> 'a table -> 'a table<br />
 <br />
-  val <a href="#">iter</a>   :
+  val <a href="#spec-iter">iter</a>   :
     ('b * (key * 'a) -> 'b) -> 'b -> 'a table -> 'b<br />
-  val <a href="#">iterh</a>  :
+  val <a href="#spec-iterh">iterh</a>  :
     ('b * (key * 'a) -> 'b) -> 'b -> 'a table -> ('b table * 'b)<br />
-  val <a href="#">reduce</a> :
+  val <a href="#spec-reduce">reduce</a> :
     ('a * 'a -> 'a) -> 'a -> 'a table -> 'a<br />
 <br />
-  val <a href="#">merge</a>   :
+  val <a href="#spec-merge">merge</a>   :
     ('a * 'a -> 'a) -> ('a table * 'a table) -> 'a table<br />
-  val <a href="#">extract</a> : 'a table * set -> 'a table<br />
-  val <a href="#">erase</a>   : 'a table * set -> 'a table<br />
+  val <a href="#spec-extract">extract</a> : 'a table * set -> 'a table<br />
+  val <a href="#spec-erase">erase</a>   : 'a table * set -> 'a table<br />
 <br />
   val <a href="#">$</a> : (key * 'a) -> 'a table
   </code>
-  <h2>Types</h2>
+  <h2>Substructures</h2>
+  <dl class="spec">
+    <dt id="spec-Key"><code>structure <strong>Key</strong> :
+      EQKEY</code></dt>
+    <dd>The <code>Key</code> substructure defines the
+      <code><a href="#spec-key">key</a></code> type of a table, providing
+      equality and <code>toString</code> functions on such keys.</dd>
+
+    <dt id="spec-Seq"><code>structure <strong>Seq</strong> :
+      SEQUENCE</code></dt>
+    <dd>The <code>Seq</code> substructure defines the underlying
+      <code><a href="#spec-seq">'a seq</a></code> type to
+      and from which tables can be converted.</dd>
+
+    <dt id="spec-Set"><code>structure <strong>Set</strong> :
+      SET where Key = Key and Seq = Seq</code></dt>
+    <dd>The <code>Set</code> substructure contains operations on
+      sets with values of type <code><a href="#spec-key">key</a></code>,
+      reinforcing the notion of tables as sets of key-value mappings.</dd>
+  </dl>
+
   <h2>Values</h2>
+  <dl class="spec">
+    <dt id="spec-table"><code>type <strong>'a table</strong></code>
+    <dd>This is the abstract type that represents a table
+      as described in the overview.</dd>
+
+    <dt id="spec-seq"><code>type <strong>'a seq</strong> = 'a Seq.seq</code>
+    <dd>This type is a shorthand for the abstract
+      <code>'a Seq.seq</code> type.</dd>
+
+    <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code>
+    <dd>This indicates that the keys in a table
+      must be of type <code>Key.t</code>.</dd>
+
+    <dt id="spec-set"><code>type <strong>set</strong> = Set.t</code>
+    <dd>This type is a shorthand for the abstract
+      <code>Set.t</code> type.</dd>
+  </dl>
+
+  <h2>Types</h2>
+  <dl class="spec">
+    <dt id="spec-size"><code>val <strong>size</strong> :
+      'a table -&gt; int</code></dt>
+    <dd><code>(size T)</code> evaluates to $|T|$,
+      the number of keys contained in the table $T$.</dd>
+
+    <dt id="spec-domain"><code>val <strong>domain</strong> :
+      'a table -&gt; set</code></dt>
+    <dd><code>(domain T)</code> evaluates to the set
+      of keys contained in the table $T$.</dd>
+
+    <dt id="spec-range"><code>val <strong>range</strong> :
+      'a table -&gt; 'a seq</code></dt>
+    <dd><code>(range T)</code> evaluates to a sequence
+      containing all values in the table $T$.</dd>
+
+    <dt id="spec-toString"><code>val <strong>toString</strong> :
+      ('a -&gt; string) -&gt; 'a table -&gt; string</code></dt>
+    <dd><code>(toString valToStr T)</code> evaluates to a string
+      representation of $T$.  This representation begins with
+      &#8220;<code>{</code>&#8221; and ends with &#8220;<code>}</code>&#8221;.
+      Each key-value pair is represented as
+      &#8220;<code>(</code>$k,v$<code>)</code>&#8221;, where $k$
+      is the string representation of the key and $v$ is the result
+      of applying <code>valToStr</code> to the value.</dd>
+
+    <dt id="spec-toSeq"><code>val <strong>toSeq</strong> :
+      'a table -&gt; (key * 'a) seq</code></dt>
+    <dd>If $T$ contains the key-value pairs
+      $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$,
+      <code>(toSeq T)</code> evaluates to a sequence of all key-value
+      pairs $\langle (k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n) \rangle$.
+      The ordering of the sequence is implementation-defined.</dd>
+
+    <dt id="spec-find"><code>val <strong>find</strong> :
+      'a table -&gt; key -&gt; 'a option</code></dt>
+    <dd>If $t$ contains the mapping $(k,v)$, <code>(find T k)</code>
+      evaluates to <code>(SOME v)</code>. Otherwise, it
+      evaluates to <code>NONE</code>.</dd>
+
+    <dt id="spec-insert"><code>val <strong>insert</strong> :
+      ('a * 'a -&gt; 'a) -&gt; (key * 'a) -&gt; 'a table -&gt;
+      'a table</code></dt>
+    <dd><code>(insert f (k,v) T)</code> evaluates to $T\cup \{(k,v)\}$
+      provided $k\not\in_m T$. Otherwise, if $(k,v')\in T$,
+      it evaluates to $T\setminus \{(k,v')\} \cup \{k,f(v',v)\}\}$.
+      In other words, the value associated with $k$ is replaced
+      with the result of applying $f$ on the old value $v'$
+      and the new value $v$.</dd>
+
+    <dt id="spec-delete"><code>val <strong>delete</strong> :
+      key -&gt; 'a table -&gt; 'a table</code></dt>
+    <dd><code>(delete k T)</code> evaluates to
+      $\{(k',v')\in T : k' \neq k\}$, removing $k$ from the table $t$.</dd>
+
+    <dt id="spec-empty"><code>val <strong>empty</strong> :
+      unit -&gt; 'a table</code></dt>
+    <dd><code>(empty ())</code> evaluates to the empty table, $\emptyset$.</dd>
+
+    <dt id="spec-singleton"><code>val <strong>singleton</strong> :
+      key * 'a -&gt; 'a table</code></dt>
+    <dd><code>(singleton (k,v))</code> evalutes to the singleton
+      table $\{(k,v)\}$ containing a single key-value pair $(k,v)$.</dd>
+
+    <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
+      (key -&gt; 'a) -&gt; set -&gt; 'a table</code></dt>
+    <dd>If $S$ is the <code>set</code> $\{k_1,k_2,\ldots,k_n\}$,
+      <code>(tabulate f S)</code> evaluates to
+      $\{(k_1,f(k_1)),(k_2,f(k_2)),\ldots,(k_n,f(k_n))\}$.</dd>
+
+    <dt id="spec-collect"><code>val <strong>collect</strong> :
+      (key * 'a) seq -&gt; 'a seq table</code></dt>
+    <dd>If $S$ is a sequence of key-value pairs, <code>(collect S)</code>
+      evaluates to a table where each $(k,V)$ maps $k$ to a
+      sequence $V$ which results from grouping values of the same key $k$
+      together while respecting the original sequence ordering.</dd>
+
+    <dt id="spec-fromSeq"><code>val <strong>fromSeq</strong> :
+      (key * 'a) seq -&gt; 'a table</code></dt>
+    <dd>If $S$ is a sequence of key-value pairs
+      $\langle (k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n) \rangle$, 
+      <code>(fromSeq S)</code> evaluates to the table
+      $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$.</dd>
+
+    <dt id="spec-map"><code>val <strong>map</strong> :
+      ('a -&gt; 'b) -&gt; 'a table -&gt; 'b table</code></dt>
+    <dd>If $T$ is a table $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$, 
+      <code>(map f T)</code> evaluates to
+      $\{(k_1,f(v_1)),(k_2,f(v_2)),\ldots,(k_n,f(v_n))\}$.</dd>
+
+    <dt id="spec-mapk"><code>val <strong>mapk</strong> :
+      (key * 'a -&gt; 'b) -&gt; 'a table -&gt; 'b table</code></dt>
+    <dd>If $T$ is a table $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$, 
+      <code>(mapk f T)</code> evaluates to
+      $\{(k_1,f(k_1,v_1)),(k_2,f(k_2,v_2)),\ldots,(k_n,f(k_n,v_n))\}$.</dd>
+
+    <dt id="spec-filter"><code>val <strong>filter</strong> :
+      (key * 'a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
+    <dd><code>(filter p T)</code> evaluates to the table $T'$ such that
+      $(k,v)\in T'$ if and only if $(k,v)\in T$ and
+      $p(k,v)$ evaluates to <code>true</code>.</dd>
+
+    <dt id="spec-iter"><code>val <strong>iter</strong> :
+      ('b * (key * 'a) -&gt; 'b) -&gt; 'b -&gt;
+      'a table -&gt;'b</code></dt>
+    <dd><code>(iter f b T)</code> iterates $f$ with left-association
+      on the key-value pairs in $T$ with $b$ as the base case.
+      The order of application is implementation-defined.</dd>
+
+    <dt id="spec-iterh"><code>val <strong>iterh</strong> :
+      ('b * (key * 'a) -&gt; 'b) -&gt; 'b -&gt;
+      'a table -&gt; ('b table * 'b)</code></dt>
+    <dd><code>(iterh f b T)</code> evaluates to $(T',v)$, where $v$
+      is the result of evaluating <code>(iter f b T)</code> and $T'$
+      is a table containing partial evaluation results. Specifically,
+      $T' = \{(k_i,r_i): (k_i,v_i)\in T\}$ where $r_i$ is the result
+      of partial evaluation up to the $i^{th}$ pair $(k_i,v_i)$ as
+      defined by the implementation.</dd>
+
+    <dt id="spec-reduce"><code>val <strong>reduce</strong> :
+      ('a * 'a -&gt; 'a) -&gt; 'a -&gt; 'a table -&gt; 'a</code></dt>
+    <dd><code>(reduce f b T)</code> is logically equivalent to
+      <code>(Seq.reduce f b (range T))</code>.</dd>
+
+    <dt id="spec-merge"><code>val <strong>merge</strong> :
+      ('a * 'a -&gt; 'a) -&gt; ('a table * 'a table) -&gt;
+      'a table</code></dt>
+    <dd><code>merge</code> is a generalization of set union.
+      Specifically, <code>(merge f (S, T))</code> evaluates to a table with
+      the following properties: (1) it contains all the keys from
+      $S$ and $T$ and (2) for each key $k$, its associated value is
+      inherited from either $S$ or $T$ is $k$ if present in
+      <em>exactly</em> one of them. But if $(k,v)\in S$ and
+      $(k,w)\in T$, then the associated value is $f(v,w)$.</dd>
+
+    <dt id="spec-extract"><code>val <strong>extract</strong> :
+      'a table * set -&gt; 'a table</code></dt>
+    <dd><code>extract</code> is a generalization of set intersection.
+      Specifically, <code>(extract (T,S))</code> evaluates to
+      $\{(k,v)\in T : k\in_m S\}$.</dd>
+
+    <dt id="spec-erase"><code>val <strong>erase</strong> :
+      'a table * set -&gt; 'a table</code></dt>
+    <dd><code>erase</code> is a generalization of set difference.
+      Specifically, <code>(erase (T,S))</code> evaluates to
+      $\{(k,v)\in T : k\not\in_m S\}$.</dd>
+  </dl>
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
 </html>
