@@ -12,13 +12,13 @@
   </p>
   <p>If $T$ is a table with
     $n$ elements, we may denote $T$ with the notation
-    $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$
+    $\{(k_1\mapsto v_1),(k_2\mapsto v_2),\ldots,(k_n\mapsto v_n)\}$
     where $k_1,\ldots,k_n$ are $n$ distinct keys,
     each $k_i$ maps to $v_i$ for $i\in[n]$, and
     the <em>size</em> of $T$ is written $|T|=n$.
     We say that a key $k$ is present in a table $T$,
     written as $k\in_m T$, if there exists a value $v$
-    such that $(k,v)\in T$.
+    such that $(k\mapsto v)\in T$.
   </p>
 
   <h2>Interface</h2>
@@ -135,38 +135,38 @@
       representation of $T$.  This representation begins with
       &#8220;<code>{</code>&#8221; and ends with &#8220;<code>}</code>&#8221;.
       Each key-value pair is represented as
-      &#8220;<code>(</code>$k,v$<code>)</code>&#8221;, where $k$
-      is the string representation of the key and $v$ is the result
+      &#8220;<code>(</code>$k$<code>-&gt;</code>$v$<code>)</code>&#8221;,
+      where $k$ is the string representation of the key and $v$ is the result
       of applying <code>valToStr</code> to the value.</dd>
 
     <dt id="spec-toSeq"><code>val <strong>toSeq</strong> :
       'a table -&gt; (key * 'a) seq</code></dt>
-    <dd>If $T$ contains the key-value pairs
-      $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$,
+    <dd>If $T = \{(k_1\mapsto v_1),(k_2\mapsto v_2),\ldots,(k_n\mapsto v_n)\}$,
       <code>(toSeq T)</code> evaluates to a sequence of all key-value
       pairs $\langle (k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n) \rangle$.
       The ordering of the sequence is implementation-defined.</dd>
 
     <dt id="spec-find"><code>val <strong>find</strong> :
       'a table -&gt; key -&gt; 'a option</code></dt>
-    <dd>If $t$ contains the mapping $(k,v)$, <code>(find T k)</code>
+    <dd>If $t$ contains the mapping $(k\mapsto v)$, <code>(find T k)</code>
       evaluates to <code>(SOME v)</code>. Otherwise, it
       evaluates to <code>NONE</code>.</dd>
 
     <dt id="spec-insert"><code>val <strong>insert</strong> :
       ('a * 'a -&gt; 'a) -&gt; (key * 'a) -&gt; 'a table -&gt;
       'a table</code></dt>
-    <dd><code>(insert f (k,v) T)</code> evaluates to $T\cup \{(k,v)\}$
-      provided $k\not\in_m T$. Otherwise, if $(k,v')\in T$,
-      it evaluates to $T\setminus \{(k,v')\} \cup \{k,f(v',v)\}\}$.
-      In other words, the value associated with $k$ is replaced
+    <dd><code>(insert f (k,v) T)</code> evaluates to $T\cup \{(k\mapsto v)\}$
+      provided $k\not\in_m T$. Otherwise, if $(k\mapsto v')\in T$,
+      <!--it evaluates
+      to $T\setminus \{(k\mapsto v')\} \cup \{(k\mapsto f(v',v))\}$.
+      In other words,--> the value associated with $k$ is replaced
       with the result of applying $f$ on the old value $v'$
       and the new value $v$.</dd>
 
     <dt id="spec-delete"><code>val <strong>delete</strong> :
       key -&gt; 'a table -&gt; 'a table</code></dt>
     <dd><code>(delete k T)</code> evaluates to
-      $\{(k',v')\in T : k' \neq k\}$, removing $k$ from the table $t$.</dd>
+      $\{(k'\mapsto v')\in T : k' \neq k\}$, removing $k$ from the table $t$.</dd>
 
     <dt id="spec-empty"><code>val <strong>empty</strong> :
       unit -&gt; 'a table</code></dt>
@@ -175,18 +175,19 @@
     <dt id="spec-singleton"><code>val <strong>singleton</strong> :
       key * 'a -&gt; 'a table</code></dt>
     <dd><code>(singleton (k,v))</code> evalutes to the singleton
-      table $\{(k,v)\}$ containing a single key-value pair $(k,v)$.</dd>
+      table $\{(k\mapsto v)\}$.</dd>
 
     <dt id="spec-tabulate"><code>val <strong>tabulate</strong> :
       (key -&gt; 'a) -&gt; set -&gt; 'a table</code></dt>
     <dd>If $S$ is the <code>set</code> $\{k_1,k_2,\ldots,k_n\}$,
       <code>(tabulate f S)</code> evaluates to
-      $\{(k_1,f(k_1)),(k_2,f(k_2)),\ldots,(k_n,f(k_n))\}$.</dd>
+      $\{(k_1\mapsto f(k_1)),(k_2\mapsto f(k_2)),\ldots,(k_n\mapsto f(k_n))\}$.
+      </dd>
 
     <dt id="spec-collect"><code>val <strong>collect</strong> :
       (key * 'a) seq -&gt; 'a seq table</code></dt>
     <dd>If $S$ is a sequence of key-value pairs, <code>(collect S)</code>
-      evaluates to a table where each $(k,V)$ maps $k$ to a
+      evaluates to a table where each $(k\mapsto V)$ maps $k$ to a
       sequence $V$ which results from grouping values of the same key $k$
       together while respecting the original sequence ordering.</dd>
 
@@ -195,24 +196,26 @@
     <dd>If $S$ is a sequence of key-value pairs
       $\langle (k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n) \rangle$, 
       <code>(fromSeq S)</code> evaluates to the table
-      $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$.</dd>
+      $\{(k_1\mapsto v_1),(k_2\mapsto v_2),\ldots,(k_n\mapsto v_n)\}$.</dd>
 
     <dt id="spec-map"><code>val <strong>map</strong> :
       ('a -&gt; 'b) -&gt; 'a table -&gt; 'b table</code></dt>
-    <dd>If $T$ is a table $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$, 
+    <dd>If $T = \{(k_1\mapsto v_1),(k_2\mapsto v_2),\ldots,(k_n\mapsto v_n)\}$, 
       <code>(map f T)</code> evaluates to
-      $\{(k_1,f(v_1)),(k_2,f(v_2)),\ldots,(k_n,f(v_n))\}$.</dd>
+      $\{(k_1\mapsto f(v_1)),(k_2\mapsto f(v_2)),\ldots,
+         (k_n\mapsto f(v_n))\}$.</dd>
 
     <dt id="spec-mapk"><code>val <strong>mapk</strong> :
       (key * 'a -&gt; 'b) -&gt; 'a table -&gt; 'b table</code></dt>
-    <dd>If $T$ is a table $\{(k_1,v_1),(k_2,v_2),\ldots,(k_n,v_n)\}$, 
+    <dd>If $T = \{(k_1\mapsto v_1),(k_2\mapsto v_2),\ldots,(k_n\mapsto v_n)\}$, 
       <code>(mapk f T)</code> evaluates to
-      $\{(k_1,f(k_1,v_1)),(k_2,f(k_2,v_2)),\ldots,(k_n,f(k_n,v_n))\}$.</dd>
+      $\{(k_1\mapsto f(k_1,v_1)),(k_2\mapsto f(k_2,v_2)),\ldots,
+         (k_n\mapsto f(k_n,v_n))\}$.</dd>
 
     <dt id="spec-filter"><code>val <strong>filter</strong> :
       (key * 'a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
     <dd><code>(filter p T)</code> evaluates to the table $T'$ such that
-      $(k,v)\in T'$ if and only if $(k,v)\in T$ and
+      $(k\mapsto v)\in T'$ if and only if $(k\mapsto v)\in T$ and
       $p(k,v)$ evaluates to <code>true</code>.</dd>
 
     <dt id="spec-iter"><code>val <strong>iter</strong> :
@@ -228,8 +231,9 @@
     <dd><code>(iterh f b T)</code> evaluates to $(T',v)$, where $v$
       is the result of evaluating <code>(iter f b T)</code> and $T'$
       is a table containing partial evaluation results. Specifically,
-      $T' = \{(k_i,r_i): (k_i,v_i)\in T\}$ where $r_i$ is the result
-      of partial evaluation up to the $i^{th}$ pair $(k_i,v_i)$ as
+      $T' = \{(k_i\mapsto r_i): (k_i\mapsto v_i)\in T\}$
+      where $r_i$ is the result of partial evaluation up to the
+      $i^{th}$ key-value pair $(k_i\mapsto v_i)$ as
       defined by the implementation.</dd>
 
     <dt id="spec-reduce"><code>val <strong>reduce</strong> :
@@ -245,20 +249,20 @@
       the following properties: (1) it contains all the keys from
       $S$ and $T$ and (2) for each key $k$, its associated value is
       inherited from either $S$ or $T$ is $k$ if present in
-      <em>exactly</em> one of them. But if $(k,v)\in S$ and
-      $(k,w)\in T$, then the associated value is $f(v,w)$.</dd>
+      <em>exactly</em> one of them. But if $(k\mapsto v)\in S$ and
+      $(k\mapsto w)\in T$, then the associated value is $f(v,w)$.</dd>
 
     <dt id="spec-extract"><code>val <strong>extract</strong> :
       'a table * set -&gt; 'a table</code></dt>
     <dd><code>extract</code> is a generalization of set intersection.
       Specifically, <code>(extract (T,S))</code> evaluates to
-      $\{(k,v)\in T : k\in_m S\}$.</dd>
+      $\{(k\mapsto v)\in T : k\in_m S\}$.</dd>
 
     <dt id="spec-erase"><code>val <strong>erase</strong> :
       'a table * set -&gt; 'a table</code></dt>
     <dd><code>erase</code> is a generalization of set difference.
       Specifically, <code>(erase (T,S))</code> evaluates to
-      $\{(k,v)\in T : k\not\in_m S\}$.</dd>
+      $\{(k\mapsto v)\in T : k\not\in_m S\}$.</dd>
   </dl>
   <!--#include virtual="../../includes/page-footer.html"-->
 </body>
