@@ -56,6 +56,8 @@
   val <a href="#spec-mapk">mapk</a>   :
     (key * 'a -> 'b) -> 'a table -> 'b table<br />
   val <a href="#spec-filter">filter</a> :
+    ('a -> bool) -> 'a table -> 'a table<br />
+  val <a href="#spec-filterk">filterk</a> :
     (key * 'a -> bool) -> 'a table -> 'a table<br />
 <br />
   val <a href="#spec-iter">iter</a>   :
@@ -215,6 +217,12 @@
     <dt id="spec-filter"><code>val <strong>filter</strong> :
       (key * 'a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
     <dd><code>(filter p T)</code> evaluates to the table $T'$ such that
+      $(k\mapsto v)\in T'$ if and only if $(k\mapsto v)\in T$ and
+      $p(v)$ evaluates to <code>true</code>.</dd>
+
+    <dt id="spec-filterk"><code>val <strong>filterk</strong> :
+      (key * 'a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
+    <dd><code>(filterk p T)</code> evaluates to the table $T'$ such that
       $(k\mapsto v)\in T'$ if and only if $(k\mapsto v)\in T$ and
       $p(k,v)$ evaluates to <code>true</code>.</dd>
 
