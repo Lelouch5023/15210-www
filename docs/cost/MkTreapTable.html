@@ -55,8 +55,8 @@
     </tr>
     <tr>
       <td><code>tabulate</code> $f\:X$<br />
-      <td>\[\sum_{k\in X} W(f(k))\]</td>
-      <td>\[\max_{k\in X} S(f(k))\]</td>
+      <td>\[\sum_{k\in X} \mathcal{W}(f(k))\]</td>
+      <td>\[\max_{k\in X} \mathcal{S}(f(k))\]</td>
     </tr>
     <tr>
       <td><code>collect</code> $S$<br />
@@ -66,23 +66,23 @@
     </tr>
     <tr>
       <td><code>map</code> $f\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} W(f(v))\]</td>
-      <td>\[\max_{(k\mapsto v)\in T} S(f(v))\]</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(v))\]</td>
+      <td>\[\max_{(k\mapsto v)\in T} \mathcal{S}(f(v))\]</td>
     </tr>
     <tr>
       <td><code>mapk</code> $f\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} W(f(k,v))\]</td>
-      <td>\[\max_{(k\mapsto v)\in T} S(f(k,v))\]</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(k,v))\]</td>
+      <td>\[\max_{(k\mapsto v)\in T} \mathcal{S}(f(k,v))\]</td>
     </tr>
     <tr>
       <td><code>filter</code> $p\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} W(p(v))\]</td>
-      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} S(p(v))\]</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(p(v))\]</td>
+      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} \mathcal{S}(p(v))\]</td>
     </tr>
     <tr>
       <td><code>filterk</code> $p\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} W(p(k,v))\]</td>
-      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} S(p(k,v))\]</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(p(k,v))\]</td>
+      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} \mathcal{S}(p(k,v))\]</td>
     </tr>
   </table>
 
@@ -105,14 +105,15 @@
     <tr>
       <td><code>iter</code> $f\:b_0\:T$<br />
         <code>iterh</code> $f\:b_0\:T$</td>
-      <td>\[\sum_{i=0}^{|T|-1} W(f(b_i,(k_i,v_i)))\]</td>
-      <td>\[\sum_{i=0}^{|T|-1} S(f(b_i,(k_i,v_i)))\]</td>
+      <td>\[\sum_{i=0}^{|T|-1} \mathcal{W}(f(b_i,(k_i,v_i)))\]</td>
+      <td>\[\sum_{i=0}^{|T|-1} \mathcal{S}(f(b_i,(k_i,v_i)))\]</td>
     </tr>
     <tr>
       <td><code>reduce</code> $f\:b\:T$</td>
-      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)}
+        \mathcal{W}(f(x,y))\]</td>
       <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_r(f,b,S)}
-        S(f(x,y))\right)\]</td>
+        \mathcal{S}(f(x,y))\right)\]</td>
     </tr>
   </table>
 

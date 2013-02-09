@@ -40,8 +40,8 @@
     </tr>
     <tr>
       <td><code>tabulate</code> $f\:n$</td>
-      <td>\[\sum_{i=0}^{n-1} W_f(i)\]</td>
-      <td>\[\max_{i=0}^{n-1} S_f(i)\]</td>
+      <td>\[\sum_{i=0}^{n-1} \mathcal{W}(f(i))\]</td>
+      <td>\[\max_{i=0}^{n-1} \mathcal{S}(f(i))\]</td>
     </tr>
     <tr>
       <td><code>rev</code> $S$<br />
@@ -62,19 +62,21 @@
     <tr>
       <td><code>filter</code> $p\:S$<br />
         <code>filterIdx</code> $p\:S$</td>
-      <td>\[\sum_{e\in S} W(p(e))\]</td>
-      <td>\[O(\log|S|) + \max_{e\in S} S(p(e))\]</td>
+      <td>\[\sum_{e\in S} \mathcal{W}(p(e))\]</td>
+      <td>\[O(\log|S|) + \max_{e\in S} \mathcal{S}(p(e))\]</td>
     </tr>
     <tr>
       <td><code>map</code> $f\:S$<br />
         <code>mapIdx</code> $f\:S$</td>
-      <td>\[\sum_{e\in S} W(f(e))\]</td>
-      <td>\[\max_{e\in S} S(f(e))\]</td>
+      <td>\[\sum_{e\in S} \mathcal{W}(f(e))\]</td>
+      <td>\[\max_{e\in S} \mathcal{S}(f(e))\]</td>
     </tr>
     <tr>
       <td><code>map2</code> $f\:S_1\:S_2$</td>
-      <td>\[\sum_{i=0}^{\min(|S_1|,|S_2|)-1} W(f(S_{1i},S_{2i}))\]</td>
-      <td>\[\max_{i=0}^{\min(|S_1|,|S_2|)-1} S(f(S_{1i},S_{2i}))\]</td>
+      <td>\[\sum_{i=0}^{\min(|S_1|,|S_2|)-1}
+        \mathcal{W}(f(S_{1i},S_{2i}))\]</td>
+      <td>\[\max_{i=0}^{\min(|S_1|,|S_2|)-1}
+        \mathcal{S}(f(S_{1i},S_{2i}))\]</td>
     </tr>
     <tr>
       <td><code>zip</code> $S_1\:S_2$</td>
@@ -106,8 +108,8 @@
     <tr>
       <td><code>iter</code> $f\:b_0\:S$<br />
         <code>iterh</code> $f\:b_0\:S$</td>
-      <td>\[\sum_{i=0}^{|S|-1} W(f(b_i, S_i))\]</td>
-      <td>\[\sum_{i=0}^{|S|-1} S(f(b_i, S_i))\]</td>
+      <td>\[\sum_{i=0}^{|S|-1} \mathcal{W}(f(b_i, S_i))\]</td>
+      <td>\[\sum_{i=0}^{|S|-1} \mathcal{S}(f(b_i, S_i))\]</td>
     </tr>
   </table>
 
@@ -130,17 +132,19 @@
     </thead>
     <tr>
       <td><code>reduce</code> $f\:b\:S$</td>
-      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)}
+        \mathcal{W}(f(x,y))\]</td>
       <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_r(f,b,S)}
-        S(f(x,y))\right)\]</td>
+        \mathcal{S}(f(x,y))\right)\]</td>
     </tr>
     <tr>
       <td><code>scan</code> $f\:b\:S$<br />
         <code>scani</code> $f\:b\:S$</td>
       </td>
-      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_s(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_s(f,b,S)}
+        \mathcal{W}(f(x,y))\]</td>
       <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_s(f,b,S)}
-        S(f(,x,y))\right)\]</td>
+        \mathcal{S}(f(x,y))\right)\]</td>
     </tr>
   </table>
 
