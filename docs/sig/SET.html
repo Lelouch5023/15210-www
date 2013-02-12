@@ -36,75 +36,108 @@
   val <a href="#spec-filter">filter</a> : (key -&gt; bool) -&gt; set -&gt; set<br />
 <br />
   val <a href="#spec-union">union</a> : set * set -&gt; set<br />
-  val <a href="#spec-inter">inter</a> : set * set -&gt; set<br />
-  val <a href="#spec-diff">diff</a>  : set * set -&gt; set<br />
+  val <a href="#spec-intersection">intersection</a> : set * set -&gt; set<br />
+  val <a href="#spec-difference">difference</a>  : set * set -&gt; set<br />
 <br />
   type <a href="#spec-t">t</a> = set<br />
   val <a href="#spec--d">$</a> : key -&gt; set
   </code>
 
+  <h2>Substructures</h2>
+  <dl class="spec">
+    <dt id="spec-Key"><code>structure <strong>Key</strong> : EQKEY</code></dt>
+    <dd>The <code>Key</code> substructure defines the type of
+      elements in a set, providing equality and <code>toString</code>
+      functions on such elements.</dd>
+
+    <dt id="spec-Seq"><code>structure <strong>Seq</strong> :
+      SEQUENCE</code></dt>
+    <dd>The <code>Seq</code> substructure defines the underlying
+      <code><a href="SEQUENCE.html">SEQUENCE</a></code> type to
+      and from which sets can be converted.</dd>
+  </dl>
+
   <h2>Types</h2>
   <dl class="spec">
     <dt id="spec-set"><code>type <strong>set</strong></code></dt>
-    <dd></dd>
+    <dd>This is the abstract type that represents a set
+      as described in the overview.</dd>
     
     <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code></dt>
-    <dd></dd>
+    <dd>This indicates that the keys in a set
+      must be of type <code>Key.t</code>.</dd>
   </dl>
 
   <h2>Values</h2>
   <dl class="spec">
     <dt id="spec-size"><code>val <strong>size</strong> :
        set -&gt; int</code></dt>
-    <dd></dd>
+    <dd><code>(size X)</code> evaluates to $|X|$,
+      the number of elements in the set $X$.</dd>
 
     <dt id="spec-toString"><code>val <strong>toString</strong> :
        set -&gt; string</code></dt>
-    <dd></dd>
+    <dd><code>(toString X)</code> evaluates to a string representation
+      of $X$. This representation begins with &#8220;<code>{</code>&#8221;,
+      followed by the results of applying <code>Key.toString</code> to
+      each element of $X$ in some order interleaved with
+      &#8220;<code>,</code>&#8221;, and ends with
+      &#8220;<code>}</code>&#8221;.</dd>
 
     <dt id="spec-toSeq"><code>val <strong>toSeq</strong> :
        set -&gt; key Seq.seq</code></dt>
-    <dd></dd>
+    <dd><code>(toSeq X)</code> evaluates to a sequence
+      containing all elements in the set $X$. The ordering of
+      the sequence is implementation-defined.</dd>
 
     <dt id="spec-empty"><code>val <strong>empty</strong> :
        unit -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(empty ())</code> evaluates to the empty set, $\emptyset$.</dd>
 
     <dt id="spec-singleton"><code>val <strong>singleton</strong> :
        key -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(singleton x)</code> evaluates to the set
+      containing only the element $x$.</dd>
 
     <dt id="spec-fromSeq"><code>val <strong>fromSeq</strong> :
        key Seq.seq -&gt; set</code></dt>
-    <dd></dd>
+    <dd>If $S$ is an $n$-length sequence
+      $\langle S_0,S_1,\ldots,S_{n-1}\rangle$,
+      <code>(fromSeq S)</code> evaluates to the set
+      $\{S_0,S_1,\ldots,S_{n-1}\}$.
+      The ordering in the set representation may differ from
+      the ordering in the sequence representation.</dd>
 
     <dt id="spec-find"><code>val <strong>find</strong> :
        set -&gt; key -&gt; bool</code></dt>
-    <dd></dd>
+    <dd><code>(find X k)</code> evaluates to <code>true</code> if and
+      only if $k$ is a memeber of the set $X$.</dd>
 
     <dt id="spec-insert"><code>val <strong>insert</strong> :
        key -&gt; set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(insert k X)</code> evaluates to the set $X\cup\{k\}$.</dd>
 
     <dt id="spec-delete"><code>val <strong>delete</strong> :
        key -&gt; set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(delete k X)</code> evaluates to the set $X\setminus\{k\}$.</dd>
 
     <dt id="spec-filter"><code>val <strong>filter</strong> :
        (key -&gt; bool) -&gt; set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(filter p X)</code> evaluates to the subset $X'$ of $X$ such
+      that an element $x\in X'$ if and only if $p(x)$ evaluates to true.</dd>
 
     <dt id="spec-union"><code>val <strong>union</strong> :
        set * set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(union (X, Y))</code> evaluates to the set $X\cup Y$.</dd>
 
-    <dt id="spec-inter"><code>val <strong>inter</strong> :
+    <dt id="spec-intersection"><code>val <strong>intersection</strong> :
        set * set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(intersection (X, Y))</code> evaluates to the set $X\cap Y$.</dd>
 
-    <dt id="spec-diff"><code>val <strong>diff</strong> :
+    <dt id="spec-difference"><code>val <strong>difference</strong> :
        set * set -&gt; set</code></dt>
-    <dd></dd>
+    <dd><code>(difference (X, Y))</code> evaluates to the set
+      $X\setminus Y$.</dd>
   </dl>
 
   <!--#include virtual="../../includes/page-footer.html"-->

@@ -75,8 +75,6 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handin"
 
      - topic: BigNum Lab out
        type: lab
@@ -110,6 +108,12 @@
 
      - topic: Babble Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/handout"
 
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture

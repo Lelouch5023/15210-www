@@ -18,10 +18,9 @@
 
   <h2><code>SET</code> and <code>TABLE</code> Cost Specifications</h2>
   <p>The following costs assume that the work and span of the application
-    of <code>Key.compare</code> is constant. For
-    <a href="#spec-insert">insert</a> and <a href="#spec-merge">merge</a>,
-    the given costs assume that the work and span of the application
-    of $f$ is constant.</p>
+    of <code>Key.compare</code> is constant.
+    For <a href="#spec-insert">insert</a> the given costs assume that
+    the work and span of the application of $f$ is constant.</p>
   <table class="cost">
     <thead>
       <tr>
@@ -43,11 +42,6 @@
       <td>\[O(\log|T|)\]</td>
     </tr>
     <tr>
-      <td><code>fromSeq</code> $S$</td>
-      <td>\[O(|S|\log|S|)\]</td>
-      <td>\[O(\log^2|S|)\]</td>
-    </tr>
-    <tr>
       <td><code>find</code> $T\:k$<br />
         <code>insert</code> $f\:(k,v)\:T$<br />
         <code>delete</code> $k\:T$</td>
@@ -55,9 +49,9 @@
       <td>\[O(\log|T|)\]</td>
     </tr>
     <tr>
-      <td><code>tabulate</code> $f\:S$<br />
-      <td>\[\sum_{k\in S} W(f(k))\]</td>
-      <td>\[\max_{k\in S} S(f(k))\]</td>
+      <td><code>tabulate</code> $f\:X$<br />
+      <td>\[\sum_{k\in X} \mathcal{W}(f(k))\]</td>
+      <td>\[\max_{k\in X} \mathcal{S}(f(k))\]</td>
     </tr>
     <tr>
       <td><code>collect</code> $S$<br />
@@ -66,19 +60,18 @@
       <td>\[O(\log^2|S|)\]</td>
     </tr>
     <tr>
-      <td><code>map</code> $f\:T$</td>
-      <td>\[\sum_{(k,v)\in T} W(f(v))\]</td>
-      <td>\[\max_{(k,v)\in T} S(f(v))\]</td>
+      <td><code>map</code> $f\:T$<br />
+        <code>filter</code> $f\:T$</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(v))\]</td>
+      <td>\[O(\log|T|) +
+        \max_{(k\mapsto v)\in T} \mathcal{S}(f(v))\]</td>
     </tr>
     <tr>
-      <td><code>mapk</code> $f\:T$</td>
-      <td>\[\sum_{(k,v)\in T} W(f(k,v))\]</td>
-      <td>\[\max_{(k,v)\in T} S(f(k,v))\]</td>
-    </tr>
-    <tr>
-      <td><code>filter</code> $p\:T$</td>
-      <td>\[\sum_{(k,v)\in T} W(p(k,v))\]</td>
-      <td>\[O(\log|T|) + \max_{(k,v)\in T} S(p(k,v))\]</td>
+      <td><code>mapk</code> $f\:T$<br />
+        <code>filterk</code> $f\:T$</td>
+      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(k,v))\]</td>
+      <td>\[O(\log|T|) +
+        \max_{(k\mapsto v)\in T} \mathcal{S}(f(k,v))\]</td>
     </tr>
   </table>
 
@@ -88,7 +81,7 @@
     For <a href="#spec-reduce">reduce</a>, $\mathcal{O}_r(f,b,S)$
     represents the set of applications of $f$ as defined in the
     <a href="../sig/SEQUENCE.html"><code>SEQUENCE</code></a>
-    specification.
+    specification, where $S =$ <code>toSeq</code> $T$.
   </p>
   <table class="cost">
     <thead>
@@ -101,19 +94,22 @@
     <tr>
       <td><code>iter</code> $f\:b_0\:T$<br />
         <code>iterh</code> $f\:b_0\:T$</td>
-      <td>\[\sum_{i=0}^{|T|-1} W(f(b_i,(k_i,v_i)))\]</td>
-      <td>\[\sum_{i=0}^{|T|-1} S(f(b_i,(k_i,v_i)))\]</td>
+      <td>\[\sum_{i=0}^{|T|-1} \mathcal{W}(f(b_i,(k_i,v_i)))\]</td>
+      <td>\[\sum_{i=0}^{|T|-1} \mathcal{S}(f(b_i,(k_i,v_i)))\]</td>
     </tr>
     <tr>
       <td><code>reduce</code> $f\:b\:T$</td>
-      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)} W(f(x,y))\]</td>
+      <td>\[O(|S|)+\sum_{f(x,y)\in\mathcal{O}_r(f,b,S)}
+        \mathcal{W}(f(x,y))\]</td>
       <td>\[O\left(\log|S|\max_{f(x,y)\in\mathcal{O}_r(f,b,S)}
-        S(f(x,y))\right)\]</td>
+        \mathcal{S}(f(x,y))\right)\]</td>
     </tr>
   </table>
 
-  <p>For the following functions, assume that $n=\mathsf{max}(|S|,|T|)$
-    and $m=\mathsf{min}(|S|,|T|)$.</p>
+  <p>For the following functions which take an argument pair $(A,B)$,
+    assume that $n=\mathsf{max}(|A|,|B|)$ and $m=\mathsf{min}(|A|,|B|)$.
+    For <a href="#spec-merge">merge</a>, the given costs assume
+    that the work and span of the application of $f$ is constant.
   <table class="cost">
     <thead>
       <tr>
@@ -123,17 +119,17 @@
       </tr>
     </thead>
     <tr>
-      <td><code>union</code> $(S,T)$<br />
-        <code>inter</code> $(S,T)$<br />
-        <code>diff</code> $(S,T)$</td>
-      <td>\[O\left(m\log\left(\frac{n+m}{m}\right)\right)\]</td>
+      <td><code>union</code> $(X,Y)$<br />
+        <code>intersection</code> $(X,Y)$<br />
+        <code>difference</code> $(X,Y)$</td>
+      <td>\[O\left(m\log\left(1+\frac{n}{m}\right)\right)\]</td>
       <td>\[O(\log(n+m))\]</td>
     </tr>
     <tr>
-      <td><code>merge</code> $f\:(S,T)$<br />
-        <code>extract</code> $(S,T)$<br />
-        <code>erase</code> $(S,T)$</td>
-      <td>\[O\left(m\log\left(\frac{n+m}{m}\right)\right)\]</td>
+      <td><code>merge</code> $f\:(T_1,T_2)$<br />
+        <code>extract</code> $(T,X)$<br />
+        <code>erase</code> $(T,X)$</td>
+      <td>\[O\left(m\log\left(1+\frac{n}{m}\right)\right)\]</td>
       <td>\[O(\log(n+m))\]</td>
     </tr>
   </table>
