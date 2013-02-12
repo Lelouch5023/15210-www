@@ -29,23 +29,36 @@
   </code>
   <h2>Types</h2>
   <dl class="spec">
-    <dt><code>type <strong>rand</strong></code></dt>
+    <dt id="#spec-rand"><code>type <strong>rand</strong></code></dt>
     <dd>The abstract type as described in the overview.</dd>
   </dl>
 
   <h2>Values</h2>
   <dl class="spec">
-    <dt><code>val <strong>fromInt</strong> : int -> rand</code></dt>
+    <dt id="#spec-fromInt"><code>val <strong>fromInt</strong> : int -> rand</code></dt>
     <dd><code>(fromInt x)</code> evaluates to a value of type <code>rand</code>
       which uses $x$ as a seed value.</dd>
 
-    <dt><code>val <strong>next</strong> : rand -> rand</code></dt>
+    <dt id="#spec-next"><code>val <strong>next</strong> : rand -> rand</code></dt>
     <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
       evaluates to a value of type <code>rand</code>.</dd>
 
-    <dt><code>val <strong>split</strong> : rand -> (rand * rand)</code></dt>
+    <dt id="#spec-split"><code>val <strong>split</strong> : rand -> (rand * rand)</code></dt>
     <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
-      evaluates to a value of type <code>rand</code>.</dd>
+      evaluates to a value of type <code>(rand * rand)</code>.</dd>
+
+    <dt id="#spec-randomInt"><code>val <strong>randomInt</strong> : rand -> 
+                ((int * int) option) -> int -> int</code></dt>
+    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand>, a 
+      <code>(int * int) option</code>, and an <code>int</code> and evaluates to a
+      value of type evaluates to a value of type <code>int</code>.</dd>
+
+    <dt id="#spec-randomReal"><code>val <strong>next</strong> : rand ->
+                ((real * real) option) -> int -> real</code></dt>
+    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand>, a 
+      <code>(real * real) option</code>, and an <code>int</code> and evaluates to a
+      value of type evaluates to a value of type <code>real</code>.</dd>
+
  </dl>
 
   <!--#include virtual="../../includes/page-footer.html"-->
