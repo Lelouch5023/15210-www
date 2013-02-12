@@ -75,6 +75,8 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
+       links: - title: Autolab
+                url: "solutions/skylinelab/skylinelab-sol.pdf
 
      - topic: BigNum Lab out
        type: lab
@@ -142,7 +144,7 @@
   W: - topic: DFS
        type: recitation
 
-  R: - topic: Shortest Weighted Paths I 
+  R: - topic: Shortest Weighted Paths I
        type: lecture
 
 - # Week 7
