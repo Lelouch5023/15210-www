@@ -75,8 +75,6 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
-       links: - title: Solutions
-                url: "solutions/skylinelab/skylinelab-sol.pdf"
 
      - topic: BigNum Lab out
        type: lab
@@ -110,31 +108,70 @@
 
      - topic: Babble Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/handout"
 
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture09.pdf"
 
-  W: - topic: Graph Examples, StSeqs, and Staging
+  W: - topic: Graphs and StSeqs
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec05.pdf"
 
   R: - topic: BFS and Applications
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture10.pdf"
 
 - # Week 6
   M: - topic: Babble Lab due
+       type: lab
+     - topic: BFS Lab out
        type: lab
 
   T: - topic: DFS and Applications
        type: lecture
 
-  W: - topic: Midterm I Review
+  W: - topic: DFS
        type: recitation
 
-  R: - topic: DFS and Applications
+  R: - topic: Shortest Weighted Paths I 
+       type: lecture
+
+- # Week 7
+  T: - topic: Shortest Weighted Paths II
+       type: lecture
+
+  W: - topic: Midterm 1 review
+       type: recitation
+
+  R: - topic: Midterm I
+       type: midterm
+
+
+- # Week 8
+  M: - topic: BFS Lab due
+       type: lab
+
+     - topic: A* Lab out
+       type: lab
+
+  T: - topic: Randomized Algorithms
+       type: lecture
+
+  W: - topic:  Exam debrief
+       type: recitation
+
+  R: - topic: Quicksort and Lower bounds
        type: lecture
 
 
-- # Week 7
-  T: - topic: Midterm I
-       type: midterm
+
 

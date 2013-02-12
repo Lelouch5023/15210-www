@@ -10,22 +10,22 @@
   <code id="interface">
   type <a href="#spec-rand">rand</a><br />
 <br />
-  val <a href="#spec-fromInt">fromInt</a> : int -> rand<br />
-  val <a href="#spec-next">next</a> : rand -> rand<br />
-  val <a href="#spec-split">split</a> : rand -> (rand * rand)<br />
+  val <a href="#spec-fromInt">fromInt</a> : int -&gt; rand<br />
+  val <a href="#spec-next">next</a> : rand -&gt; rand<br />
+  val <a href="#spec-split">split</a> : rand --&gt;gt; (rand * rand)<br />
 
-  val <a href="#spec-randomInt">randomInt</a> : rand -> 
-                ((int * int) option) -> int -> int<br />
-  val <a href="#spec-randomReal">randomReal</a> : rand ->
-               ((real * real) option) -> real -> real<br />
+  val <a href="#spec-randomInt">randomInt</a> : rand -&gt; 
+                ((int * int) option) -&gt; int -&gt; int<br />
+  val <a href="#spec-randomReal">randomReal</a> : rand -&gt;
+               ((real * real) option) -&gt; real -&gt; real<br />
 
-  val <a href="#spec-randomIntSeq">randomIntSeq</a> : rand ->
-               ((int * int) option) -> int -> int Seq.seq<br />
-  val <a href="#spec-randomReal">randomRealSeq</a> : rand -> 
-               ((real * real) option) -> real -> real Seq.seq<br />
+  val <a href="#spec-randomIntSeq">randomIntSeq</a> : rand -&gt;
+               ((int * int) option) -&gt; int -&gt; int Seq.seq<br />
+  val <a href="#spec-randomReal">randomRealSeq</a> : rand -&gt; 
+               ((real * real) option) -&gt; real -&gt; real Seq.seq<br />
 
-  val <a href="#spec-hashInt">next</a> : rand -> int -> int<br />
-  val <a href="#spec-hashString">next</a> : rand -> string -> int<br />
+  val <a href="#spec-hashInt">next</a> : rand -&gt; int -&gt; int<br />
+  val <a href="#spec-hashString">next</a> : rand -&gt; string -&gt; int<br />
   </code>
   <h2>Types</h2>
   <dl class="spec">
@@ -35,26 +35,26 @@
 
   <h2>Values</h2>
   <dl class="spec">
-    <dt id="#spec-fromInt"><code>val <strong>fromInt</strong> : int -> rand</code></dt>
+    <dt id="spec-fromInt"><code>val <strong>fromInt</strong> : int -&gt; rand</code></dt>
     <dd><code>(fromInt x)</code> evaluates to a value of type <code>rand</code>
       which uses $x$ as a seed value.</dd>
 
-    <dt id="#spec-next"><code>val <strong>next</strong> : rand -> rand</code></dt>
+    <dt id="spec-next"><code>val <strong>next</strong> : rand -&gt; rand</code></dt>
     <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
       evaluates to a value of type <code>rand</code>.</dd>
 
-    <dt id="#spec-split"><code>val <strong>split</strong> : rand -> (rand * rand)</code></dt>
+    <dt id="spec-split"><code>val <strong>split</strong> : rand -&gt; (rand * rand)</code></dt>
     <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
       evaluates to a value of type <code>(rand * rand)</code>.</dd>
 
-    <dt id="#spec-randomInt"><code>val <strong>randomInt</strong> : rand -> 
-                ((int * int) option) -> int -> int</code></dt>
-    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand>, a 
+    <dt id="spec-randomInt"><code>val <strong>randomInt</strong> : rand -&gt; 
+                ((int * int) option) -&gt; int -&gt; int</code></dt>
+    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand>, an 
       <code>(int * int) option</code>, and an <code>int</code> and evaluates to a
       value of type evaluates to a value of type <code>int</code>.</dd>
 
-    <dt id="#spec-randomReal"><code>val <strong>next</strong> : rand ->
-                ((real * real) option) -> int -> real</code></dt>
+    <dt id="spec-randomReal"><code>val <strong>next</strong> : rand -&gt;
+                ((real * real) option) -&gt; int -&gt; real</code></dt>
     <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand>, a 
       <code>(real * real) option</code>, and an <code>int</code> and evaluates to a
       value of type evaluates to a value of type <code>real</code>.</dd>
