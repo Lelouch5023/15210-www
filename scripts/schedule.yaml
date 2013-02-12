@@ -132,11 +132,12 @@
   M: - topic: Babble Lab due
        type: lab
      - topic: BFS Lab out
+       type: lab
 
   T: - topic: DFS and Applications
        type: lecture
 
-  W: - topic: - DFS
+  W: - topic: DFS
        type: recitation
 
   R: - topic: Shortest Weighted Paths I 
@@ -146,7 +147,7 @@
   T: - topic: Shortest Weighted Paths II
        type: lecture
 
-  W: - topic: - Midterm 1 review
+  W: - topic: Midterm 1 review
        type: recitation
 
   R: - topic: Midterm I
