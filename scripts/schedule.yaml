@@ -117,12 +117,16 @@
 
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture09.pdf"
 
   W: - topic: Graph Examples, StSeqs, and Staging
        type: recitation
 
   R: - topic: BFS and Applications
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture10.pdf"
 
 - # Week 6
   M: - topic: Babble Lab due
