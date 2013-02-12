@@ -1,0 +1,53 @@
+<!--#set var="sig" value="RANDOM210"-->
+<!--#include virtual="../../includes/sig-header.html"-->
+  <h2>Overview</h2>
+  <p>The <code>RANDOM210</code> signature defines an abstract
+    type <code>rand</code> and provides functions to generate 
+    random values of varying types. 
+  </p>
+
+  <h2>Interface</h2>
+  <code id="interface">
+  type <a href="#spec-rand">rand</a><br />
+<br />
+  val <a href="#spec-fromInt">fromInt</a> : int -> rand<br />
+  val <a href="#spec-next">next</a> : rand -> rand<br />
+  val <a href="#spec-split">split</a> : rand -> (rand * rand)<br />
+
+  val <a href="#spec-randomInt">randomInt</a> : rand -> 
+                ((int * int) option) -> int -> int<br />
+  val <a href="#spec-randomReal">randomReal</a> : rand ->
+               ((real * real) option) -> real -> real<br />
+
+  val <a href="#spec-randomIntSeq">randomIntSeq</a> : rand ->
+               ((int * int) option) -> int -> int Seq.seq<br />
+  val <a href="#spec-randomReal">randomRealSeq</a> : rand -> 
+               ((real * real) option) -> real -> real Seq.seq<br />
+
+  val <a href="#spec-hashInt">next</a> : rand -> int -> int<br />
+  val <a href="#spec-hashString">next</a> : rand -> string -> int<br />
+  </code>
+  <h2>Types</h2>
+  <dl class="spec">
+    <dt><code>type <strong>rand</strong></code></dt>
+    <dd>The abstract type as described in the overview.</dd>
+  </dl>
+
+  <h2>Values</h2>
+  <dl class="spec">
+    <dt><code>val <strong>fromInt</strong> : int -> rand</code></dt>
+    <dd><code>(fromInt x)</code> evaluates to a value of type <code>rand</code>
+      which uses $x$ as a seed value.</dd>
+
+    <dt><code>val <strong>next</strong> : rand -> rand</code></dt>
+    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
+      evaluates to a value of type <code>rand</code>.</dd>
+
+    <dt><code>val <strong>split</strong> : rand -> (rand * rand)</code></dt>
+    <dd><code>(next r)</code> takes a value, $r$ of type <code>rand</rand> and 
+      evaluates to a value of type <code>rand</code>.</dd>
+ </dl>
+
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>
