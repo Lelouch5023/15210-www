@@ -42,11 +42,6 @@
       <td>\[O(\log|T|)\]</td>
     </tr>
     <tr>
-      <td><code>fromSeq</code> $S$</td>
-      <td>\[O(|S|\log|S|)\]</td>
-      <td>\[O(\log^2|S|)\]</td>
-    </tr>
-    <tr>
       <td><code>find</code> $T\:k$<br />
         <code>insert</code> $f\:(k,v)\:T$<br />
         <code>delete</code> $k\:T$</td>
@@ -65,24 +60,18 @@
       <td>\[O(\log^2|S|)\]</td>
     </tr>
     <tr>
-      <td><code>map</code> $f\:T$</td>
+      <td><code>map</code> $f\:T$<br />
+        <code>filter</code> $f\:T$</td>
       <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(v))\]</td>
-      <td>\[\max_{(k\mapsto v)\in T} \mathcal{S}(f(v))\]</td>
+      <td>\[O(\log|T|) +
+        \max_{(k\mapsto v)\in T} \mathcal{S}(f(v))\]</td>
     </tr>
     <tr>
-      <td><code>mapk</code> $f\:T$</td>
+      <td><code>mapk</code> $f\:T$<br />
+        <code>filterk</code> $f\:T$</td>
       <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(f(k,v))\]</td>
-      <td>\[\max_{(k\mapsto v)\in T} \mathcal{S}(f(k,v))\]</td>
-    </tr>
-    <tr>
-      <td><code>filter</code> $p\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(p(v))\]</td>
-      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} \mathcal{S}(p(v))\]</td>
-    </tr>
-    <tr>
-      <td><code>filterk</code> $p\:T$</td>
-      <td>\[\sum_{(k\mapsto v)\in T} \mathcal{W}(p(k,v))\]</td>
-      <td>\[O(\log|T|) + \max_{(k\mapsto v)\in T} \mathcal{S}(p(k,v))\]</td>
+      <td>\[O(\log|T|) +
+        \max_{(k\mapsto v)\in T} \mathcal{S}(f(k,v))\]</td>
     </tr>
   </table>
 
