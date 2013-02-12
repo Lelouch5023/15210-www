@@ -123,18 +123,44 @@
 - # Week 6
   M: - topic: Babble Lab due
        type: lab
+     - topic: BFS Lab out
 
   T: - topic: DFS and Applications
        type: lecture
 
-  W: - topic: Midterm I Review
+  W: - topic: - DFS
        type: recitation
 
-  R: - topic: DFS and Applications
+  R: - topic: Shortest Weighted Paths I 
+       type: lecture
+
+- # Week 7
+  T: - topic: Shortest Weighted Paths II
+       type: lecture
+
+  W: - topic: - Midterm 1 review
+       type: recitation
+
+  R: - topic: Midterm I
+       type: midterm
+
+
+- # Week 8
+  M: - topic: BFS Lab due
+       type: lab
+
+     - topic: A* Lab out
+       type: lab
+
+  T: - topic: Randomized Algorithms
+       type: lecture
+
+  W: - topic:  Exam debrief
+       type: recitation
+
+  R: - topic: Quicksort and Lower bounds
        type: lecture
 
 
-- # Week 7
-  T: - topic: Midterm I
-       type: midterm
+
 
