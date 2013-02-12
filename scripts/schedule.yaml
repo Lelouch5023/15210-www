@@ -114,8 +114,10 @@
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture
 
-  W: - topic: Graph Examples, StSeqs, and Staging
+  W: - topic: Graphs and StSeqs
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec05.pdf"
 
   R: - topic: BFS and Applications
        type: lecture
