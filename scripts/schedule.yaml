@@ -75,8 +75,8 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handin"
+       links: - title: Solutions
+                url: "solutions/skylinelab/skylinelab-sol.pdf"
 
      - topic: BigNum Lab out
        type: lab
