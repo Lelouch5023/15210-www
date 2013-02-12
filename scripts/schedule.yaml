@@ -110,6 +110,12 @@
 
      - topic: Babble Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/handout"
 
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture
