@@ -75,6 +75,8 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
+       links: - title: Solutions
+                url: "solutions/skylinelab/skylinelab-sol.pdf"
 
      - topic: BigNum Lab out
        type: lab
@@ -101,7 +103,6 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture08.pdf"
 
-
 - # Week 5
   M: - topic: BigNum Lab due
        type: lab
@@ -120,8 +121,10 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture09.pdf"
 
-  W: - topic: Graph Examples, StSeqs, and Staging
+  W: - topic: Graphs and StSeqs
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec05.pdf"
 
   R: - topic: BFS and Applications
        type: lecture
@@ -131,7 +134,7 @@
 - # Week 6
   M: - topic: Babble Lab due
        type: lab
-     - topic: BFS Lab out
+     - topic: Thesaurus Lab out
        type: lab
 
   T: - topic: DFS and Applications
@@ -140,11 +143,11 @@
   W: - topic: DFS
        type: recitation
 
-  R: - topic: Shortest Weighted Paths I 
+  R: - topic: Shortest Weighted Paths I
        type: lecture
 
 - # Week 7
-  M: - topic: BFS Lab due
+  M: - topic: Thesaurus Lab due
        type: lab
 
   T: - topic: Shortest Weighted Paths II
@@ -169,7 +172,3 @@
 
   R: - topic: Quicksort and Lower bounds
        type: lecture
-
-
-
-
