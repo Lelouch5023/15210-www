@@ -75,7 +75,7 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
-       links: - title: Autolab
+       links: - title: Solutions
                 url: "solutions/skylinelab/skylinelab-sol.pdf
 
      - topic: BigNum Lab out
