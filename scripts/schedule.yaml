@@ -76,7 +76,7 @@
   M: - topic: Skyline Lab due
        type: lab
        links: - title: Solutions
-                url: "solutions/skylinelab/skylinelab-sol.pdf
+                url: "solutions/skylinelab/skylinelab-sol.pdf"
 
      - topic: BigNum Lab out
        type: lab
