@@ -42,8 +42,10 @@
 - # Week 3
   M: - topic: Paren Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/parenlab/handin"
+       links: - title: Written solutions
+                url: "solutions/parenlab/parenlab-sol.pdf"
+              - title: Code solutions
+                url: "solutions/parenlab/code.pdf"
 
      - topic: Skyline Lab out
        type: lab
@@ -73,20 +75,33 @@
 - # Week 4
   M: - topic: Skyline Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/skylinelab/handin"
+       links: - title: Solutions
+                url: "solutions/skylinelab/skylinelab-sol.pdf"
 
      - topic: BigNum Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/bignumlab/handout"
 
-  T: - topic: Collect, Sets, and Tables
+  T: - topic: Collect and Sets
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture07.pdf"
 
-  W: - topic: Fields and MapCollectReduce
+
+  W: - topic: Scan, Fields and MapCollectReduce
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec04.pdf"
 
   R: - topic: Sets and Tables II
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture08.pdf"
 
 - # Week 5
   M: - topic: BigNum Lab due
@@ -94,45 +109,56 @@
 
      - topic: Babble Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/babblelab/handout"
 
   T: - topic: Graphs, Graph Representations, and Graph Search
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture09.pdf"
 
-  W: - topic: Graph Examples, StSeqs, and Staging
+  W: - topic: Graphs and StSeqs
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec05.pdf"
 
   R: - topic: BFS and Applications
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture10.pdf"
 
 - # Week 6
   M: - topic: Babble Lab due
        type: lab
-     - topic: bfs Lab out
+     - topic: Thesaurus Lab out
        type: lab
 
   T: - topic: DFS and Applications
        type: lecture
 
-  W: - topic: Midterm I Review
+  W: - topic: DFS
        type: recitation
 
-  R: - topic: SSSP I
+  R: - topic: Shortest Weighted Paths I
        type: lecture
 
-
 - # Week 7
-  T: - topic: Midterm I
+  T: - topic: Shortest Weighted Paths II
+       type: lecture
+
+  W: - topic: Midterm 1 review
+       type: recitation
+
+  R: - topic: Midterm I
        type: midterm
 
 
-  W: - topic: Dijkstra
-       type: recitation
-
-  R: - topic: SSSP II
-       type: lecture
-
 - # Week 8
-  M: - topic: bfs Lab due
+  M: - topic: Thesaurus Lab due
        type: lab
 
      - topic: A* Lab out

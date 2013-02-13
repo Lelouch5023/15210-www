@@ -103,7 +103,6 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture08.pdf"
 
-
 - # Week 5
   M: - topic: BigNum Lab due
        type: lab
@@ -135,7 +134,7 @@
 - # Week 6
   M: - topic: Babble Lab due
        type: lab
-     - topic: BFS Lab out
+     - topic: Thesaurus Lab out
        type: lab
 
   T: - topic: DFS and Applications
@@ -159,7 +158,7 @@
 
 
 - # Week 8
-  M: - topic: BFS Lab due
+  M: - topic: Thesaurus Lab due
        type: lab
 
      - topic: A* Lab out
@@ -173,7 +172,3 @@
 
   R: - topic: Quicksort and Lower bounds
        type: lecture
-
-
-
-
