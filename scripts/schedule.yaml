@@ -144,6 +144,9 @@
        type: lecture
 
 - # Week 7
+  M: - topic: BFS Lab due
+       type: lab
+
   T: - topic: Shortest Weighted Paths II
        type: lecture
 
@@ -155,10 +158,7 @@
 
 
 - # Week 8
-  M: - topic: BFS Lab due
-       type: lab
-
-     - topic: A* Lab out
+  M: - topic: A* Lab out
        type: lab
 
   T: - topic: Randomized Algorithms
