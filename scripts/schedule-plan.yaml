@@ -150,7 +150,7 @@
   T: - topic: Shortest Weighted Paths II
        type: lecture
 
-  W: - topic: Midterm 1 review
+  W: - topic: Midterm I review
        type: recitation
 
   R: - topic: Midterm I
@@ -167,15 +167,15 @@
   T: - topic: Randomized Algorithms
        type: lecture
 
-  W: - topic:  Exam debrief
+  W: - topic: Exam debrief / Probability
        type: recitation
 
-  R: - topic: Quicksort and Lower bounds
+  R: - topic: Graph Contraction I 
        type: lecture
 
 - # Week 9
   M: - topic: SPRING BREAK
-       type: break
+       type: lecture
 
 - # Week 10
   M: - topic: A* due
@@ -184,13 +184,13 @@
      - topic: dfs out
        type: lab
 
-  T: - topic: Graph Contraction I
+  T: - topic: Graph Contraction II
        type: lecture
 
-  W: - topic: Graph Contraction
+  W: - topic: Probability / Max-cut
        type: recitation
 
-  R: - topic: Graph Contraction II
+  R: - topic: Minimum Spanning Trees
        type: lecture
 
 - # Week 11
@@ -200,13 +200,13 @@
      - topic: MIS out
        type: lab
 
-  T: - topic: Minimum Spanning Trees
+  T: - topic: Quicksort and Lower bounds
        type: lecture
 
-  W: - topic: Probability Review
+  W: - topic: MST
        type: recitation
 
-  R: - topic: Balanced Trees I
+  R: - topic: Balanced Trees
        type: lecture
 
 - # Week 12
@@ -226,20 +226,21 @@
        type: lecture
 
 - # Week 13
+  M: - topic:  MST due
+       type: lab
+
   T: - topic: Ordered Set, Augmented Trees
        type: lecture
 
-  W: - topic: Exam debriefing & Treaps
+  W: - topic: Exam debriefing (& Treaps?)
        type: recitation
 
   R: - topic: Dynamic Programming I
        type: lecture
 
 - # Week 14
-  M: - topic:  MST due
-       type: lab
-
-     - topic:  RangeQ out
+ 
+  M: - topic:  RangeQ out
        type: lab
 
   T: - topic: Dynamic Programming II
@@ -252,32 +253,32 @@
        type: break
 
 - # Week 15
+  M: - topic:  RangeQ due
+       type: lab
+
+     - topic: DP out
+       type: lab
+
   T: - topic: Hashing
        type: lecture
 
   W: - topic: More DP
        type: recitation
 
-     - topic:  RangeQ due
-       type: lab
-
-     - topic: DP out
-       type: lab
-
   R: - topic: Priority Queues
-       type: break
+       type: lecture
 
 - # Week 16
 
   T: - topic: Other Parallel Languages
        type: lecture
 
+  W: - topic: DP due
+       type: lab
 
-  W: - topic: 
+     - topic: Hashing/Leftist Heaps
        type: recitation
 
   R: - topic: Review
        type: lecture
 
-  F: - topic:  DP due
-       type: lab

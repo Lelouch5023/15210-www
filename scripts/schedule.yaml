@@ -140,6 +140,12 @@
        type: lab
      - topic: Thesaurus Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab/handout"
 
   T: - topic: DFS and Applications
        type: lecture
@@ -155,7 +161,8 @@
 - # Week 7
   M: - topic: Thesaurus Lab due
        type: lab
-
+       links: - title: Handin
+                url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab/handin"
   T: - topic: Shortest Weighted Paths II
        type: lecture
 
@@ -173,8 +180,29 @@
   T: - topic: Randomized Algorithms
        type: lecture
 
-  W: - topic:  Exam debrief
+  W: - topic: Exam debrief
        type: recitation
 
-  R: - topic: Quicksort and Lower bounds
+  R: - topic: Graph Contraction I
        type: lecture
+
+- # Week 9
+  M: - topic: SPRING BREAK
+       type: lecture
+
+- # Week 10
+  M: - topic: A* Lab due
+       type: lab
+
+     - topic: Bridges Lab out
+       type: lab
+
+  T: - topic: Graph Contraction II
+       type: lecture
+
+  W: - topic: Probability Review
+       type: recitation
+
+  R: - topic: Minimum Spanning Trees
+       type: lecture
+
