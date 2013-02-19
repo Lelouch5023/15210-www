@@ -152,8 +152,10 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture11.pdf"
 
-  W: - topic: DFS
+  W: - topic: DFS and Staging
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec06.pdf"
 
   R: - topic: Shortest Weighted Paths I
        type: lecture
