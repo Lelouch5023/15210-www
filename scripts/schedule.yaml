@@ -143,6 +143,8 @@
 
   T: - topic: DFS and Applications
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture11.pdf"
 
   W: - topic: DFS
        type: recitation
