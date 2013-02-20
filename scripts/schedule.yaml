@@ -108,7 +108,9 @@
 - # Week 5
   M: - topic: BigNum Lab due
        type: lab
-       links: - title: Code solutions
+       links: - title: Written solutions
+                url: "solutions/bignumlab/bignumlab-sol.pdf"
+              - title: Code solutions
                 url: "solutions/bignumlab/code.pdf"
 
      - topic: Babble Lab out
