@@ -11,7 +11,6 @@
   signature <a href="sig/EQKEY.html">EQKEY</a><br />
   signature <a href="sig/HASHKEY.html">HASHKEY</a><br />
   signature <a href="sig/ORDKEY.html">ORDKEY</a><br />
-  signature <a href="sig/PRIORITY_QUEUE.html">PRIORITY_QUEUE</a><br />
   -->
   signature <a href="sig/SET.html">SET</a><br />
   signature <a href="sig/SEQUENCE.html">SEQUENCE</a><br />
@@ -19,11 +18,14 @@
   signature <a href="sig/ST_SEQUENCE.html">ST_SEQUENCE</a><br />
   -->
   signature <a href="sig/TABLE.html">TABLE</a>
+  signature <a href="sig/PRIORITY_QUEUE.html">PRIORITY_QUEUE</a><br />
   </code>
   <h2>Cost Specifications</h2>
   <code class="docs-index">
   structure <a href="cost/ArraySequence.html">ArraySequence</a><br />
   functor <a href="cost/MkTreapTable.html">MkTreapTable</a>
+  functor <a href="cost/MkSkewBinomialHeapPQ.html">MkSkewBinomialHeapPQ</a>
+  functor <a href="cost/MkLeftistHeapPQ.html">MkLeftistHeapPQ</a>
   </code>
   <!--#include virtual="../includes/page-footer.html"-->
 </body>
