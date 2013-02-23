@@ -5,7 +5,7 @@
   functor <a href="../cost/MkSkewBinomialHeapPQ.html">MkSkewBinomialHeapPQ</a><br />
   functor <a href="../cost/MkLeftistHeapPQ.html">MkLeftistHeapPQ</a>
   </code>
-  <p>A <em>pq</em> $S$ is a finite collection of key value pairs
+  <p>A priority queue $Q$ is a finite collection of key value pairs
     that allows insertion of new pairs and lookup and deletion
     of the minimum key.
   </p>
@@ -37,14 +37,14 @@
   <dl class="spec">
     <dt id="spec-Key"><code>structure <strong>Key</strong> : ORDKEY</code></dt>
     <dd>The <code>Key</code> substructure defines the type of
-      keys in a pq, providing equality, <code>toString</code>,
+      keys in a priority queue, providing equality, <code>toString</code>,
       and comparison functions on such elements.</dd>
   </dl>
 
   <h2>Types</h2>
   <dl class="spec">
-    <dt id="spec-set"><code>type <strong>'a pq</strong></code></dt>
-    <dd>This is the abstract type that represents a pq
+    <dt id="spec-pq"><code>type <strong>'a pq</strong></code></dt>
+    <dd>This is the abstract type that represents a priority queue
       as described in the overview.</dd>
 
     <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code></dt>
@@ -56,21 +56,21 @@
   <dl class="spec">
     <dt id="spec-empty"><code>val <strong>empty</strong> :
        unit -&gt; 'a pq</code></dt>
-    <dd><code>(empty ())</code> evaluates to the empty pq.</dd>
+    <dd><code>(empty ())</code> evaluates to the empty priority queue.</dd>
 
     <dt id="spec-singleton"><code>val <strong>singleton</strong> :
        (key * 'a) -&gt; 'a pq</code></dt>
-    <dd><code>(singleton (k, v))</code> evaluates to the pq
+    <dd><code>(singleton (k, v))</code> evaluates to the priority queue
       containing only the element $(k, v)$.</dd>
 
     <dt id="spec-fromList"><code>val <strong>fromList</strong> :
        (key * 'a) list -&gt; 'a pq</code></dt>
-    <dd><code>(fromList l)</code> is the pq containing the items in $l$</dd>
+    <dd><code>(fromList l)</code> is the priority queue containing the items in $l$</dd>
 
     <dt id="spec-size"><code>val <strong>size</strong> :
-       set -&gt; int</code></dt>
+       'a pq -&gt; int</code></dt>
     <dd><code>(size Q)</code> evaluates to $|Q|$,
-      the number of elements in the pq $Q$.</dd>
+      the number of elements in the priority queue $Q$.</dd>
 
     <dt id="spec-findMin"><code>val <strong>findMin</strong> :
        'a pq -&gt; (key * 'a) option</code></dt>
@@ -81,17 +81,17 @@
 
     <dt id="spec-insert"><code>val <strong>insert</strong> :
        (key * 'a) -&gt; 'a pq -&gt; 'a pq</code></dt>
-    <dd><code>(insert (k, v) Q)</code> evaluates to the pq $Q$ with $(k, v)$ added.</dd>
+    <dd><code>(insert (k, v) Q)</code> evaluates to the priority queue $Q$ with $(k, v)$ added.</dd>
 
     <dt id="spec-deleteMin"><code>val <strong>deleteMin</strong> :
        'a pq -&gt; (key * 'a) option * 'a pq</code></dt>
-    <dd><code>(delete k X)</code> evaluates to <code>(NONE, Q)</code>
-      if $|Q| = 0$ or <code>findMin Q</code> and the pq $Q$
+    <dd><code>(deleteMin k Q)</code> evaluates to <code>(NONE, Q)</code>
+      if $|Q| = 0$ or <code>findMin Q</code> and the priority queue $Q$
       with the minimum removed otherwise.</dd>
 
     <dt id="spec-meld"><code>val <strong>meld</strong> :
        'a pq * 'a pq -&gt; 'a pq</code></dt>
-    <dd><code>(union (Q, R))</code> evaluates to the pq with
+    <dd><code>(meld (Q, R))</code> evaluates to the priority queue with
       all the elements in $Q$ and $R$.</dd>
   </dl>
 
