@@ -164,6 +164,25 @@ sup {
 .sections li {
   margin-top: 5px;
 }
+.sections,
+.officehours {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.officehours {
+  width: 480px;
+}
+.officehours dt {
+  border-top: 1px solid #ddd;
+  color: #7109aa;
+  margin-bottom: -14px;
+  margin-top: 3px;
+  padding-top: 5px;
+}
+.officehours dd {
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
 .instructors {
   margin-top: 15px;
 }
