@@ -1,0 +1,100 @@
+<!--#set var="sig" value="PRIORITY_QUEUE"-->
+<!--#include virtual="../../includes/sig-header.html"-->
+  <h2>Overview</h2>
+  <code>
+  functor <a href="../cost/MkSkewBinomialHeapPQ.html">MkSkewBinomialHeapPQ</a><br />
+  functor <a href="../cost/MkLeftistHeapPQ.html">MkLeftistHeapPQ</a>
+  </code>
+  <p>A priority queue $Q$ is a finite collection of key value pairs
+    that allows insertion of new pairs and lookup and deletion
+    of the minimum key.
+  </p>
+
+  <h2>Interface</h2>
+  <code id="interface">
+  structure Key : <a href="ORDKEY.html">ORDKEY</a><br />
+<br />
+  type <a href="#spec-pq">'a pq</a><br />
+  type <a href="#spec-key">key</a> = Key.t<br />
+<br />
+  val <a href="#spec-empty">empty</a> : unit -&gt; 'a pq<br />
+  val <a href="#spec-singleton">singleton</a> : (key * 'a) -&gt; 'a pq<br />
+  val <a href="#spec-fromList">fromList</a> : (key * 'a) list -&gt; 'a pq<br />
+<br />
+  val <a href="#spec-size">size</a> : 'a pq -&gt; int<br />
+  val <a href="#spec-findMin">findMin</a> : 'a pq -&gt; (key * 'a) option<br />
+<br />
+  val <a href="#spec-insert">insert</a> : (key * 'a) -&gt; 'a pq -&gt; 'a pq <br />
+  val <a href="#spec-deleteMin">deleteMin</a> : 'a pq -&gt; (key * 'a) option * 'a pq<br />
+  val <a href="#spec-meld">meld</a> : ('a pq * 'a pq) -&gt; 'a pq<br />
+<br />
+  type <a href="#spec-t">'a t</a> = 'a pq<br />
+  val <a href="#spec--d">$</a> : (key * 'a) -&gt; 'a pq<br />
+  val <a href="#spec--p">%</a> : (key * 'a) list -&gt; 'a pq
+  </code>
+
+  <h2>Substructures</h2>
+  <dl class="spec">
+    <dt id="spec-Key"><code>structure <strong>Key</strong> : ORDKEY</code></dt>
+    <dd>The <code>Key</code> substructure defines the type of
+      keys in a priority queue, providing equality, <code>toString</code>,
+      and comparison functions on such elements.</dd>
+  </dl>
+
+  <h2>Types</h2>
+  <dl class="spec">
+    <dt id="spec-pq"><code>type <strong>'a pq</strong></code></dt>
+    <dd>This is the abstract type that represents a priority queue
+      as described in the overview.</dd>
+
+    <dt id="spec-key"><code>type <strong>key</strong> = Key.t</code></dt>
+    <dd>This indicates that the keys in a priority queue
+      must be of type <code>Key.t</code>.</dd>
+  </dl>
+
+  <h2>Values</h2>
+  <dl class="spec">
+    <dt id="spec-empty"><code>val <strong>empty</strong> :
+       unit -&gt; 'a pq</code></dt>
+    <dd><code>(empty ())</code> evaluates to the empty priority queue.</dd>
+
+    <dt id="spec-singleton"><code>val <strong>singleton</strong> :
+       (key * 'a) -&gt; 'a pq</code></dt>
+    <dd><code>(singleton (k, v))</code> evaluates to the priority queue
+      containing only the element $(k, v)$.</dd>
+
+    <dt id="spec-fromList"><code>val <strong>fromList</strong> :
+       (key * 'a) list -&gt; 'a pq</code></dt>
+    <dd><code>(fromList l)</code> is the priority queue containing the items in $l$</dd>
+
+    <dt id="spec-size"><code>val <strong>size</strong> :
+       'a pq -&gt; int</code></dt>
+    <dd><code>(size Q)</code> evaluates to $|Q|$,
+      the number of elements in the priority queue $Q$.</dd>
+
+    <dt id="spec-findMin"><code>val <strong>findMin</strong> :
+       'a pq -&gt; (key * 'a) option</code></dt>
+    <dd><code>(findMin Q)</code> evaluates to <code>NONE</code> if $|Q| = 0$
+      or <code>SOME (k, v)</code> where $k$ is the minimum key in $Q$, and $v$ is
+      the value paired with that key. If there are multiple instances
+      of the smallest key, the pair that is returned is arbitrary.</dd>
+
+    <dt id="spec-insert"><code>val <strong>insert</strong> :
+       (key * 'a) -&gt; 'a pq -&gt; 'a pq</code></dt>
+    <dd><code>(insert (k, v) Q)</code> evaluates to the priority queue $Q$ with $(k, v)$ added.</dd>
+
+    <dt id="spec-deleteMin"><code>val <strong>deleteMin</strong> :
+       'a pq -&gt; (key * 'a) option * 'a pq</code></dt>
+    <dd><code>(deleteMin k Q)</code> evaluates to <code>(NONE, Q)</code>
+      if $|Q| = 0$ or <code>findMin Q</code> and the priority queue $Q$
+      with the minimum removed otherwise.</dd>
+
+    <dt id="spec-meld"><code>val <strong>meld</strong> :
+       'a pq * 'a pq -&gt; 'a pq</code></dt>
+    <dd><code>(meld (Q, R))</code> evaluates to the priority queue with
+      all the elements in $Q$ and $R$.</dd>
+  </dl>
+
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

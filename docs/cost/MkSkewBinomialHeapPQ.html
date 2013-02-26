@@ -1,0 +1,49 @@
+<!--#set var="name" value="MkSkewBinomialHeapPQ"-->
+<!--#set var="type" value="functor"-->
+<!--#include virtual="../../includes/cost-header.html"-->
+  <h2>Overview</h2>
+  <code>functor MkSkewBinomialHeapPQ(structure OrdKey :
+    <!--<a href="../sig/ORDKEY.html">-->ORDKEY<!--</a>-->) : PRIORITY_QUEUE</code>
+  <p>Implements <a href="../sig/PRIORITY_QUEUE.html"><code>PRIORITY_QUEUE</code></a>.
+  </p>
+
+  <h2><code>PRIORITY_QUEUE</code> Cost Specifications</h2>
+  <p>The following costs assume that the work and span of the application
+    of <code>Key.compare</code> is constant.
+  </p>
+  <table class="cost">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Work</td>
+        <td>Span</td>
+      </tr>
+    </thead>
+    <tr>
+      <td><code>empty</code> ()<br />
+          <code>singleton</code> $(k,v)$<br />
+          <code>size</code> $Q$<br />
+          <code>findMin</code> $Q$<br />
+          <code>insert</code> $(k,v)\:Q$</td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>fromList</code> $l$</td>
+      <td>\[O(|l|)\]</td>
+      <td>\[O(|l|)\]</td>
+    </tr>
+    <tr>
+      <td><code>deleteMin</code> $Q$</td>
+      <td>\[O(\log|Q|)\]</td>
+      <td>\[O(\log|Q|)\]</td>
+    </tr>
+    <tr>
+      <td><code>meld</code> $(Q,R)$</td>
+      <td>\[O(\log|Q + R|)\]</td>
+      <td>\[O(\log|Q + R|)\]</td>
+    </tr>
+  </table>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>

@@ -215,7 +215,7 @@
          (k_n\mapsto f(k_n,v_n))\}$.</dd>
 
     <dt id="spec-filter"><code>val <strong>filter</strong> :
-      (key * 'a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
+      ('a -&gt; bool) -&gt; 'a table -&gt; 'a table</code></dt>
     <dd><code>(filter p T)</code> evaluates to the table $T'$ such that
       $(k\mapsto v)\in T'$ if and only if $(k\mapsto v)\in T$ and
       $p(v)$ evaluates to <code>true</code>.</dd>
