@@ -175,7 +175,8 @@
                 url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab/handin"
   T: - topic: Shortest Weighted Paths II
        type: lecture
-       url: "lectures/lecture13.pdf"
+       links: - title: Lecture Notes
+                url: "lectures/lecture13.pdf"
 
   W: - topic: Midterm 1 review
        type: recitation
