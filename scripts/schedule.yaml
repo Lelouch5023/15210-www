@@ -140,6 +140,10 @@
 - # Week 6
   M: - topic: Babble Lab due
        type: lab
+       links: - title: Written solutions
+                url: "solutions/babblelab/babblelab-sol.pdf"
+              - title: Code solutions
+                url: "solutions/babblelab/code.pdf"
      - topic: Thesaurus Lab out
        type: lab
        links: - title: Autolab
