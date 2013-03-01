@@ -171,8 +171,8 @@
 - # Week 7
   M: - topic: Thesaurus Lab due
        type: lab
-       links: - title: Handin
-                url: "https://autolab.cs.cmu.edu/15210-s13/thesauruslab/handin"
+       links: - title: Code solutions
+                url: "solutions/thesauruslab/code.pdf"
   T: - topic: Shortest Weighted Paths II
        type: lecture
        links: - title: Lecture Notes
