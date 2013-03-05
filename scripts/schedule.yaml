@@ -178,43 +178,84 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture13.pdf"
 
-  W: - topic: Midterm 1 review
+  W: - topic: Midterm I review
        type: recitation
+       links: - title: Practice Midterm
+                url: "exams/exam1-practice.pdf"
+              - title: Solutions
+                url: "exams/exam1-practice-sol.pdf"
 
   R: - topic: Midterm I
        type: midterm
-
+       links: - title: Solutions
+                url: "solutions/exam1-sol.pdf"
 
 - # Week 8
-  M: - topic: A* Lab out
+  M: - topic: Abridged Lab out
        type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/abridgedlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/abridgedlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/abridgedlab/handout"
 
   T: - topic: Randomized Algorithms
        type: lecture
 
-  W: - topic: Exam debrief
+  W: - topic: Exam Debrief
        type: recitation
 
   R: - topic: Graph Contraction I
        type: lecture
 
 - # Week 9
-  M: - topic: SPRING BREAK
+  T: - topic: Spring Break &mdash; No Lecture
+       type: lecture
+
+  R: - topic: Spring Break &mdash; No Lecture
        type: lecture
 
 - # Week 10
-  M: - topic: A* Lab due
-       type: lab
-
-     - topic: Bridges Lab out
+  M: - topic: MIS Lab out
        type: lab
 
   T: - topic: Graph Contraction II
        type: lecture
 
-  W: - topic: Probability Review
+  W: - topic: Abridged Lab due
+       type: lab
+     - topic: Probability Review
        type: recitation
 
   R: - topic: Minimum Spanning Trees
        type: lecture
+
+- # Week 11
+  M: - topic: MIS Lab due
+       type: lab
+     - topic: MST Lab out
+       type: lab
+  
+  T: - topic: Quicksort and Lower Bounds
+       type: lecture
+
+  W: - topic: Bor&#367;vka's Algorithm
+       type: recitation
+
+  R: - topic: Balanced Trees
+       type: lecture
+
+- # Week 12
+  M: - topic: MST Lab due (No Late Days)
+       type: lab
+  
+  T: - topic: Treaps
+       type: lecture
+
+  W: - topic: Midterm II Review
+       type: recitation
+
+  R: - topic: Midterm II
+       type: midterm
 
