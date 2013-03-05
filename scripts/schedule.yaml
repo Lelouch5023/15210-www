@@ -202,6 +202,9 @@
 
   T: - topic: Randomized Algorithms
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture15.pdf"
+
 
   W: - topic: Exam Debrief
        type: recitation
