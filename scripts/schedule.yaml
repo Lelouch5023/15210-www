@@ -206,8 +206,10 @@
                 url: "lectures/lecture15.pdf"
 
 
-  W: - topic: Exam Debrief
+  W: - topic: DFS Numberings
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec08.pdf"
 
   R: - topic: Graph Contraction I
        type: lecture
@@ -239,7 +241,7 @@
        type: lab
      - topic: MST Lab out
        type: lab
-  
+
   T: - topic: Quicksort and Lower Bounds
        type: lecture
 
@@ -252,7 +254,7 @@
 - # Week 12
   M: - topic: MST Lab due (No Late Days)
        type: lab
-  
+
   T: - topic: Treaps
        type: lecture
 
