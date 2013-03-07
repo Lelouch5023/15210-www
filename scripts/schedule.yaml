@@ -200,7 +200,7 @@
               - title: Handout
                 url: "https://autolab.cs.cmu.edu/15210-s13/abridgedlab/handout"
 
-  T: - topic: Randomized Algorithms
+  T: - topic: Randomized Algorithms I
        type: lecture
        links: - title: Lecture Notes
                 url: "lectures/lecture15.pdf"
@@ -211,8 +211,10 @@
        links: - title: Recitation Notes
                 url: "recitations/rec08.pdf"
 
-  R: - topic: Graph Contraction I
+  R: - topic: Randomized Algorithm II & Graph Contraction I
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture16.pdf"
 
 - # Week 9
   T: - topic: Spring Break &mdash; No Lecture
