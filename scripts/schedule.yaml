@@ -203,7 +203,7 @@
   T: - topic: Randomized Algorithms I
        type: lecture
        links: - title: Lecture Notes
-                url: "lectures/lecture15.pdf"
+                url: "lectures/lecture14.pdf"
 
 
   W: - topic: DFS Numberings
@@ -211,10 +211,10 @@
        links: - title: Recitation Notes
                 url: "recitations/rec08.pdf"
 
-  R: - topic: Randomized Algorithm II & Graph Contraction I
+  R: - topic: Randomized Algorithm II 
        type: lecture
        links: - title: Lecture Notes
-                url: "lectures/lecture16.pdf"
+                url: "lectures/lecture15.pdf"
 
 - # Week 9
   T: - topic: Spring Break &mdash; No Lecture
@@ -227,8 +227,10 @@
   M: - topic: MIS Lab out
        type: lab
 
-  T: - topic: Graph Contraction II
+  T: - topic: Graph Contraction 
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture16.pdf"
 
   W: - topic: Abridged Lab due
        type: lab
