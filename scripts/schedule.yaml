@@ -211,7 +211,7 @@
        links: - title: Recitation Notes
                 url: "recitations/rec08.pdf"
 
-  R: - topic: Randomized Algorithm II 
+  R: - topic: Randomized Algorithm II
        type: lecture
        links: - title: Lecture Notes
                 url: "lectures/lecture15.pdf"
@@ -227,15 +227,17 @@
   M: - topic: MIS Lab out
        type: lab
 
-  T: - topic: Graph Contraction 
+  T: - topic: Graph Contraction
        type: lecture
        links: - title: Lecture Notes
                 url: "lectures/lecture16.pdf"
 
   W: - topic: Abridged Lab due
        type: lab
-     - topic: Probability Review
+     - topic: Probability and Graph Contration
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec09.pdf"
 
   R: - topic: Minimum Spanning Trees
        type: lecture
