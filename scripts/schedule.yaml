@@ -224,9 +224,6 @@
        type: lecture
 
 - # Week 10
-  M: - topic: MIS Lab out
-       type: lab
-
   T: - topic: Graph Contraction
        type: lecture
        links: - title: Lecture Notes
@@ -234,6 +231,14 @@
 
   W: - topic: Abridged Lab due
        type: lab
+     - topic: MIST Lab out
+       type: lab
+       links: - title: Autolab
+                url: "https://autolab.cs.cmu.edu/15210-s13/mistlab"
+              - title: PDF
+                url: "https://autolab.cs.cmu.edu/15210-s13/mistlab/writeup"
+              - title: Handout
+                url: "https://autolab.cs.cmu.edu/15210-s13/mistlab/handout"
      - topic: Probability and Graph Contration
        type: recitation
        links: - title: Recitation Notes
@@ -243,11 +248,6 @@
        type: lecture
 
 - # Week 11
-  M: - topic: MIS Lab due
-       type: lab
-     - topic: MST Lab out
-       type: lab
-
   T: - topic: Quicksort and Lower Bounds
        type: lecture
 
@@ -258,7 +258,7 @@
        type: lecture
 
 - # Week 12
-  M: - topic: MST Lab due (No Late Days)
+  M: - topic: MIST Lab due
        type: lab
 
   T: - topic: Treaps
