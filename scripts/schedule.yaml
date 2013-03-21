@@ -268,10 +268,10 @@
 
   W: - topic: Midterm II Review
        type: recitation
-       links: - title: Practice Midterm
-                url: "exams/exam2-practice.pdf"
-              - title: Solutions
-                url: "exams/exam2-practice-sol.pdf"
+       links: # - title: Practice Midterm
+              #   url: "exams/exam2-practice.pdf"
+              # - title: Solutions
+              #   url: "exams/exam2-practice-sol.pdf"
 
   R: - topic: Midterm II
        type: midterm
