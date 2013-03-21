@@ -229,7 +229,11 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture16.pdf"
 
-  W: - topic: Abridged Lab due
+  W: - topic: Probability and Graph Contration
+       type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec09.pdf"
+     - topic: Abridged Lab due
        type: lab
      - topic: MIST Lab out
        type: lab
@@ -239,10 +243,6 @@
                 url: "https://autolab.cs.cmu.edu/15210-s13/mistlab/writeup"
               - title: Handout
                 url: "https://autolab.cs.cmu.edu/15210-s13/mistlab/handout"
-     - topic: Probability and Graph Contration
-       type: recitation
-       links: - title: Recitation Notes
-                url: "recitations/rec09.pdf"
 
   R: - topic: Minimum Spanning Trees
        type: lecture
