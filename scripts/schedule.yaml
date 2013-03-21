@@ -246,6 +246,8 @@
 
   R: - topic: Minimum Spanning Trees
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture17.pdf"
 
 - # Week 11
   T: - topic: Quicksort and Lower Bounds
