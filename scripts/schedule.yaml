@@ -255,8 +255,10 @@
        links: - title: Lecture Notes
                 url: "lectures/lecture18.pdf"
 
-  W: - topic: Bor&#367;vka's Algorithm
+  W: - topic: More Graph Contraction
        type: recitation
+       links: - title: Recitation Notes
+                url: "recitations/rec10.pdf"
 
   R: - topic: Balanced Trees
        type: lecture
