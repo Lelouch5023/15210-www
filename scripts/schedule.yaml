@@ -252,6 +252,8 @@
 - # Week 11
   T: - topic: Quicksort and Lower Bounds
        type: lecture
+       links: - title: Lecture Notes
+                url: "lectures/lecture18.pdf"
 
   W: - topic: Bor&#367;vka's Algorithm
        type: recitation
