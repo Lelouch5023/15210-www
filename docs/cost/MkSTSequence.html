@@ -1,0 +1,47 @@
+<!--#set var="name" value="MkSTSequence"-->
+<!--#set var="type" value="functor"-->
+<!--#include virtual="../../includes/cost-header.html"-->
+  <h2>Overview</h2>
+  <code>functor MkSTSequence(structure Seq : SEQUENCE) : ST_SEQUENCE</code>
+  <p>Implements <a href="../sig/ST_SEQUENCE.html"><code>ST_SEQUENCE</code></a>
+    with a state <code>ref</code> and history. If the state is
+    <code>CUR a</code>, then the single-threaded sequence is current and
+    $a$ can be accessed immediately. Otherwise, if the state is
+    <code>MOD</code>, the single-threaded sequence needs to be reconstructed
+    from history &mdash; that is, by sequentially applying every update
+    to the original sequence from which the single-threaded sequence was
+    created.
+  </p>
+  <h2><code>ST_SEQUENCE</code> Cost Specifications</h2>
+  <table class="cost">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Work</td>
+        <td>Span</td>
+      </tr>
+    </thead>
+    <tr>
+      <td><code>nth</code> $ST\:i$<br />
+        <code>update</code> $(i,v)\:ST$
+      </td>
+      <td>\[O(1)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>inject</code> $I\:ST$</td>
+      <td>\[O(|I|)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+    <tr>
+      <td><code>fromSeq</code> $S$<br />
+        <!-- the ST is inconsistent with the |S| cost. oh well -->
+        <code>toSeq</code> $ST$
+      </td>
+      <td>\[O(|S|)\]</td>
+      <td>\[O(1)\]</td>
+    </tr>
+  </table>
+  <!--#include virtual="../../includes/page-footer.html"-->
+</body>
+</html>
